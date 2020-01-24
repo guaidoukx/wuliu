@@ -1,0 +1,29 @@
+<!--pages/info/info.wxml-->
+<!-- 服务器升级公告 -->
+<view class='main'>
+  <block wx:for="{{info}}" wx:for-item="item" wx:key='id'>
+    <view class='introduce' bindtap='notice' id="{{item.id}}" wx:if="{{item.notice}}">
+      <view class='introduce_title'>{{item.name}}</view>
+      <view class='open'>+</view>
+    </view>
+    <view class='introduces' bindtap='notice' id="{{item.id}}" wx:else>
+      <view class='introduces_head'>
+        <view class='introduce_titles'>{{item.name}}</view>
+        <view class='close'>-</view>
+      </view>
+      <view class='hr'></view>
+      <view class='introduces_content'>
+        <text>{{item.content}}</text>
+        <view class='list'>管理员发送于 {{item.time}}</view> 
+      </view>
+    </view>
+  </block>
+</view>
+<!-- 热线 -->
+<view class='rexian' style='position:{{display}}'>
+  <view class='tel'>服务热线：4008-888-999</view>
+</view>
+<view class='kefu'>
+  <image class='kufu_pic' src='../image/kefu.png'></image>
+  <view class='kefu_describe'>在线客服</view>
+</view>

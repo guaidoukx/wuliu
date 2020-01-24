@@ -1,0 +1,103 @@
+/* pages/remarks/remarks.wxss */
+page{
+  background: #ededed
+}
+.remarks{
+  width: 94%;
+  height: 680rpx;
+  margin: 16rpx auto 0;
+  background: #ffffff;
+  border-radius: 8rpx;
+  position: relative;
+}
+.name{
+  width: 94%;
+  height: 88rpx;
+  margin:auto;
+  text-align: left;
+  font-size: 32rpx;
+  line-height: 88rpx;
+}
+textarea{
+  width: 84%;
+  height: 500rpx;
+  display: block;
+  margin: auto;
+  border: 2rpx solid #e6e6e6;
+  border-radius: 6rpx;
+  font-size: 22rpx;
+  color: #999999;
+  padding: 22rpx 30rpx;
+}
+.submit{
+  position: absolute;
+  bottom:0;
+  left: 0;
+  width: 100%;
+  height: 98rpx;
+  font-size: 30rpx;
+  line-height: 98rpx;
+  color: #ffffff;
+  background: #3d4663;
+  border-radius: 0;
+}
+.rexian{
+  width: 100%;
+  height: 88rpx;
+  bottom: 98rpx;
+  left: 0
+}
+.tels{
+  width: 100%;
+  height: 88rpx;
+  font-size: 24rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #666666
+}
+.kefu{
+  width: 200rpx;
+  height: 54rpx;
+  background: #aaaaaa;
+  border-top-left-radius: 27rpx;
+  border-bottom-left-radius: 27rpx;
+  position: fixed;
+  bottom:118rpx;
+  right: 0;
+  display: flex;
+  justify-content: space-around
+}
+.kufu_pic{
+  width: 32rpx;
+  height: 34rpx;
+  display: block;
+  margin: 10rpx 0 0 26rpx;
+}
+.kefu_describe{
+  width: 102rpx;
+  height: 54rpx;
+  font-size: 24rpx;
+  line-height: 54rpx;
+  color:#ededed;
+}
+.upload{
+  width: 162rpx;
+  height: 162rpx;
+  border: 2rpx dotted #999999;
+  position: absolute;
+  left:54rpx;
+  bottom: 64rpx;
+  border-radius: 8rpx;
+}
+.img{
+  width: 58rpx;
+  height: 45rpx;
+  display: block;
+  margin: 38rpx auto 24rpx;
+}
+.word{
+  width: 100%;
+  text-align: center;
+  color: #999999;
+  font-size: 22rpx;
+}

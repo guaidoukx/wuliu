@@ -1,0 +1,112 @@
+/* pages/addAddr/addAddr.wxss */
+page{
+  background: #ededed;
+}
+.addr{
+  width: 94%;
+  height: 492rpx;
+  margin: 16rpx auto 0;
+  background: #ffffff;
+  border-radius: 8rpx;
+  overflow: hidden
+}
+#name,#tel{
+  width: 88%;
+  height: 70rpx;
+  margin:auto;
+  border:2rpx solid #e6e6e6;
+  font-size: 24rpx;
+  color: #999999;
+  padding: 0 0 0 24rpx;
+}
+#name{
+  margin-top: 28rpx;
+}
+#tel{
+  margin-top: 16rpx;
+}
+.name,.tel{
+  font-size: 24rpx;
+  color: #999999;
+}
+.picker{
+  font-size: 24rpx;
+  color: #999999;
+  line-height: 70rpx;
+  width: 88%;
+  height: 70rpx;
+  border:2rpx solid #e6e6e6;
+  margin: 16rpx auto 0; 
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 0 24rpx;
+}
+.jiantou{
+  width: 12rpx;
+  height: 22rpx;
+  margin:22rpx 22rpx 0 0;
+}
+textarea{
+  width: 88%;
+  height: 126rpx;
+  font-display: block;
+  border: 2rpx solid #e6e6e6;
+  margin: 16rpx auto 0;
+  font-size: 24rpx;
+  padding: 22rpx 0 0 24rpx;
+}
+.dizhi{
+  color: #999999;
+}
+.confirm{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 98rpx;
+  font-size: 28rpx;
+  line-height: 98rpx;
+  text-align: center;
+  background: #3d4663;
+  color: #ffffff;
+  border-radius: 0;
+}
+.rexian{
+  width: 100%;
+  height: 88rpx;
+  bottom: 98rpx;
+  left: 0
+}
+.tels{
+  width: 100%;
+  height: 88rpx;
+  font-size: 24rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #666666
+}
+.kefu{
+  width: 200rpx;
+  height: 54rpx;
+  background: #aaaaaa;
+  border-top-left-radius: 27rpx;
+  border-bottom-left-radius: 27rpx;
+  position: fixed;
+  bottom:118rpx;
+  right: 0;
+  display: flex;
+  justify-content: space-around
+}
+.kufu_pic{
+  width: 32rpx;
+  height: 34rpx;
+  display: block;
+  margin: 10rpx 0 0 26rpx;
+}
+.kefu_describe{
+  width: 102rpx;
+  height: 54rpx;
+  font-size: 24rpx;
+  line-height: 54rpx;
+  color:#ededed;
+}

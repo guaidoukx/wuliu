@@ -1,0 +1,211 @@
+<!--pages/goods/goods.wxml-->
+<view class="swiper-tab">
+  <view class="tab-item {{currentIndex1?'active':''}} " bindtap="currentIndex1">待取货({{loadNum}})</view>
+  <!-- <view class="tab-item {{currentIndex2?'active':''}}"  bindtap="currentIndex2">在仓({{inNum}})</view> -->
+  <view class="tab-item {{currentIndex3?'active':''}}" bindtap="currentIndex3">配送中({{outNum}})</view>
+  <view class="tab-item {{currentIndex4?'active':''}}" bindtap="currentIndex4">已完成({{finishNum}})</view>
+</view>
+<view class='tab-items'>
+  <view class='kong {{kong2?"kong2":""}}'></view>
+  <!-- 待入仓->待取货 -->
+  <view class='{{currentIndex1?"show":"hidden"}}'>
+    <view class='list' wx:for="{{dispatch_list}}" wx:for-item="item" wx:key='id'>
+      <view class='list_top'>
+        <!-- <view class='numAndTime'> -->
+        <!-- <image class='numPic' src='../image/moren.png'></image>
+            <view  class='numInfo'>
+              <view class='num'>物品编号:{{item.num}}</view>
+              <view class='time'>创建时间:{{item.time}}</view>
+            </view> -->
+        <view class="dispatch">
+          <view class="dispatch-line">
+            <icon class="iconfont icon-dianputianjia"></icon>
+            <view class="dispatch-title dispatch-inline ">对应门店：</view>
+            <view class="text-info dispatch-inline mendian">{{item.market}}</view>
+          </view>
+          <view class="dispatch-line">
+            <icon class="iconfont icon-caidan"></icon>
+            <view class="dispatch-title dispatch-inline">调度单编号：</view>
+            <view class="text-info dispatch-inline">{{item.id}}</view>
+          </view>
+          <view class="dispatch-line">
+            <icon class="iconfont icon-cangku"></icon>
+            <view class="dispatch-title dispatch-inline">对应仓库：</view>
+            <view class="text-info dispatch-inline">{{item.warehouse}}</view>
+          </view>
+
+          <view class="dispatch-line">
+            <icon class="iconfont icon-shijian"></icon>
+            <view class="dispatch-title dispatch-inline">调度单时间：</view>
+            <view class="text-info dispatch-inline">{{item.time}}</view>
+          </view>
+        </view>
+        <!-- </view> -->
+        <view class='state'>待取货</view>
+      </view>
+      <!-- <view class='hr'></view> -->
+      <view class='loadBtn'>
+        <view class='see_btn' bindtap='loadDetails'>查看详情</view>
+        <view class='edit_btn' bindtap='loadEdit'>去取货</view>
+        <view class='edit_btn' bindtap='loadEdit'>完成取货</view>
+      </view>
+    </view>
+    <!-- 热线 -->
+    <view class='rexian' style='position:{{display}}'>
+      <view class='tel'>--- 已经到底啦 ---</view>
+    </view>
+    <!-- <view class='kefu'>
+        <image class='kufu_pic' src='../image/kefu.png'></image>
+        <view class='kefu_describe'>在线客服</view>
+      </view> -->
+  </view>
+  <!-- 在仓 -->
+  <view class='{{currentIndex2?"show":"hidden"}}'>
+    <view class='guanli'>
+      <view class='guanliMain'>
+        <checkbox value='all' bindtap="selectall" class='checkbox_all {{isCheckbox?"on":"none"}}'>全选</checkbox>
+        <view class='guanli_btn' bindtap='guanli'>
+          <image class='guanli_pic' src='../image/guanli.png'></image>
+          <view class='guanli_word'>管理</view>
+        </view>
+      </view>
+    </view>
+    <checkbox-group class='checkbox_list' wx:for="{{inList}}" wx:key="id" wx:for-item="item">
+      <checkbox class='checkbox {{isCheckbox?"on":"none"}}' checked='{{item.checked}}' value='{{item.id}}'></checkbox>
+      <view class='list'>
+        <view class='list_top'>
+          <view class='numAndTime'>
+            <image class='numPic' src='../image/moren.png'></image>
+            <view class='numInfo'>
+              <view class='num'>物品编号:{{item.num}}</view>
+              <view class='time'>创建时间:{{item.time}}</view>
+            </view>
+          </view>
+          <view class='state'>在仓</view>
+        </view>
+        <view class='hr'></view>
+        <view class='inBtn'>
+          <view class='see_btn' bindtap='inDetails'>查看详情</view>
+          <view class='extend_btn' bindtap='delay'>延长租期</view>
+          <view class='goBack_btn' catchtap='inGetBack' id="{{item.id}}">取回物品</view>
+        </view>
+      </view>
+    </checkbox-group>
+    <view class='huishou {{isCheckbox?"on":"none"}}'>
+      <button class='huishouBtn'>一键回收</button>
+    </view>
+    <!-- 热线 -->
+    <view class='rexian' style='position:{{display}}'>
+      <view class='tel'>服务热线：4008-888-999</view>
+    </view>
+    <view class='kefu'>
+      <image class='kufu_pic' src='../image/kefu.png'></image>
+      <view class='kefu_describe'>在线客服</view>
+    </view>
+  </view>
+
+  <!-- 出仓 -> 配送中-->
+  <view class='{{currentIndex3?"show":"hidden"}}'>
+    <view class='list' wx:for="{{onList}}" wx:key='id' wx:for-item="item">
+      <view class='list_top'>
+        <!-- <view class='numAndTime'>
+          <image class='numPic' src='../image/moren.png'></image>
+          <view class='numInfo'>
+            <view class='num'>物品编号:{{item.num}}</view>
+            <view class='time'>创建时间:{{item.time}}</view>
+          </view>
+        </view> -->
+        <view class="dispatch">
+          <view class="dispatch-line">
+            <icon class="iconfont icon-dianputianjia"></icon>
+            <view class="dispatch-title dispatch-inline ">对应门店：</view>
+            <view class="text-info dispatch-inline mendian">{{item.market}}</view>
+          </view>
+          <view class="dispatch-line">
+            <icon class="iconfont icon-caidan"></icon>
+            <view class="dispatch-title dispatch-inline">调度单编号：</view>
+            <view class="text-info dispatch-inline">{{item.id}}</view>
+          </view>
+          <view class="dispatch-line">
+            <icon class="iconfont icon-cangku"></icon>
+            <view class="dispatch-title dispatch-inline">对应仓库：</view>
+            <view class="text-info dispatch-inline">{{item.warehouse}}</view>
+          </view>
+
+          <view class="dispatch-line">
+            <icon class="iconfont icon-shijian"></icon>
+            <view class="dispatch-title dispatch-inline">调度单时间：</view>
+            <view class="text-info dispatch-inline">{{item.time}}</view>
+          </view>
+        </view>
+        <view class='state'>配送中</view>
+      </view>
+      <!-- <view class='hr'></view> -->
+      <view class='loadBtn'>
+        <view class='see_btn' catchtap='outLook'>查看详情</view>
+        <view class='edit_btn'>去配送</view>
+        <view class='edit_btn'>完成配送</view>
+      </view>
+    </view>
+    <!-- 热线 -->
+    <view class='rexian' style='position:{{display}}'>
+      <view class='tel'>--- 已经到底啦 ---</view>
+    </view>
+    <!-- <view class='kefu'>
+        <image class='kufu_pic' src='../image/kefu.png'></image>
+        <view class='kefu_describe'>在线客服</view>
+      </view> -->
+  </view>
+  <!-- 已完成 -->
+  <view class='{{currentIndex4?"show":"hidden"}}'>
+    <view class='list' wx:for="{{finishList}}" wx:key='{{item.id}}' wx:for-item="item">
+      <view class='list_top'>
+        <!-- <view class='numAndTime'>
+          <image class='numPic' src='../image/moren.png'></image>
+          <view class='numInfo'>
+            <view class='num'>物品编号:{{item.num}}</view>
+            <view class='time'>创建时间:{{item.time}}</view>
+          </view>
+        </view> -->
+        <view class="dispatch">
+          <view class="dispatch-line">
+            <icon class="iconfont icon-dianputianjia"></icon>
+            <view class="dispatch-title dispatch-inline ">对应门店：</view>
+            <view class="text-info dispatch-inline mendian">{{item.market}}</view>
+          </view>
+          <view class="dispatch-line">
+            <icon class="iconfont icon-caidan"></icon>
+            <view class="dispatch-title dispatch-inline">调度单编号：</view>
+            <view class="text-info dispatch-inline">{{item.id}}</view>
+          </view>
+          <view class="dispatch-line">
+            <icon class="iconfont icon-cangku"></icon>
+            <view class="dispatch-title dispatch-inline">对应仓库：</view>
+            <view class="text-info dispatch-inline">{{item.warehouse}}</view>
+          </view>
+
+          <view class="dispatch-line">
+            <icon class="iconfont icon-shijian"></icon>
+            <view class="dispatch-title dispatch-inline">调度单时间：</view>
+            <view class="text-info dispatch-inline">{{item.time}}</view>
+          </view>
+        </view>
+        <view class='state'>已完成</view>
+      </view>
+      <!-- <view class='hr'></view> -->
+      <!-- <view class='finishBtn'> -->
+      <view class='finishBtn'>
+        <view class='see_btn' bindtap='finishLook'>查看详情</view>
+        <view class='edit_btn' id="{{item.num}}" bindtap='delOrder'>删除订单</view>
+      </view>
+    </view>
+    <!-- 热线 -->
+    <view class='rexian' style='position:{{display}}'>
+      <view class='tel'>--- 已经到底啦 ---</view>
+    </view>
+    <!-- <view class='kefu'>
+        <image class='kufu_pic' src='../image/kefu.png'></image>
+        <view class='kefu_describe'>在线客服</view>
+      </view> -->
+  </view>
+</view>

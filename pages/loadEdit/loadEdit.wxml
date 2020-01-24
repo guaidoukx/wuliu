@@ -1,0 +1,74 @@
+<!--pages/loadEdit/loadEdit.wxml-->
+<view class='main'>
+  <form>
+    <view class='editInfo'>
+      <view class='editInfo_left'>
+        <image class='numPic' src='../image/moren.png'></image>
+        <view class='bianhao'>
+          <view class='num'>物品编号 {{num}}A1273898213</view>
+          <view class='time'>创建日期: {{time}}2019-03-26</view> 
+        </view>
+      </view>
+      <view class='editInfo_right'>待取货</view>  
+    </view>
+    <!-- 物品信息备注 -->
+    <view class='remarks' wx:if="{{isInfo}}">
+    <view class='remarks_top' bindtap='remarks'>
+      <view class='beizhu'>物品信息备注</view>
+      <image class='jiantou' src="../image/jiantou.png"></image>
+    </view>
+    <view class='remarks_info'>这是我的五本书,请仓库帮我保管好这是我的五本书,请仓库帮我保管好这是我的五本书,请仓库帮我保管好这是我的这是我的五本书,请仓库帮我保管好这是我的</view>
+  </view>
+  <view class='remarks' wx:else style='height:{{remark_height}}rpx'>
+    <view class='list' bindtap='remarks'>
+      <view class='list_name'>物品信息备注</view>
+      <view class='list_items'>
+        选填
+        <image class='jiantou' src='../image/jiantou.png'></image>
+      </view>
+    </view>
+  </view>
+    <!-- 其他信息 -->
+    <view class='else'>
+      <view class='lists'>
+        <view class='list_name'>入仓物流公司</view>
+        <view class='list_items'>
+          <input class='inputInfo' placeholder='圆通速递' placeholder-class='inputStyle'></input>
+          <image class='editPic' src='../image/edit.png'></image>
+        </view>
+      </view>
+      <view class='lists'>
+        <view class='list_name'>入仓物流单号</view>
+        <view class='list_items'>
+          <input class='inputInfo' placeholder='479834693769363946' placeholder-class='inputStyle'></input> 
+          <image class='editPic' src='../image/edit.png'></image>
+        </view>
+      </view>
+      <view class='lists'>
+        <view class='list_name'>寄件人姓名</view>
+        <view class='list_items'>
+          <input class='inputInfo' placeholder='张三' placeholder-class='inputStyle'></input> 
+          <image class='editPic' src='../image/edit.png'></image>
+        </view>
+      </view>
+      <view class='list'>
+        <view class='list_name'>预约租期</view>
+        <view class='list_item'>
+          3个/月
+        </view>
+      </view>
+    </view>
+    <!-- 提交修改 -->
+    <view class='confirm'>
+      <button class='confirmBtn' form-type='submit'>提交修改</button>
+    </view>
+  </form>
+</view>
+<!-- 热线 -->
+<!-- <view class='rexian' style='position:{{display}};height:{{height}};'>
+  <view class='tels'>服务热线：4008-888-999</view>
+</view>
+<view class='kefu'>
+  <image class='kufu_pic' src='../image/kefu.png'></image>
+  <view class='kefu_describe'>在线客服</view>
+</view> -->

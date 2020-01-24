@@ -1,0 +1,23 @@
+<!--pages/chongzhi/chongzhi.wxml-->
+<view class='main'>
+  <form>
+    <view class='panel'>
+      <view class='recharge'>充值金额</view>
+      <view class='rechargeInput'>
+        <label for="sum">¥</label>
+        <input id='sum'></input>
+      </view>
+    </view>
+    <button class='submit' form-type='submit'>去支付</button>
+  </form>
+</view>
+<!-- 热线 -->
+<view class='rexian {{isShow?"none":"show"}}' style='position:{{display}};height:{{height}};'>
+  <view class='tels'>服务热线：4008-888-999</view>
+</view>
+<view class='kefu {{isShow?"none":"show"}}'>
+  <image class='kufu_pic' src='../image/kefu.png'></image>
+  <view class='kefu_describe'>在线客服</view>
+</view>
+
+

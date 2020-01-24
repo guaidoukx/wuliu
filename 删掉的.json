@@ -1,0 +1,14 @@
+[
+  {
+    "pagePath": "pages/index/index",
+    "text": "首页",
+    "iconPath": "pages/image/index.png",
+    "selectedIconPath": "pages/image/indexSelect.png"
+  },
+  {
+    "pagePath": "pages/usage/usage",
+    "text": "使用方法",
+    "iconPath": "pages/image/usage.png",
+    "selectedIconPath": "pages/image/usageSelect.png"
+  }
+]

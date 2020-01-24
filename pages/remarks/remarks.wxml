@@ -1,0 +1,23 @@
+<!--pages/remarks/remarks.wxml-->
+<view class='main'>
+  <form>
+    <view class='remarks'>
+      <view class='name'>备注</view>
+      <textarea placeholder='避免遗忘请备注物品信息'></textarea>
+      <view class='upload'>
+        <image class='img' src='../image/photo.png'></image>
+        <view class='word'>添加照片</view>
+      </view>
+    </view>
+    <button class='submit' form-type='submit'>确认提交</button>
+  </form>
+</view>
+<!-- 热线 -->
+<view class='rexian {{isShow?"none":"show"}}' style='position:{{display}};height:{{height}};'>
+  <view class='tels'>服务热线：4008-888-999</view>
+</view>
+<view class='kefu {{isShow?"none":"show"}}'>
+  <image class='kufu_pic' src='../image/kefu.png'></image>
+  <view class='kefu_describe'>在线客服</view>
+</view>
+

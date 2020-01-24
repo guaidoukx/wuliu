@@ -1,0 +1,114 @@
+/* pages/usage/usage.wxss */
+page{
+  background: #ededed;
+}
+.introduce{
+  width:94%;
+  height: 90rpx;
+  margin: 16rpx auto;
+  border-radius: 8rpx;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+}
+.introduce_title{
+  width: 190rpx;
+  height: 90rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  line-height: 90rpx;
+  margin-left: 30rpx;
+  color: #333333;
+}
+.zhankai{
+  width: 90rpx;
+  height: 90rpx;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color: #999999;
+  font-weight: bold;
+}
+.introduces{
+  width:94%;
+  height: auto;
+  margin: 16rpx auto;
+  border-radius: 8rpx;
+  background: #ffffff;
+  position: relative;
+}
+.introduces_head{
+  width:100%;
+  height: 90rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.introduce_titles{
+  width: 190rpx;
+  height: 90rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  line-height: 90rpx;
+  margin-left: 30rpx;
+  color: #333333;
+  border-bottom: 2px solid #3d4663
+}
+.hr{
+  width:100%;
+  height: 2rpx;
+  background: #e6e6e6;
+  position: absolute;
+  top: 92rpx;
+  left:0;
+}
+.introduces_content{
+  width: 92%;
+  padding: 28rpx 30rpx 30rpx 30rpx;
+  font-size: 24rpx;
+  line-height: 24rpx;
+}
+.list{
+  width: 100%;
+  margin-top: 20rpx;
+
+}
+.rexian{
+  width: 100%;
+  height: 88rpx;
+  /* position: fixed; */
+  bottom:0;
+  left: 0
+}
+.tel{
+  width: 100%;
+  height: 88rpx;
+  font-size: 24rpx;
+  line-height: 88rpx;
+  text-align:center;
+  color: #666666;
+}
+.kefu{
+  position: fixed;
+  bottom:20rpx;
+  right:0;
+  width: 200rpx;
+  height: 54rpx;
+  background: #aaaaaa;
+  border-top-left-radius: 27rpx;
+  border-bottom-left-radius: 27rpx;
+  display: flex;
+  justify-content: space-around
+}
+.kufu_pic{
+  width: 32rpx;
+  height: 34rpx;
+  display: block;
+  margin: 10rpx 0 0 26rpx;
+}
+.kefu_describe{
+  width: 102rpx;
+  height: 54rpx;
+  font-size: 24rpx;
+  line-height: 54rpx;
+  color:#ededed;
+}

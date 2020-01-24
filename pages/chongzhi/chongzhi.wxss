@@ -1,0 +1,89 @@
+/* pages/chongzhi/chongzhi.wxss */
+page{
+  background: #ededed;
+}
+.panel{
+  width: 94%;
+  height:260rpx;
+  margin:16rpx auto;
+  background: #ffffff;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+.recharge{
+  width: 112rpx;
+  height: 26rpx;
+  font-size: 26rpx;
+  line-height: 26rpx;
+  margin: 30rpx 0 0 32rpx;
+  color: #999999;
+}
+.rechargeInput{
+  width: 90%;
+  height: 78rpx;
+  margin:82rpx auto 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #e6e6e6;
+}
+label{
+  font-size: 48rpx;
+  line-height: 78rpx;
+}
+#sum{
+  width: 90%;
+  height: 78rpx;
+  display: block;
+  line-height: 78rpx;
+}
+.submit{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 98rpx;
+  background: #3d4663;
+  font-size: 30rpx;
+  line-height: 98rpx;
+  color: #ffffff;
+  border-radius:0;
+}
+.rexian{
+  width: 100%;
+  height: 88rpx;
+  bottom: 98rpx;
+  left: 0
+}
+.tels{
+  width: 100%;
+  height: 88rpx;
+  font-size: 24rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #666666
+}
+.kefu{
+  width: 200rpx;
+  height: 54rpx;
+  background: #aaaaaa;
+  border-top-left-radius: 27rpx;
+  border-bottom-left-radius: 27rpx;
+  position: fixed;
+  bottom:118rpx;
+  right: 0;
+  display: flex;
+  justify-content: space-around
+}
+.kufu_pic{
+  width: 32rpx;
+  height: 34rpx;
+  display: block;
+  margin: 10rpx 0 0 26rpx;
+}
+.kefu_describe{
+  width: 102rpx;
+  height: 54rpx;
+  font-size: 24rpx;
+  line-height: 54rpx;
+  color:#ededed;
+}

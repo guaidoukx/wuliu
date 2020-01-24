@@ -1,0 +1,63 @@
+<!--pages/getBack/getBack.wxml-->
+<view class='main'>
+  <form>
+    <view class='checkTime'>
+      <view class='addrinfo'>
+        <view class='title'>收件人信息</view>
+        <view class='addrCheck'>
+            <radio value='0'>租约到期自动寄回</radio>
+        </view>
+      </view>
+      <view class='date'>
+        <picker mode="date" fields="day" start="2019-04-01" end="2200-04-01" bindchange="bindDateChange">
+          <view class="pickers">
+            <view class='year'>
+              <view class='datas'>{{dates[0]}}</view>
+              <view class='name'>年</view>
+            </view>
+            <view class='month'>
+              <view class='datas'>{{dates[1]}}</view>
+              <view class='name'>月</view>
+            </view>
+            <view class='day'>
+              <view class='datas'>{{dates[2]}}</view>
+              <view class='name'>日</view>
+            </view>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='addr'>
+      <view class='addrinfo'>
+        <view class='title'>收件人信息</view>
+        <view class='addrCheck'>
+            <radio value='0'>使用默认地址</radio>
+            <view class='line'></view>
+            <image class='addrPic' src="../image/addr.png"></image>
+        </view>
+      </view>
+      <input id='name' placeholder='请输入姓名' placeholder-class='name'></input>
+      <input id='tel' placeholder='请输入联系方式' placeholder-class='tel'></input>
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="picker">
+          <text>{{info}} {{region[0]}} {{region[1]}} {{region[2]}}</text>
+          <image class='jiantou' src='../image/jiantou.png'></image>
+        </view>
+      </picker>
+      <textarea placeholder='请填写详细地址(精确到门牌号)' placeholder-class='dizhi'></textarea>
+    </view>
+    <view class='baojia'>
+      <view class='baojia_word'>快递保价</view>
+      <radio class='baojia_radio' checked></radio>
+    </view>
+    <button class='confirm' form-type='submit'>确认提交</button>
+  </form>
+</view>
+<!-- 热线 -->
+<view class='rexian {{isShow?"none":"show"}}' style='position:{{display}};height:{{height}};'>
+  <view class='tels'>服务热线：4008-888-999</view>
+</view>
+<view class='kefu {{isShow?"none":"show"}}'>
+  <image class='kufu_pic' src='../image/kefu.png'></image>
+  <view class='kefu_describe'>在线客服</view>
+</view>

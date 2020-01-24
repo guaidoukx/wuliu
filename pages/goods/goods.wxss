@@ -1,0 +1,443 @@
+/* pages/goods/goods.wxss */
+@import "../../iconfont.wxss";
+
+page {
+  --fontSize: 24rpx;
+  background: #ededed;
+  height: 100%;
+  /* padding-bottom: 88rpx; *//* position: relative; */
+}
+
+.swiper-tab {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* margin-top: 2rpx; */
+  text-align: center;
+  line-height: 88rpx;
+  height: 88rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  z-index: 999;
+}
+
+.kong {
+  width: 100%;
+  height: 90rpx;
+}
+
+.kong2 {
+  width: 100%;
+  height: 176rpx;
+}
+
+.tab-item {
+  width: 25%;
+  height: 100%;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #999;
+}
+
+.active {
+  color: #3d4663;
+  border-bottom: 2rpx solid #3d4663;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.list {
+  width: 94%;
+  height: 340rpx;
+  margin: 16rpx auto;
+  background: #fff;
+  border-radius: 8rpx;
+}
+
+.list_top {
+  width: 100%;
+  height: 260rpx;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.numAndTime {
+  width: 514rpx;
+  height: 98rpx;
+  margin: 30rpx 0 0 30rpx;
+  display: flex;
+}
+
+.numInfo {
+  width: 380rpx;
+  height: 98rpx;
+  font-size: 32rpx;
+  color: #3d4663;
+}
+
+.numPic {
+  width: 130rpx;
+  height: 90rpx;
+  display: block;
+  margin: 0 14rpx 0 0;
+  float: left;
+}
+
+.num {
+  font-weight: bold;
+  /* float: left */
+}
+
+.time {
+  line-height: 24rpx;
+  font-size: 24rpx;
+  margin-top: 16rpx;
+  color: #999;
+}
+
+.hr {
+  width: 90%;
+  height: 1rpx;
+  background: #e6e6e6;
+  margin: auto;
+}
+
+.state {
+  width: 140rpx;
+  height: 54rpx;
+  background: #3d4663;
+  font-size: 26rpx;
+  line-height: 54rpx;
+  text-align: center;
+  color: #fff;
+  border-top-left-radius: 27rpx;
+  border-bottom-left-radius: 27rpx;
+  margin-top: 34rpx;
+}
+
+.loadBtn {
+  width: 520rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  margin: 0rpx 20rpx 0 0;
+}
+
+.finishBtn {
+  width: 340rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  margin: 0rpx 20rpx 0 0;
+}
+
+.see_btn {
+  width: 160rpx;
+  height: 54rpx;
+  display: block;
+  font-size: 24rpx;
+  line-height: 54rpx;
+  text-align: center;
+  border-radius: 25rpx;
+  border: 1rpx solid #e6e6e6;
+}
+
+.see_btn::after {
+  border: none;
+}
+
+.edit_btn {
+  width: 160rpx;
+  height: 54rpx;
+  display: block;
+  font-size: 24rpx;
+  line-height: 54rpx;
+  text-align: center;
+  border-radius: 25rpx;
+  border: 1rpx solid #e6e6e6;
+}
+
+.edit_btn::after {
+  border: none;
+}
+
+.inBtn {
+  width: 540rpx;
+  height: 54rpx;
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  margin: 30rpx 26rpx 0 0;
+}
+
+.extend_btn {
+  width: 160rpx;
+  height: 50rpx;
+  display: block;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 25rpx;
+  border: 1rpx solid #e6e6e6;
+}
+
+.extend_btn::after {
+  border: none;
+}
+
+.goBack_btn {
+  width: 160rpx;
+  height: 50rpx;
+  display: block;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 25rpx;
+  border: 1rpx solid #e6e6e6;
+}
+
+.goBack_btn::after {
+  border: none;
+}
+
+.outBtn {
+  width: 352rpx;
+  height: 54rpx;
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  margin: 30rpx 26rpx 0 0;
+}
+
+.confirm_btn {
+  width: 160rpx;
+  height: 50rpx;
+  display: block;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 25rpx;
+  border: 1rpx solid #e6e6e6;
+}
+
+.confirm_btn::after {
+  border: none;
+}
+
+.finishBtn1 {
+  width: 352rpx;
+  height: 54rpx;
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  margin: 30rpx 26rpx 0 0;
+}
+
+.del_btn {
+  width: 160rpx;
+  height: 50rpx;
+  display: block;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 25rpx;
+  border: 1rpx solid #e6e6e6;
+}
+
+.del_btn::after {
+  border: none;
+}
+
+.rexian {
+  width: 100%;
+  height: 88rpx;
+  bottom: 0;
+  left: 0;
+}
+
+.tel {
+  width: 100%;
+  height: 88rpx;
+  font-size: 24rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #666;
+}
+
+.kefu {
+  width: 200rpx;
+  height: 54rpx;
+  background: #aaa;
+  border-top-left-radius: 27rpx;
+  border-bottom-left-radius: 27rpx;
+  position: fixed;
+  bottom: 20rpx;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.kufu_pic {
+  width: 32rpx;
+  height: 34rpx;
+  display: block;
+  margin: 10rpx 0 0 26rpx;
+}
+
+.kefu_describe {
+  width: 102rpx;
+  height: 54rpx;
+  font-size: 24rpx;
+  line-height: 54rpx;
+  color: #ededed;
+}
+
+.guanli {
+  position: fixed;
+  top: 88rpx;
+  left: 0;
+  width: 100%;
+  height: 86rpx;
+  background: #fff;
+  z-index: 999;
+}
+
+.guanliMain {
+  width: 94%;
+  height: 86rpx;
+  margin: auto;
+  /* display: flex;
+  justify-content: space-between; */
+  overflow: hidden;
+}
+
+.checkbox_all {
+  font-size: 24rpx;
+  color: #333;
+  line-height: 86rpx;
+  float: left;
+}
+
+.guanli_btn {
+  width: 88rpx;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  line-height: 24rpx;
+  margin-top: 28rpx;
+  float: right;
+}
+
+.guanli_pic {
+  width: 22rpx;
+  height: 24rpx;
+}
+
+.guanli_word {
+  font-size: 24rpx;
+  color: #3d4663;
+}
+
+.checkbox_list {
+  display: flex;
+}
+
+checkbox .wx-checkbox-input {
+  border-radius: 3rpx;
+  height: 26rpx;
+  width: 26rpx;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  background: #3d4663;
+  color: #fff;
+  border: none;
+}
+
+.checkbox {
+  margin: 106rpx 20rpx 0 24rpx;
+}
+
+.on {
+  display: block;
+}
+
+.none {
+  display: none;
+}
+
+.huishou {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 78rpx;
+  background: #fff;
+  border-top: 2rpx solid #dbdbdb;
+  z-index: 9;
+}
+
+.huishouBtn {
+  width: 196rpx;
+  height: 78rpx;
+  font-size: 22rpx;
+  color: #fff;
+  background: #3d4663;
+  border-radius: 0;
+  text-align: center;
+  line-height: 78rpx;
+  float: right;
+}
+
+/* 加的 */
+
+.dispatches-list {
+  width: 100%;
+  height: 100%;
+  /* font-display: block;*/
+  color: #ddd333; 
+}
+
+.dispatch {
+  font-size: var(--fontSize);
+  color: #888;
+  /* background: #c8ecca1e; */
+  display: block;
+  margin-top: 25rpx;
+  margin-left: 30rpx;
+  margin-right:  0rpx;
+  /* border: solid 0.5rpx; */
+  border-radius: 7rpx;
+  /* border-color: #000; */
+  padding-left: 20rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  line-height: 0.9;
+}
+
+.dispatch-inline {
+  display: inline-block;
+  padding-top: -20rpx;
+  /* padding-left: 20rpx; */
+}
+
+.dispatcth-title {
+  /* font: bold; */
+  color: #a80911;
+  /* line-height: 1.3; */
+}
+.mendian{
+  font-size: 30rpx;
+  color: #000;
+}

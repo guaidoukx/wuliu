@@ -1,0 +1,40 @@
+<!--pages/myAddr/myAddr.wxml-->
+<view class='main'>
+  <form>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <block wx:for="{{addrList}}" wx:key="id" wx:for-item="item">
+        <view class='list'>
+          <view class='nameAndTel'>
+            <view class='name'>{{item.name}}</view>
+            <view class='tel'>{{item.tel}}</view>
+          </view>
+          <view class='addr'>{{item.addr}}</view>
+          <view class='list_bottom'>
+            <view class='radio'>
+              <radio value='{{item.index}}'>设为默认地址</radio>
+            </view> 
+            <view class='option'>
+              <view class='revise' bindtap='editAddr'>
+                <image class='revisePic' src='../image/revise.png'></image>
+                <view class='describe'>编辑</view>  
+              </view>
+              <view class='del'>
+                <image class='delPic' src='../image/del.png'></image>
+                <view class='delDescribe'>删除</view>
+              </view>
+            </view> 
+          </view>
+        </view>
+      </block>
+    </radio-group>  
+    <button class='add' bindtap='addAddr' form-type='submit'>+添加地址</button>
+  </form>
+</view>
+<!-- 热线 -->
+<view class='rexian' style='position:{{display}};height:{{height}};'>
+  <view class='tels'>服务热线：4008-888-999</view>
+</view>
+<view class='kefu'>
+  <image class='kufu_pic' src='../image/kefu.png'></image>
+  <view class='kefu_describe'>在线客服</view>
+</view>

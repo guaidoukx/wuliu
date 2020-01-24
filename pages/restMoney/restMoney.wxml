@@ -1,0 +1,51 @@
+<!--pages/restMoney/restMoney.wxml-->
+<view class='main'>
+  <view class='restMoney'>
+    <view class='yue'>
+      <view class='describe'>账户余额(¥)</view>
+      <view class='num'>2354.00</view>
+    </view>
+    <view class='chongzhi' bindtap='chongzhi'>充值</view>
+  </view>
+  <!-- <view class='qiehuan' style="width:100%;height:{{height}};background:red"> -->
+    <!-- 充值和消费记录 -->
+    <view class="swiper-tab">  
+        <view class="tab-item {{currentIndex1?'active':''}} "  bindtap="currentIndex1">充值记录</view>
+        <view class="tab-item {{currentIndex2?'active':''}}"  bindtap="currentIndex2">消费记录</view>
+    </view>
+    <!-- 充值记录 -->  
+    <view class='tab-items'>
+      <view class='{{currentIndex1?"show":"hidden"}}'>   
+        <view class='recharge' wx:for="{{recharge}}" wx:key="id" wx:for-item="item">
+          <view class='record'>
+            <view class='list'>
+              <view class='word'>充值</view>
+              <view class='time'>{{item.time}}</view>
+            </view>
+            <view class='money'>+ ¥ {{item.money}}</view>
+          </view>
+        </view>
+      </view>
+    <!-- 消费记录 -->  
+      <view class='{{currentIndex2?"show":"hidden"}}'>
+        <view class='consume' wx:for="{{consume}}" wx:key="id" wx:for-item="item">
+          <view class='record'>
+            <view class='list'>
+              <view class='word'>物品编号 {{item.index}} 扣除月租金</view>
+              <view class='time'>{{item.time}}</view>
+            </view>
+            <view class='money'>+ ¥ {{item.money}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 热线 -->
+    <view class='rexian'>
+      <view class='tels'>服务热线：4008-888-999</view>
+    </view>
+    <view class='kefu'>
+      <image class='kufu_pic' src='../image/kefu.png'></image>
+      <view class='kefu_describe'>在线客服</view>
+    </view>
+  <!-- </view> -->
+</view>

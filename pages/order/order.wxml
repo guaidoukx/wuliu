@@ -1,0 +1,99 @@
+<!--pages/order/order.wxml-->
+<view class='main'>
+  <form>
+    <!-- 第一步 -->
+    <view class='step'>
+      <view class='step_top'>
+        <view class='flag'>STEP1</view>
+        <view class='stepMain'>
+          <view class='dian'></view> 
+          <view class='describe'>预约租期</view>
+          <view class='sum'>预估总价: <text class='money'>¥300.00</text></view>
+        </view>
+      </view>
+      <view class='size'>
+        <view class='size_money'>您输入的尺寸预估租金为<text class='rent'>￥9.00</text></view>
+        <view class='edit_btn' bindtap='editSize'>修改尺寸</view>
+      </view>
+      <view class='silder'>
+        <text class="section__title">8月</text>
+        <view class="body-view">
+            <slider bindchange="slider3change" value='15' color='#e6e6e6' selected-color='#3d4663' max="31" show-value/>
+        </view>
+      </view>
+    </view>
+    <!-- 第二步 -->
+    <view class='step2'>
+      <view class='step_top' bindtap='checkAddr'>
+        <view class='flag'>STEP2</view>
+        <view class='stepMains'>
+          <view class='dians'></view> 
+          <view class='describe'>仓库地址</view>
+          <view class='tips'>请将物品邮寄至黑洞仓储保存</view>
+        </view>
+      </view>
+      <view class='info'>
+        <view class='info_left'>
+          <view class='addrAndTel'>
+            <image class='pos' src='../image/pos.png'></image>
+            <view class='addr'>浙江省杭州市东旱门南路95号</view>
+          </view>
+          <view class='tel'>仓管员 1385781996</view>
+        </view>
+        <view class='copy'>
+          <image class='file' src='../image/file.png'></image>
+          <view class='copy_click'>复制</view>
+        </view>
+      </view>
+    </view>
+    <!-- 第三步 -->
+    <view class='step3'>
+      <view class='step_top'>
+        <view class='flag'>STEP3</view>
+        <view class='stepMains'>
+          <view class='dians'></view> 
+          <view class='describe'>快递信息</view>
+          <view class='tips'>请填写您寄出的快递信息</view>
+        </view>
+      </view>
+      <view class='list'>
+        <image class='listPic' src='../image/car.png'></image>
+        <!-- <view class='list_name'>快递公司</view> -->
+        <input class='list_name' placeholder='快递公司' placeholder-class='input'></input>
+      </view>
+      <view class='list'>
+        <image class='listPic' src='../image/danhao.png'></image>
+        <input class='list_name' placeholder='快递单号' placeholder-class='input'></input>
+      </view>
+      <view class='list'>
+        <image class='listPic' src='../image/people.png'></image>
+        <input class='list_name' placeholder='寄件人姓名' placeholder-class='input'></input>
+      </view>
+      <view class='lists'>
+        <image class='listPic' src='../image/camera.png'></image>
+        <input class='list_name' placeholder='物品信息备注/照片(选填)' placeholder-class='input'></input>
+      </view>
+    </view>
+    <!-- 同意协议 -->
+    <view class='agree'>
+      <radio value='1'>同意</radio>
+      <view class='protocol'>《黑洞仓储用户协议》</view>
+    </view>
+    <!-- 温馨提示 -->
+    <view class='tip'>
+      <view class='title'>温馨提示:</view>
+      <view class='content'>01 / 尺寸按仓管实测为准，用户填写大概尺寸即可。</view>
+      <view class='content'>02 / 仓库签收后会测量并上传包裹长宽高的照片，确定月租金。</view>
+      <view class='content'>03 / 为保障运输安全，请将物品打包牢靠。</view>
+    </view>
+    <button class='submit'>提交订单</button>
+  </form>
+</view>
+<!-- 热线 -->
+<view class='rexian' style='position:{{display}};height:{{height}};'>
+  <view class='tels'>服务热线：4008-888-999</view>
+</view>
+<view class='kefu'>
+  <image class='kufu_pic' src='../image/kefu.png'></image>
+  <view class='kefu_describe'>在线客服</view>
+</view>

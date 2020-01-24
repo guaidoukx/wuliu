@@ -1,0 +1,26 @@
+<!--pages/editAddr/editAddr.wxml-->
+<view class='main'>
+  <form>
+    <view class='addr'>
+      <input id='name' placeholder='请输入姓名' placeholder-class='name' value='小猪佩奇'></input>
+      <input id='tel' placeholder='请输入联系方式' placeholder-class='tel'  value='1363636363'></input>
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="picker">
+          <text>{{region[0]}} {{region[1]}} {{region[2]}}</text>
+          <image class='jiantou' src='../image/jiantou.png'></image>
+        </view>
+      </picker>
+      <textarea placeholder='请填写详细地址(精确到门牌号)' placeholder-class='dizhi' value='浙大网新智慧立方D栋202室'></textarea>
+    </view>
+    <button class='confirm' form-type='submit'>确认并保存</button>
+  </form>
+</view>
+<!-- 热线 -->
+<view class='rexian {{isShow?"none":"show"}}' style='position:{{display}};height:{{height}};'>
+  <view class='tels'>服务热线：4008-888-999</view>
+</view>
+<view class='kefu {{isShow?"none":"show"}}'>
+  <image class='kufu_pic' src='../image/kefu.png'></image>
+  <view class='kefu_describe'>在线客服</view>
+</view>
+

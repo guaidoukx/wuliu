@@ -1,0 +1,115 @@
+<!--pages/inGetBack/inGetBack.wxml-->
+<view class='main'>
+  <view class='getBackInfo'>
+    <view class='getBackInfo_left'>
+      <image class='numPic' src='../image/moren.png'></image>
+      <view class='bianhao'>
+        <view class='num'>物品编号 {{num}}A1273898213</view>
+        <view class='time'>创建日期: {{time}}2019-03-26</view>  
+      </view> 
+    </view>
+    <view class='getBackInfo_right'>在仓</view>
+  </view>
+  <!-- 物品信息备注 -->
+  <view class='remarks' wx:if="{{isInfo}}">
+    <view class='remarks_top' bindtap='remarks'>
+      <view class='beizhu'>物品信息备注</view>
+      <image class='jiantou' src="../image/jiantou.png"></image>
+    </view>
+    <view class='remarks_info'>这是我的五本书,请仓库帮我保管好这是我的五本书,请仓库帮我保管好这是我的五本书,请仓库帮我保管好这是我的这是我的五本书,请仓库帮我保管好这是我的</view>
+    <view class='zhankai {{displays?"zhankai":"none"}}' bindtap='zhankai'>展开<image class='xiangshang' src='../image/xiangxia.png'></image></view>
+  </view>
+  <view class='remarks' wx:else style='height:{{remark_height}}rpx'>
+    <view class='list' bindtap='remarks'>
+      <view class='list_name'>物品信息备注</view>
+      <view class='list_items'>
+        选填
+        <image class='jiantou' src='../image/jiantou.png'></image>
+      </view>
+    </view>
+    <view class="zhankai {{displays?'zhankai':'none'}}" bindtap='zhankai'>展开
+      <image class='xiangshang' src='../image/xiangxia.png'></image>
+    </view>
+  </view>
+  <!-- 寄件人 -->
+  <view class='jijian {{displays?"none":"show"}}'>
+    <view class='lists'>
+      <view class='list_name'>入仓物流公司</view>
+      <view class='list_item'>圆通速递</view>
+    </view>
+    <view class='lists' bindtap='websrc'>
+      <view class='list_name'>入仓物流单号</view>
+      <view class='list_item'>479834693769363946</view>
+    </view>
+    <view class='lists'>
+      <view class='list_name'>寄件人姓名</view>
+      <view class='list_item'>张三</view>
+    </view>
+    <view class='lists'>
+      <view class='list_name'>预约租期</view>
+      <view class='list_item'>3个/月</view>
+    </view>
+    <view class='list'>
+      <view class='list_name'>延长租期</view>
+      <view class='list_item'>2个/月</view>
+    </view>
+  </view>
+  <!-- 其他信息 -->
+  <view class='else {{displays?"none":"show"}}'>
+    <view class='lists'>
+      <view class='list_name'>仓库签收日期</view>
+      <view class='list_item'>2019-03-26</view>
+    </view>
+    <view class='lists'>
+      <view class='list_name'>物品尺寸</view>
+      <view class='list_item'>长20CM,宽10CM,高15CM</view>
+    </view>
+    <view class='lists_exp'>
+      <view class='list_name'>照片</view>
+      <image class='list_pic' src='../image/pic.png'></image>
+    </view>
+    <view class='lists'>
+      <view class='list_name'>月租金</view>
+      <view class='list_item'>¥15.00</view>
+    </view>
+    <view class='list'>
+      <view class='list_name'>在仓时长</view>
+      <view class='list_item'>1个月</view>
+    </view>
+    <view class='asBtn' bindtap='shouqi'>
+      收起
+      <image class='xiangxia' src='../image/xiangxia.png'></image>
+    </view>
+  </view>
+    <!-- 延长租期 取回物品-->
+  <view class='extend'>
+    <view class='extendBtn'>取回物品</view>
+    <view class='extendBtn' bindtap='extend'>延长租期</view>
+  </view>
+  <!-- 阴影 -->
+  <view class='shade {{isShow?"show":"none"}}'> 
+    <view class='shadeCon'>
+      <view class='shadeCon_top'>
+        <view class='describe'>延长租期</view>
+        <view class='sum'>延期总价: <text class='money'>¥300.00</text></view>
+      </view>
+      <view class='shadeSilder'>
+        <text class="section__title">8月</text>
+        <view class="body-view">
+            <slider bindchange="slider3change" value='15' color='#e6e6e6' selected-color='#3d4663' max="31" show-value/>
+        </view>
+      </view>
+      <view class='confirmBtn'>确认提交</view>
+      <image wx:if="displays" class='quxiao' src='../image/quxiao2.png' bindtap='quxiao'></image>
+      <image wx:else class='quxiao' src='../image/quxiao.png' bindtap='quxiao'></image>
+    </view>
+  </view>
+</view>
+<!-- 热线 -->
+<view class='rexian {{isShow?"none":"show"}}' style='position:{{display}};height:{{height}};'>
+  <view class='tels'>服务热线：4008-888-999</view>
+</view>
+<view class='kefu {{isShow?"none":"show"}}'>
+  <image class='kufu_pic' src='../image/kefu.png'></image>
+  <view class='kefu_describe'>在线客服</view>
+</view>

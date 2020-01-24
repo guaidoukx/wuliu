@@ -1,0 +1,43 @@
+<!--pages/realName/realName.wxml-->
+<view class='main'>
+  <form>
+    <view class='form'>
+      <view class='inputBox'>
+        <label for='name'>姓名</label>
+        <input id="name" type='text' placeholder='请输入您的真实姓名' placeholder-class='name'></input>
+      </view>
+      <view class='inputBox'>
+        <label for='tel'>手机号码</label>
+        <input id="tel" type='number' placeholder='请输入您的手机号码' placeholder-class='tel'></input>
+      </view>
+      <view class='inputBoxCode'>
+        <label for='code'>验证码</label>
+        <input id="code" type='number' placeholder='请输入您收到的验证码' placeholder-class='code'></input>
+        <button class='codeBtn'>获取验证码</button>
+      </view>
+      <view class='unload'>
+        <view class='idCard'>身份证正面照</view>
+        <view class='upload_pic'>
+          <image class='pic' src="../image/pic.png"></image>
+          <view class='describe'>上传身份证正面照</view>
+        </view>
+      </view>
+      <view class='unload'>
+        <view class='idCard'>身份证国徽面</view>
+        <view class='upload_pic'>
+          <image class='pic' src="../image/pic.png"></image>
+          <view class='describe'>上传身份证国徽面</view>
+        </view>
+      </view>
+    </view>
+    <button class='submit' form-type='submit'>确认提交</button>
+  </form>
+</view>
+<!-- 热线 -->
+<view class='rexian' style='position:{{display}};height:{{height}};'>
+  <view class='tels'>服务热线：4008-888-999</view>
+</view>
+<view class='kefu'>
+  <image class='kufu_pic' src='../image/kefu.png'></image>
+  <view class='kefu_describe'>在线客服</view>
+</view>

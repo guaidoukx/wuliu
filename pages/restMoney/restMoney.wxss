@@ -1,0 +1,164 @@
+/* pages/restMoney/restMoney.wxss */
+page{
+  background: #ededed
+}
+.restMoney{
+  width: 100%;
+  height: 260rpx;
+  background: #293047;
+  margin: 16rpx 0;
+  display: flex;
+  justify-content: space-between
+}
+.yue{
+  width: 320rpx;
+  height: 98rpx;
+  margin: 80rpx 0 0 56rpx;
+}
+.describe{
+  font-size: 26rpx;
+  color: #ffffff;
+  line-height: 26rpx;
+}
+.num{
+  font-size: 46rpx;
+  line-height: 46rpx;
+  font-weight: bold;
+  color:#ffffff;
+  margin-top: 26rpx;
+}
+.chongzhi{
+  width: 162rpx;
+  height: 52rpx;
+  background: #303850;
+  border-radius: 26rpx;
+  border: 2rpx solid #ffffff;
+  font-size: 26rpx;
+  line-height: 52rpx;
+  text-align: center;
+  color: #ffffff;
+  margin:102rpx 54rpx 0 0;
+}
+.swiper-tab{
+  width: 100%;  
+  border-bottom:2rpx solid #ededed;
+  text-align: center;  
+  line-height: 88rpx;
+  height: 88rpx;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between
+} 
+.show{
+  display: block
+}
+.hidden{
+  display: none
+}
+.tab-item{  
+    display: block;  
+    font-size: 24rpx;
+    /* font-weight: bold; */
+    width: 50%;  
+    color: #999999;  
+}  
+.active{ 
+    color: #3d4663;  
+    font-weight: bold;
+    border-bottom: 3rpx solid #3d4663;
+}  
+/* .swiper-box{ 
+  height: 536rpx; 
+  width: 100%; 
+  padding: 2rpx 2rpx;
+  overflow: hidden;
+}   */
+.recharge{
+  width: 100%;
+  height: auto;
+  background: #ffffff;
+}
+.record{
+  width: 100%;
+  height: 132rpx;
+  background: #ffffff;
+  border-bottom:2rpx solid #ededed;
+  display: flex;
+  justify-content: space-between;
+}
+.list{
+  width: 80%;
+  height: 70rpx;
+  margin:28rpx 0 0 22rpx
+}
+.word{
+  font-size: 32rpx;
+  font-weight: bold;
+  color:#333333;
+  line-height: 32rpx;
+}
+.time{
+  font-size: 20rpx;
+  color: #999999;
+  line-height: 20rpx;
+  margin-top: 22rpx;
+}
+.money{
+  width: 160rpx;
+  height: 20rpx;
+  line-height: 20rpx;
+  color: #9f9f9f;
+  font-size: 20rpx;
+  margin-top: 56rpx;
+  text-align: right;
+  margin-right: 24rpx;
+}
+.consume{
+  width: 100%;
+  height: auto;
+  background: #ffffff;
+}
+.rexian{
+  width: 100%;
+  height: 88rpx;
+  bottom: 0rpx;
+  left: 0
+}
+.tels{
+  width: 100%;
+  height: 88rpx;
+  font-size: 24rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #666666
+}
+.kefu{
+  width: 200rpx;
+  height: 54rpx;
+  background: #aaaaaa;
+  border-top-left-radius: 27rpx;
+  border-bottom-left-radius: 27rpx;
+  position: fixed;
+  bottom:20rpx;
+  right: 0;
+  display: flex;
+  justify-content: space-around
+}
+.kufu_pic{
+  width: 32rpx;
+  height: 34rpx;
+  display: block;
+  margin: 10rpx 0 0 26rpx;
+}
+.kefu_describe{
+  width: 102rpx;
+  height: 54rpx;
+  font-size: 24rpx;
+  line-height: 54rpx;
+  color:#ededed;
+}
+/* .qiehuan{
+  width: 100%;
+  height: 300rpx;
+  background: red
+} */

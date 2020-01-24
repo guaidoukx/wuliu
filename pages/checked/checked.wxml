@@ -1,0 +1,15 @@
+<!--pages/checked/checked.wxml-->
+<view class='main'>
+  <image src='../image/ok.png'></image>
+  <view class='line1'>仓管签收后会复核包裹尺寸，确定月租金。</view>
+  <view class='line2'>您本次交付的金额会转至账户余额，每月租金从账户余额扣除。</view>
+  <button class='look'>查看订单</button>
+</view>
+<!-- 热线 -->
+<view class='rexian {{isShow?"none":"show"}}' style='position:{{display}};height:{{height}};'>
+  <view class='tels'>服务热线：4008-888-999</view>
+</view>
+<view class='kefu {{isShow?"none":"show"}}'>
+  <image class='kufu_pic' src='../image/kefu.png'></image>
+  <view class='kefu_describe'>在线客服</view>
+</view>

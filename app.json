@@ -1,0 +1,65 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/getBack/getBack",
+    "pages/editGetBack/editGetBack",
+    "pages/inDetails/inDetails",
+    "pages/delay/delay",
+    "pages/inGetBack/inGetBack",
+    "pages/details/details",
+    "pages/remarks/remarks",
+    "pages/usage/usage",
+    "pages/order/order",
+    "pages/loadEdit/loadEdit",
+    "pages/finishDetails/finishDetails",
+    "pages/outDetails/outDetails",
+    "pages/info/info",
+    "pages/restMoney/restMoney",
+    "pages/chongzhi/chongzhi",
+    "pages/mobileLog/mobileLog",
+    "pages/editAddr/editAddr",
+    "pages/checked/checked",
+    "pages/addAddr/addAddr",
+    "pages/myAddr/myAddr",
+    "pages/realName/realName",
+    "pages/view/view",
+    "pages/mine/mine",
+    "pages/goods/goods",
+    "pages/logs/log",
+    "pages/map/map"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "黑洞仓库",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#3e4663",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/map/map",
+        "text": "路线",
+        "iconPath": "pages/image/index.png",
+        "selectedIconPath": "pages/image/indexSelect.png"
+      },
+      {
+        "pagePath": "pages/goods/goods",
+        "text": "配送列表",
+        "iconPath": "pages/image/goods.png",
+        "selectedIconPath": "pages/image/goodSelect.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "个人中心",
+        "iconPath": "pages/image/mine.png",
+        "selectedIconPath": "pages/image/mineSelect.png"
+      }
+    ]
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

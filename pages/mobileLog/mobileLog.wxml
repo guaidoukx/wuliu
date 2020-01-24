@@ -1,0 +1,30 @@
+<!--pages/mobileLog/mobileLog.wxml-->
+<view class='title'>手机号登录</view>
+<view class='form'>
+  <view class='listInput'>
+    <label for='tel'>+86</label>
+    <input id='tel' type='number' placeholder='请输入手机号' placeholder-class='tel'></input>
+  </view>
+  <view class='listInput2'>
+    <input id='code' placeholder='请输入验证码' placeholder-class='code'></input>
+    <view class='click_code'>发送验证码</view>
+  </view>
+  <view class='listInput3'>
+  <radio-group  name="country" class="radio-group" bindchange="radioChange">
+      <block wx:if="{{iitem.index == 0}}">
+        <radio value='0'></radio>
+        <image  src='../image/weixuan.png' bindtap="radioClick"></image>
+        <view class='isAgree'>同意</view>
+      </block>
+      <block wx:else>
+        <radio value='1' checked></radio>
+        <image src='../image/xuanzhong.png' bindtap="radioClick"></image>
+        <view class='isAgree'>同意</view>
+      </block>
+      <view class='book'>《黑洞仓储用户协议》</view>  
+  </radio-group>
+  </view>
+</view>
+<button class='submit' bindtap='log'>登录</button>
+
+
