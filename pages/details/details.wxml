@@ -1,17 +1,18 @@
 <!--pages/details/details.wxml-->
+<navigationBar text="调度单详情" back="true"></navigationBar>
 <view class='main'>
   <view class='finishInfo'>
     <view class='finishInfo_left'>
       <view class='bianhao'>
-        <image class='numPic' src='../image/package.png'></image>
-        <view class='num'>物品编号 {{num}}A1273898213</view>
+        <image class='numPic' src='/image/package.png'></image>
+        <view class='num'>调度单编号 {{dispatch_id}}</view>
       </view>
-      <view class='time'>创建日期: {{time}}2019-03-26</view>  
+      <view class='time'>日期: {{time}}</view>
     </view>
     <view class='finishInfo_right'>待取货</view>
   </view>
   <!-- 物品信息备注 -->
-  <view class='remarks' wx:if="{{isInfo}}">
+  <!-- <view class='remarks' wx:if="{{isInfo}}">
     <view class='remarks_top' bindtap='remarks'>
       <view class='beizhu'>物品信息备注</view>
       <image class='jiantou' src="../image/jiantou.png"></image>
@@ -26,28 +27,28 @@
         <image class='jiantou' src='../image/jiantou.png'></image>
       </view>
     </view>
-  </view>
-  <!-- 寄件人 -->
+  </view> -->
+  <!-- 寄件 -->
   <view class='jijian {{displays?"none":"show"}}'>
     <view class='lists'>
-      <view class='list_name'>入仓物流公司</view>
-      <view class='list_item'>圆通速递</view>
+      <view class='list_name'>门店</view>
+      <view class='list_item'>{{market}}</view>
     </view>
     <view class='lists'>
-      <view class='list_name'>入仓物流单号</view>
-      <view class='list_item'>479834693769363946</view>
+      <view class='list_name'>门店地址</view>
+      <view class='list_item'>{{address}}</view>
     </view>
     <view class='lists'>
-      <view class='list_name'>寄件人姓名</view>
-      <view class='list_item'>张三</view>
+      <view class='list_name'>仓库地址</view>
+      <view class='list_item'>{{warehouse}}</view>
     </view>
-    <view class='lists'>
-      <view class='list_name'>预约租期</view>
+    <!-- <view class='lists'>
+      <view class='list_name'>门店负责人</view>
       <view class='list_item'>3个/月</view>
-    </view>
+    </view> -->
     <view class='list'>
-      <view class='list_name'>延长租期</view>
-      <view class='list_item'>2个/月</view>
+      <view class='list_name'>门店电话</view>
+      <view class='list_item'>{{tel}}</view>
     </view>
   </view>
 </view>

@@ -1,0 +1,16 @@
+<!--pages/trains/trains.wxml-->
+<navigationBar text="物流班列"></navigationBar>
+
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+  <block>
+    <swiper-item>
+      <image widthFix class='banner' src="/image/image1.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image widthFix class='banner' src="/image/image2.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image widthFix class='banner' src="/image/image3.jpg"></image>
+    </swiper-item>
+  </block>
+</swiper>

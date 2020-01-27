@@ -1,7 +1,9 @@
 <!--pages/goods/goods.wxml-->
-<view class="swiper-tab">
+<navigationBar text="配送列表"></navigationBar>
+<!-- <mp-navigation-bar loading="{{loading}}" show="true" animated="{{animated}}" color="{{color}}" background="{{background}}" title="UI组件库" back="{{true}}"></mp-navigation-bar> -->
+
+<view class="swiper-tab" style="top:{{app.globalData.navigationBarHeight}}">
   <view class="tab-item {{currentIndex1?'active':''}} " bindtap="currentIndex1">待取货({{loadNum}})</view>
-  <!-- <view class="tab-item {{currentIndex2?'active':''}}"  bindtap="currentIndex2">在仓({{inNum}})</view> -->
   <view class="tab-item {{currentIndex3?'active':''}}" bindtap="currentIndex3">配送中({{outNum}})</view>
   <view class="tab-item {{currentIndex4?'active':''}}" bindtap="currentIndex4">已完成({{finishNum}})</view>
 </view>
@@ -9,7 +11,7 @@
   <view class='kong {{kong2?"kong2":""}}'></view>
   <!-- 待入仓->待取货 -->
   <view class='{{currentIndex1?"show":"hidden"}}'>
-    <view class='list' wx:for="{{dispatch_list}}" wx:for-item="item" wx:key='id'>
+    <view class='list' wx:for="{{loadList}}" wx:for-item="item" wx:key='id'>
       <view class='list_top'>
         <!-- <view class='numAndTime'> -->
         <!-- <image class='numPic' src='../image/moren.png'></image>
@@ -41,13 +43,13 @@
           </view>
         </view>
         <!-- </view> -->
-        <view class='state'>待取货</view>
+        <view class='state state-load'>待取货</view>
       </view>
       <!-- <view class='hr'></view> -->
       <view class='loadBtn'>
-        <view class='see_btn' bindtap='loadDetails'>查看详情</view>
-        <view class='edit_btn' bindtap='loadEdit'>去取货</view>
-        <view class='edit_btn' bindtap='loadEdit'>完成取货</view>
+        <view class='see_btn' bindtap='loadDetails' data-index="{{index}}">查看详情</view>
+        <view class='edit_btn' bindtap='toMapLoad' data-index="{{index}}">去取货</view>
+        <view class='edit_btn' bindtap=''>完成取货</view>
       </view>
     </view>
     <!-- 热线 -->
@@ -60,7 +62,7 @@
       </view> -->
   </view>
   <!-- 在仓 -->
-  <view class='{{currentIndex2?"show":"hidden"}}'>
+  <!-- <view class='{{currentIndex2?"show":"hidden"}}'>
     <view class='guanli'>
       <view class='guanliMain'>
         <checkbox value='all' bindtap="selectall" class='checkbox_all {{isCheckbox?"on":"none"}}'>全选</checkbox>
@@ -95,14 +97,14 @@
       <button class='huishouBtn'>一键回收</button>
     </view>
     <!-- 热线 -->
-    <view class='rexian' style='position:{{display}}'>
+  <!-- <view class='rexian' style='position:{{display}}'>
       <view class='tel'>服务热线：4008-888-999</view>
     </view>
     <view class='kefu'>
       <image class='kufu_pic' src='../image/kefu.png'></image>
       <view class='kefu_describe'>在线客服</view>
     </view>
-  </view>
+  </view>  -->
 
   <!-- 出仓 -> 配送中-->
   <view class='{{currentIndex3?"show":"hidden"}}'>
@@ -138,12 +140,12 @@
             <view class="text-info dispatch-inline">{{item.time}}</view>
           </view>
         </view>
-        <view class='state'>配送中</view>
+        <view class='state state-on'>配送中</view>
       </view>
       <!-- <view class='hr'></view> -->
       <view class='loadBtn'>
-        <view class='see_btn' catchtap='outLook'>查看详情</view>
-        <view class='edit_btn'>去配送</view>
+        <view class='see_btn' catchtap='onDetails' data-index="{{index}}">查看详情</view>
+        <view class='edit_btn' bindtap='toMapOn' data-index="{{index}}">去配送</view>
         <view class='edit_btn'>完成配送</view>
       </view>
     </view>
@@ -158,7 +160,7 @@
   </view>
   <!-- 已完成 -->
   <view class='{{currentIndex4?"show":"hidden"}}'>
-    <view class='list' wx:for="{{finishList}}" wx:key='{{item.id}}' wx:for-item="item">
+    <view class='list' wx:for="{{finishList}}" wx:key='id' wx:for-item="item">
       <view class='list_top'>
         <!-- <view class='numAndTime'>
           <image class='numPic' src='../image/moren.png'></image>
@@ -190,12 +192,12 @@
             <view class="text-info dispatch-inline">{{item.time}}</view>
           </view>
         </view>
-        <view class='state'>已完成</view>
+        <view class='state state-finish'>已完成</view>
       </view>
       <!-- <view class='hr'></view> -->
       <!-- <view class='finishBtn'> -->
       <view class='finishBtn'>
-        <view class='see_btn' bindtap='finishLook'>查看详情</view>
+        <view class='see_btn' bindtap='finishDetails' data-index="{{index}}">查看详情</view>
         <view class='edit_btn' id="{{item.num}}" bindtap='delOrder'>删除订单</view>
       </view>
     </view>

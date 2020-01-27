@@ -2,5 +2,9 @@
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#ffffff",
   "navigationBarTitleText": "我的物品",
-  "navigationBarTextStyle": "black"
+  "navigationBarTextStyle": "black",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "navigationBar": "/components/navigationBar/navigationBar"
+  }
 }

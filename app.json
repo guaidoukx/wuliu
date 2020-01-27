@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/trains/trains",
     "pages/getBack/getBack",
     "pages/editGetBack/editGetBack",
     "pages/inDetails/inDetails",
@@ -31,8 +32,9 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTitleText": "黑洞仓库",
-    "navigationBarTextStyle": "black"
+    "navigationBarTitleText": "仓库",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
   },
   "tabBar": {
     "color": "#666666",
@@ -41,24 +43,30 @@
     "borderStyle": "black",
     "list": [
       {
-        "pagePath": "pages/map/map",
-        "text": "路线",
-        "iconPath": "pages/image/index.png",
-        "selectedIconPath": "pages/image/indexSelect.png"
+        "pagePath": "pages/trains/trains",
+        "text": "物流班列",
+        "iconPath": "/image/index.png",
+        "selectedIconPath": "/image/indexSelect.png"
       },
       {
         "pagePath": "pages/goods/goods",
         "text": "配送列表",
-        "iconPath": "pages/image/goods.png",
-        "selectedIconPath": "pages/image/goodSelect.png"
+        "iconPath": "/image/goods.png",
+        "selectedIconPath": "/image/goodSelect.png"
       },
       {
         "pagePath": "pages/mine/mine",
         "text": "个人中心",
-        "iconPath": "pages/image/mine.png",
-        "selectedIconPath": "pages/image/mineSelect.png"
+        "iconPath": "/image/mine.png",
+        "selectedIconPath": "/image/mineSelect.png"
       }
     ]
+  },
+  "plugins": {
+    "myPlugin": {
+      "version": "1.0.5",
+      "provider": "wx50b5593e81dd937a"
+    }
   },
   "debug": true,
   "sitemapLocation": "sitemap.json"

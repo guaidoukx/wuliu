@@ -1,7 +1,8 @@
 <!--pages/mine/mine.wxml-->
+<navigationBar text="个人中心"></navigationBar>
 <!-- 头部 -->
 <view class='mine_info'>
-  <image class='mine_banner' src='../image/earth.png'></image>
+  <image class='mine_banner' src='/image/earth.png'></image>
   <view class='mine_info_head'>
     <!-- <view class='mine_head_left' bindtap='info'>
       <image class='mine_head_leftPic' src='../image/info.png'></image>
@@ -25,34 +26,34 @@
 <view class='list_content'>
   <view class='list' bindtap='restMoney'>
     <view class='list_left'>
-      <image class='listIcon' src='../image/restMoney.png'></image>
+      <image class='listIcon' src='/image/restMoney.png'></image>
       <view class='listName'>我的余额</view>
     </view>
-    <image src='../image/jiantou.png' class='jiantou'></image>
+    <image src='/image/jiantou.png' class='jiantou'></image>
   </view>
   <view class='list' bindtap='realName'>
     <view class='list_left'>
-      <image class='listIcon' src='../image/realName.png'></image>
+      <image class='listIcon' src='/image/realName.png'></image>
       <view class='listName'>实名认证</view>
     </view>
     <view class='list_right'>
       <view class='check'>选填</view>
-      <image src='../image/jiantou.png' class='jiantou'></image>
+      <image src='/image/jiantou.png' class='jiantou'></image>
     </view>  
   </view>
   <view class='list' bindtap='view'>
     <view class='list_left'>
-      <image class='listIcon' src='../image/view.png'></image>
+      <image class='listIcon' src='/image/view.png'></image>
       <view class='listName'>意见反馈</view>
     </view>
-    <image src='../image/jiantou.png' class='jiantou'></image>
+    <image src='/image/jiantou.png' class='jiantou'></image>
   </view>
   <view class='list'>
     <view class='list_left'>
-      <image class='listIcon' src='../image/share.png'></image>
+      <image class='listIcon' src='/image/share.png'></image>
       <view class='listName'>好友分享</view>
     </view>
-    <image src='../image/jiantou.png' class='jiantou'></image>
+    <image src='/image/jiantou.png' class='jiantou'></image>
   </view>
   <button class='signOut' bindtap='signOut'>退出登录</button>
 </view>

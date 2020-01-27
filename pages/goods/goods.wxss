@@ -10,7 +10,7 @@ page {
 
 .swiper-tab {
   position: fixed;
-  top: 0;
+  /* top: 64px; */
   left: 0;
   width: 100%;
   /* margin-top: 2rpx; */
@@ -21,6 +21,7 @@ page {
   display: flex;
   justify-content: space-between;
   z-index: 999;
+  border-block-end: solid 1rpx #e6e6e6;
 }
 
 .kong {
@@ -43,7 +44,7 @@ page {
 
 .active {
   color: #3d4663;
-  border-bottom: 2rpx solid #3d4663;
+  border-bottom: 4rpx solid #3d4663;
 }
 
 .show {
@@ -114,7 +115,7 @@ page {
 .state {
   width: 140rpx;
   height: 54rpx;
-  background: #3d4663;
+  /* background: #3d4663; */
   font-size: 26rpx;
   line-height: 54rpx;
   text-align: center;
@@ -122,6 +123,15 @@ page {
   border-top-left-radius: 27rpx;
   border-bottom-left-radius: 27rpx;
   margin-top: 34rpx;
+}
+.state-load{
+  background: red;
+}
+.state-on{
+  background: orange;
+}
+.state-finish{
+  background: green;
 }
 
 .loadBtn {
