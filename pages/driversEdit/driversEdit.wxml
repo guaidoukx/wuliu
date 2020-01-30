@@ -3,21 +3,17 @@
   <form bindsubmit="formSubmit"> 
     <view class='form'>
       <view class='inputBox'>
-        <label for='name'>姓名</label>
-        <input id="name" name="name" type='text' placeholder='请输入您的真实姓名' placeholder-class='name'></input>
-      </view>
-      <view class='inputBox'>
         <label for='id'>工号</label>
-        <input id="id" name="id" type='text' placeholder='请输入您的工号' placeholder-class='id'></input>
+        <input id="id" disabled="true" name="id" type='text' placeholder='{{id}}' placeholder-class='id'></input>
       </view>
+      
       <view class='inputBox'>
         <label for='tel'>手机号码</label>
         <input id="tel" name="tel" type='number' placeholder='请输入您的手机号码' placeholder-class='tel'></input>
       </view>
-      <view class='inputBoxCode'>
-        <label for='code'>验证码</label>
-        <input id="code" name="code" type='number' placeholder='请输入您收到的验证码' placeholder-class='code'></input>
-        <button class='codeBtn'>获取验证码</button>
+      <view class='inputBox'>
+        <label for='type'>驾照类型</label>
+        <input id="type" name="type" type='text' placeholder='请输入您的驾照类型' placeholder-class='type'></input>
       </view>
     </view>
     <button class='submit' form-type='submit'>确认提交</button>

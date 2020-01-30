@@ -49,7 +49,7 @@
       <view class='loadBtn'>
         <view class='see_btn' bindtap='loadDetails' data-index="{{index}}">查看详情</view>
         <view class='edit_btn' bindtap='toMapLoad' data-index="{{index}}">去取货</view>
-        <view class='edit_btn' bindtap=''>完成取货</view>
+        <view class='edit_btn' id="{{item.id}}" bindtap='orderLoad'>完成取货</view>
       </view>
     </view>
     <!-- 热线 -->
@@ -146,7 +146,7 @@
       <view class='loadBtn'>
         <view class='see_btn' catchtap='onDetails' data-index="{{index}}">查看详情</view>
         <view class='edit_btn' bindtap='toMapOn' data-index="{{index}}">去配送</view>
-        <view class='edit_btn'>完成配送</view>
+        <view class='edit_btn' id="{{item.id}}" bindtap='orderFinish'>完成配送</view>
       </view>
     </view>
     <!-- 热线 -->
@@ -198,7 +198,7 @@
       <!-- <view class='finishBtn'> -->
       <view class='finishBtn'>
         <view class='see_btn' bindtap='finishDetails' data-index="{{index}}">查看详情</view>
-        <view class='edit_btn' id="{{item.num}}" bindtap='delOrder'>删除订单</view>
+        <view class='edit_btn' id="{{item.id}}" bindtap='orderDelete'>删除订单</view>
       </view>
     </view>
     <!-- 热线 -->

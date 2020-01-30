@@ -1,8 +1,7 @@
 <!--pages/mine/mine.wxml-->
-<navigationBar text="个人中心"></navigationBar>
 <!-- 头部 -->
 <view class='mine_info'>
-  <image class='mine_banner' src='/image/earth.png'></image>
+  <image class='mine_banner' src='../image/earth.png'></image>
   <view class='mine_info_head'>
     <!-- <view class='mine_head_left' bindtap='info'>
       <image class='mine_head_leftPic' src='../image/info.png'></image>
@@ -13,6 +12,12 @@
       <view class='headBorder'><open-data type="userAvatarUrl" class="Head"></open-data> </view>
       <view class='dian'></view>
       <view class='nameBox'><open-data type="userNickName" lang="zh_CN" class="name"></open-data> </view>
+      <view class='nameBox'>
+        <view class='inputBox'>
+        <label for='id'>工号</label>
+        <input id="id" name="id" disabled='true' type='number' placeholder='{{id}}' placeholder-class='id'></input>
+      </view>
+      </view>
       <!-- <view class='lv'>LV1地球</view> -->
     </view>
     <!-- <view class='jiange'></view> -->
@@ -24,37 +29,39 @@
 </view>
 <!-- 内容 -->
 <view class='list_content'>
-  <view class='list' bindtap='restMoney'>
-    <view class='list_left'>
-      <image class='listIcon' src='/image/restMoney.png'></image>
-      <view class='listName'>我的余额</view>
-    </view>
-    <image src='/image/jiantou.png' class='jiantou'></image>
-  </view>
   <view class='list' bindtap='realName'>
     <view class='list_left'>
-      <image class='listIcon' src='/image/realName.png'></image>
+      <image class='listIcon' src='../image/realName.png'></image>
       <view class='listName'>实名认证</view>
     </view>
     <view class='list_right'>
-      <view class='check'>选填</view>
-      <image src='/image/jiantou.png' class='jiantou'></image>
+      <view class='check'>必填</view>
+      <image src='../image/jiantou.png' class='jiantou'></image>
     </view>  
   </view>
+  <view class='list' bindtap='driversEdit'>
+    <view class='list_left'>
+      <image class='listIcon' src='../image/edit.png'></image>
+      <view class='listName'>编辑信息</view>
+    </view>
+    <image src='../image/jiantou.png' class='jiantou'></image>
+  </view>
+  <!--
   <view class='list' bindtap='view'>
     <view class='list_left'>
-      <image class='listIcon' src='/image/view.png'></image>
+      <image class='listIcon' src='../image/view.png'></image>
       <view class='listName'>意见反馈</view>
     </view>
-    <image src='/image/jiantou.png' class='jiantou'></image>
+    <image src='../image/jiantou.png' class='jiantou'></image>
   </view>
   <view class='list'>
     <view class='list_left'>
-      <image class='listIcon' src='/image/share.png'></image>
+      <image class='listIcon' src='../image/share.png'></image>
       <view class='listName'>好友分享</view>
     </view>
-    <image src='/image/jiantou.png' class='jiantou'></image>
+    <image src='../image/jiantou.png' class='jiantou'></image>
   </view>
+  -->
   <button class='signOut' bindtap='signOut'>退出登录</button>
 </view>
 <!-- 热线 -->

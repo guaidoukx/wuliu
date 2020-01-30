@@ -1,7 +1,7 @@
 // pages/mine/mine.js
 Page({
   data: {
-
+    id: ''
   },
   //个人中心的消息,点击跳转到我的消息
   info(){
@@ -14,6 +14,19 @@ Page({
     wx.navigateTo({
       url: '../realName/realName',
     })
+  },
+  driversEdit() {
+    if (this.data.id != '') {
+      wx.navigateTo({
+        url: '../driversEdit/driversEdit?id=' + this.data.id,
+      })
+    } else {
+      wx.showToast({
+        title: '请先前往实名认证！',
+        icon: 'none',
+        duration: 2000
+      })
+    }
   },
   //个人中心的我的余额,点击跳转到我的余额
   restMoney() {

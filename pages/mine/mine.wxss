@@ -46,7 +46,7 @@ page{
   color:#333333;
 }
 .mine_head_center{
-  width: 34%;
+  
   height: 100%;
   position: relative;
 }
@@ -162,4 +162,30 @@ page{
   border-radius: 39rpx;
   background: #3e4663;
   margin-top: 240rpx;
+}
+.inputBox{
+  width: 100%;
+  height: 90rpx;
+  border-bottom:2rpx solid #ededed;
+  display: flex;
+  justify-content: space-between;
+  padding:0 0 0 24rpx;
+}
+label{
+  font-size: 24rpx;
+  font-weight: bold;
+  line-height: 90rpx;
+}
+#id{
+  width: 65%;
+  height: 90rpx;
+  margin-right: 48rpx;
+  text-align: right;
+  font-size: 24rpx;
+  color: #999999;
+}
+.id{
+  font-size: 24rpx;
+  line-height: 90rpx;
+  color: #999999;
 }

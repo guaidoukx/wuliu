@@ -1,4 +1,5 @@
 // pages/goods/goods.js
+import api from "../../utils/api.js";
 var app = getApp();
 Page({
   /**
@@ -11,10 +12,16 @@ Page({
     currentIndex3: false, //出仓
     currentIndex4: false, //已完成
 
+    /*
     loadNum: 3, //待入仓个数
     // inNum: 3, //在仓个数
     outNum: 2, //出仓个数
     finishNum: 4, //已完成个数
+    */
+    loadNum: 0,   // 待取货的配送单数量
+    outNum: 0,    // 配送中的配送单数量
+    finishNum: 0, // 已完成的配送单数量
+    hiddenNum: 0, // 删除/隐藏的配送单数量
     //checkbox是否显示
     isCheckbox: false,
     //是否全选
@@ -39,6 +46,11 @@ Page({
     //   { id: 4, num: "A19060127", time: "2019-03-02" },
     // ],
     //已完成数据
+    dispatch_list: [], // 待取货
+    onList: [],        // 配送中
+    finishList: [],    // 已完成
+    hiddenList: [],    // 删除/隐藏
+    /*
     loadList: [{
         "dispatch_id": "A19060121",
         "warehouse": "沪华东路基地",
@@ -123,6 +135,7 @@ Page({
         "lat": 29.121239
       }
     ],
+    */
     //配送数据
 
     //在仓的导航栏样式
@@ -170,6 +183,66 @@ Page({
       currentIndex2: false,
       currentIndex3: false,
       currentIndex4: true
+    })
+  },
+  onLoad: function () {
+    let that = this;
+    let load_list = [], delivery_list = [], finish_list = [];
+    wx.request({
+      url: api.ordersView,
+      success: function (res) {
+        console.log('All orders：', res);
+        if (res.success == 0) {
+          res = res.data;
+          for (let order of res) {
+            switch (order.state) {
+              case 0:
+                load_list.push(order);
+                break;
+              case 1:
+                delivery_list.push(order);
+                // console.log(1, order);
+                break;
+              case 2:
+                finish_list.push(order);
+                // console.log(2, order);
+                break;
+              case 3:
+                // 删除/隐藏状态
+                // console.log(3, order);
+                break;
+              default:
+                console.log("There is something wrong with the state of the orders.");
+            }
+          }
+          that.setData({
+            dispatch_list: load_list,
+            onList: delivery_list,
+            finishList: finish_list,
+
+            loadNum: load_list.length,
+            outNum: delivery_list.length,
+            finishNum: finish_list.length,
+          })
+        } else {
+          console.log(res.message);
+          wx.showToast({
+            title: '请重试！',
+            icon: 'none',
+            duration: 2000
+          })
+          wx.hideToast()
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '无法连接到服务器！',
+          icon: 'none',
+          duration: 2000
+        })
+        wx.hideToast()
+        console.log("server: no service.")
+      }
     })
   },
   //点击在仓下的取回物品
@@ -328,6 +401,7 @@ Page({
       select_all: (!that.data.select_all)
     })
   },
+  /*
   //删除订单
   delOrder(e) {
     var finishList = this.data.finishList
@@ -338,12 +412,162 @@ Page({
       finishList: finishList
     })
   },
+  */
   //页面卸载
   onHide: function() {
     this.setData({
       isCheckbox: false,
       select_all: false,
       kong2: false
+    })
+  },
+  // btn: 完成取货
+  orderLoad: function (e) {
+    let that = this;
+    wx.request({
+      url: api.ordersLoad,
+      data: {
+        id: e.target.id,
+      },
+      success: function (res) {
+        wx.showModal({
+          title: '提示',
+          content: '请确认已完成取货。',
+          success: function (data) {
+            if (data.confirm) {
+              if (res.success == 0) {
+                let loadList = that.data.dispatch_list
+                let tmpLoad = loadList.filter((v, i) => {
+                  return v.id != e.target.id
+                });
+                let onList = that.data.onList;
+                let tmpOn = loadList.filter((v, i) => {
+                  return v.id == e.target.id
+                });
+                tmpOn[0].state = 1;
+                onList.push(tmpOn[0]);
+                // console.log(tmp)
+                that.setData({
+                  dispatch_list: tmpLoad,
+                  onList: onList,
+                  loadNum: tmpLoad.length,
+                  outNum: onList.length
+                })
+              }
+            } else if (res.cancel) {
+            }
+          }
+        })
+      },
+      fail: function () {
+        wx.showToast({
+          title: '无法连接到服务器！',
+          icon: 'fail',
+          duration: 2000
+        })
+        wx.hideToast()
+        console.log("server: no service.")
+      }
+    })
+  },
+  // btn：完成配送
+  orderFinish: function (e) {
+    let that = this;
+    wx.request({
+      url: api.ordersFinish,
+      data: {
+        id: e.target.id,
+      },
+      success: function (res) {
+        wx.showModal({
+          title: '提示',
+          content: '请确认已取货。',
+          success: function (data) {
+            if (data.confirm) {
+              if (res.success == 0) {
+                let onList = that.data.onList
+                let tmpOnList = onList.filter((v, i) => {
+                  return v.id != e.target.id
+                });
+                let finishList = that.data.finishList;
+                let tmp = onList.filter((v, i) => {
+                  return v.id == e.target.id
+                });
+                tmp[0].state = 2;
+                finishList.push(tmp[0]);
+                // console.log(tmp)
+                that.setData({
+                  onList: tmpOnList,
+                  finishList: finishList,
+                  outNum: tmpOnList.length,
+                  finishNum: finishList.length
+                })
+                // console.log('order finished.');
+              }
+            } else if (res.cancel) {
+            }
+          }
+        })
+      },
+      fail: function () {
+        wx.showToast({
+          title: '无法连接到服务器！',
+          icon: 'fail',
+          duration: 2000
+        })
+        wx.hideToast()
+        console.log("server: no service.")
+      }
+    })
+  },
+  // btn: 删除/隐藏订单
+  orderDelete: function (e) {
+    let that = this;
+    wx.showModal({
+      title: '提示',
+      content: '确认删除配送单？',
+      success: function (data) {
+        if (data.confirm) {
+          wx.request({
+            url: api.ordersHidden,
+            data: {
+              id: e.target.id,
+            },
+            success: function (res) {
+              if (res.success == 0) {
+                let finishList = that.data.finishList;
+                let tmpfinish = finishList.filter((v, i) => {
+                  return v.id != e.target.id
+                });
+                let hiddenList = that.data.hiddenList
+                let tmpHidden = finishList.filter((v, i) => {
+                  return v.id == e.target.id
+                });
+                tmpHidden[0].state = 3;
+                hiddenList.push(tmpHidden[0]);
+                that.setData({
+                  finishList: tmpfinish,
+                  hiddenList: hiddenList,
+                  finishNum: tmpfinish.length,
+                  hiddenNum: hiddenList.length
+                })
+              }
+            },
+            fail: function () {
+              wx.showToast({
+                title: '无法连接到服务器！',
+                icon: 'fail',
+                duration: 2000
+              })
+              wx.hideToast()
+              console.log("server: no service.")
+            }
+          })
+          // console.log('confirm.')
+        } else if (res.cancel) {
+          // console.log('cancel.')
+        }
+      }
     })
   },
 })

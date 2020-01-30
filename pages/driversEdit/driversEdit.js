@@ -8,7 +8,8 @@ Page({
   data: {
     // 服务热线的样式
     display: "fixed",
-    height: "188rpx"
+    height: "188rpx",
+    id: '' //驾驶员工号
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
@@ -16,24 +17,15 @@ Page({
     wx.request({
       url: api.driversCertify,
       data: {
-        id: value.id,
-        name: value.name
+        id: this.data.id,
+        name: value.name,
+        type: value.type
       },
       success: function (res) {
         console.log(res)
-        if (res.success == 0 && value.id != '') {
-          var pages = getCurrentPages();
-          // console.log('pages-------',pages);
-          var currPage = pages[pages.length - 1];   //当前页面
-          // console.log('currPage-------', currPage)
-          var prevPage = pages[pages.length - 2];  //上一个页面
-          // console.log('prevPage-------', prevPage)
-          var id = value.id;
-          prevPage.setData({
-            id: id
-          })
+        if (res.success == 0) {
           wx.showToast({
-            title: '认证成功！',
+            title: '修改成功！',
             icon: 'success',
             duration: 2000
           })
@@ -41,19 +33,13 @@ Page({
             wx.navigateBack()
           }, 2000)
         } else {
-          if (value.id == '') 
-            wx.showToast({
-              title: '请填写工号！',
-              icon: 'none',
-              duration: 2000
-            })
-          else 
-          //console.log(res.message);
-            wx.showToast({
-              title: '请重试！',
-              icon: 'none',
-              duration: 2000
-            })
+          console.log(res.message);
+          wx.showToast({
+            title: '请重试！',
+            icon: 'fail',
+            duration: 2000
+          })
+          wx.hideToast()
         }
       },
       fail: function () {
@@ -72,6 +58,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      id: options.id
+    })
+    console.log('id--------', options.id)
+  },
+  /*
+  onLoad: function (options) {
     var that = this;
     var screenHeight, heights
     wx.getSystemInfo({
@@ -80,6 +73,7 @@ Page({
         // console.log(res.screenHeight)
       }
     });
+    
     //创建节点选择器
     var query = wx.createSelectorQuery();
     query.select('.main').boundingClientRect()
@@ -101,6 +95,7 @@ Page({
       }
     })
   },
+  */
 
   /**
    * 生命周期函数--监听页面初次渲染完成
