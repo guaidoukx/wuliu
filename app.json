@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/trains/trains",
+    "pages/log/log",
     "pages/getBack/getBack",
     "pages/editGetBack/editGetBack",
     "pages/inDetails/inDetails",
@@ -27,7 +28,10 @@
     "pages/mine/mine",
     "pages/goods/goods",
     "pages/logs/log",
-    "pages/map/map"
+    "pages/map/map",
+    "pages/name/name",
+    "pages/phoneNum/phoneNum",
+    "pages/carNum/carNum"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -61,6 +65,11 @@
         "selectedIconPath": "/image/mineSelect.png"
       }
     ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取用户位置信息，以获取路线"
+    }
   },
   "plugins": {
     "myPlugin": {

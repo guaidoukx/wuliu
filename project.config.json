@@ -12,7 +12,7 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.5",
+	"libVersion": "2.10.1",
 	"appid": "wxbd01dc5b31432f51",
 	"projectname": "%E7%89%A9%E6%B5%81",
 	"debugOptions": {
@@ -105,6 +105,76 @@
 					"id": -1,
 					"name": "pages/trains/trains",
 					"pathName": "pages/trains/trains",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/logs/log",
+					"pathName": "pages/logs/log",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/log/log",
+					"pathName": "pages/log/log",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/logs/log",
+					"pathName": "pages/logs/log",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/trains/trains",
+					"pathName": "pages/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/remarks/remarks",
+					"pathName": "pages/remarks/remarks",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/view/view",
+					"pathName": "pages/view/view",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mobileLog/mobileLog",
+					"pathName": "pages/mobileLog/mobileLog",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mobileLog/mobileLog",
+					"pathName": "pages/mobileLog/mobileLog",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/realName/realName",
+					"pathName": "pages/realName/realName",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/name/name",
+					"pathName": "pages/name/name",
 					"scene": null
 				}
 			]

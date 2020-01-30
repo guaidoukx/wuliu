@@ -1,0 +1,15 @@
+<!--pages/name/name.wxml-->
+<navigationBar text="姓名" back="true"></navigationBar>
+<view class='list_content'>
+  <view class='list' bindtap='restMoney'>
+    <view class='list_left'>
+      <icon class="iconfont icon-xingming"></icon>
+      <view class='listName'>姓　名</view>
+    </view>
+    <view class='list_right'>
+      <view class='check'>{{}}姓名</view>
+    </view>
+  </view>
+
+  <!-- <button class='signOut' bindtap='signOut'>退出登录</button> -->
+</view>

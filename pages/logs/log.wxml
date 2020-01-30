@@ -2,7 +2,7 @@
 <view class='main'>
   <view class='box'>
     <view class='log'>
-      <image class='wechat' src='../image/wechat.png'></image>
+      <image class='wechat' src='/image/wechat.png'></image>
       <button class='logBtn' bindtap='toggleDialog'  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信一键登录</button>
     </view> 
     <view class='or'>
@@ -12,19 +12,19 @@
     </view> 
     <view class="more" bindtap='mobileLog'>其他手机号登录</view>
   </view>
-  <!-- <view class='elastic {{isShow?"show":"hidden"}}'>
+  <view class='elastic {{isShow?"show":"hidden"}}'>
     <view class='elaflm'>
       <view class='head'>
-        <image class='logo' widthFix src='../image/logo.png' style="width: 46rpx; height: 46rpx;"></image>
+        <image class='logo' widthFix src='/image/logo.png' style="width: 46rpx; height: 46rpx;"></image>
         <view class='hte1'>黑洞仓库</view>
         <view class='hte2'>申请使用</view>
-        <image class='tips' widthFix src='../image/tips.png' style="width: 33rpx; height: 33rpx;"></image>
+        <image class='tips' widthFix src='/image/tips.png' style="width: 33rpx; height: 33rpx;"></image>
       </view>
       <view class='phonetext'>你的手机号码</view>
       <view class='phone'>
         <view class='phonenum'>{{phone}}</view>
         <view class='text'>微信绑定号码</view>
-        <image class='dui' src='../image/dui.png' style="width: 33rpx; height: 29rpx;"></image>
+        <image class='dui' src='/image/dui.png' style="width: 33rpx; height: 29rpx;"></image>
       </view>
       <view class='other'>使用其他手机号码</view>
       <view class='btn'>
@@ -32,7 +32,7 @@
         <button class='yunxu'>允许</button>
       </view>
     </view>
-  </view> -->
+  </view>
 </view>
  
 

@@ -1,0 +1,15 @@
+<!--pages/phoneNum/phoneNum.wxml-->
+<navigationBar text="手机号" back="true"></navigationBar>
+<view class='list_content'>
+  <view class='list' bindtap='restMoney'>
+    <view class='list_left'>
+      <icon class="iconfont icon-dianhua"></icon>
+      <view class='listName'>手机号</view>
+    </view>
+    <view class='list_right'>
+      <view class='check'>{{}}13888889999</view>
+    </view>
+  </view>
+
+  <!-- <button class='signOut' bindtap='signOut'>退出登录</button> -->
+</view>

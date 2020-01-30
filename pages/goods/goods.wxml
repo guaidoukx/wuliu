@@ -28,7 +28,7 @@
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>
             <view class="dispatch-title dispatch-inline">调度单编号：</view>
-            <view class="text-info dispatch-inline">{{item.id}}</view>
+            <view class="text-info dispatch-inline">{{item.dispatch_id}}</view>
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-cangku"></icon>
@@ -126,7 +126,7 @@
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>
             <view class="dispatch-title dispatch-inline">调度单编号：</view>
-            <view class="text-info dispatch-inline">{{item.id}}</view>
+            <view class="text-info dispatch-inline">{{item.dispatch_id}}</view>
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-cangku"></icon>
@@ -178,7 +178,7 @@
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>
             <view class="dispatch-title dispatch-inline">调度单编号：</view>
-            <view class="text-info dispatch-inline">{{item.id}}</view>
+            <view class="text-info dispatch-inline">{{item.dispatch_id}}</view>
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-cangku"></icon>

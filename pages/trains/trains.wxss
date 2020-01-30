@@ -14,6 +14,10 @@ page{
   display: block;
   margin-top: 16rpx;
 }
+.kong{
+  width: 100%;
+  height: 50rpx;
+}
 /* .package{
   width: 100%;
   height: 480rpx;
@@ -64,10 +68,7 @@ page{
 .right{
   font-size: 24rpx;
 }
-.kong{
-  width: 100%;
-  height: 22rpx;
-}
+
 .unex_property{
   width: 194rpx;
   height: 76rpx;

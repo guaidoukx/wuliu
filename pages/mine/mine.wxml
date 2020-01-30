@@ -1,62 +1,102 @@
 <!--pages/mine/mine.wxml-->
 <navigationBar text="个人中心"></navigationBar>
 <!-- 头部 -->
-<view class='mine_info'>
-  <image class='mine_banner' src='/image/earth.png'></image>
-  <view class='mine_info_head'>
-    <!-- <view class='mine_head_left' bindtap='info'>
-      <image class='mine_head_leftPic' src='../image/info.png'></image>
+
+<view wx:if="{{hasUserInfo}}">
+  <view class='mine_info'>
+    <image class='mine_banner' src='/image/earth.png'></image>
+    <view class='mine_info_head'>
+      <!--  <view class='mine_head_left' bindtap='info'>
+      <image class='mine_head_leftPic' src='/image/info.png'></image>
       <view class='mine_head_leftDes'>消息</view>
-    </view> -->
-    <!-- <view class='jiange'></view> -->
-    <view class='mine_head_center'>
-      <view class='headBorder'><open-data type="userAvatarUrl" class="Head"></open-data> </view>
-      <view class='dian'></view>
-      <view class='nameBox'><open-data type="userNickName" lang="zh_CN" class="name"></open-data> </view>
-      <!-- <view class='lv'>LV1地球</view> -->
     </view>
-    <!-- <view class='jiange'></view> -->
-    <!-- <view class='mine_head_right' bindtap='addr'>
-      <image src='../image/addr.png' class='mine_head_rightPic'></image>
+    <view class='jiange'></view> -->
+      <view class='mine_head_center'>
+        <view class='headBorder'>
+          <open-data type="userAvatarUrl" class="Head"></open-data>
+        </view>
+        <view class='dian'></view>
+        <view class='nameBox'>
+          <open-data type="userNickName" lang="zh_CN" class="name"></open-data>
+        </view>
+      </view>
+      <!-- <view class='jiange'></view>
+    <view class='mine_head_right' bindtap='addr'>
+      <image src='/image/addr.png' class='mine_head_rightPic'></image>
       <view class='mine_head_rightDes'>地址</view>
     </view> -->
-  </view>
-</view>
-<!-- 内容 -->
-<view class='list_content'>
-  <view class='list' bindtap='restMoney'>
-    <view class='list_left'>
-      <image class='listIcon' src='/image/restMoney.png'></image>
-      <view class='listName'>我的余额</view>
     </view>
-    <image src='/image/jiantou.png' class='jiantou'></image>
   </view>
-  <view class='list' bindtap='realName'>
-    <view class='list_left'>
-      <image class='listIcon' src='/image/realName.png'></image>
-      <view class='listName'>实名认证</view>
-    </view>
-    <view class='list_right'>
-      <view class='check'>选填</view>
+  <!-- 内容 -->
+  <view class='list_content'>
+    <view class='list' bindtap='nameLook'>
+      <view class='list_left'>
+        <icon class="iconfont icon-xingming"></icon>
+        <!-- <image class='listIcon' src='/image/realName.png'></image> -->
+        <view class='listName'>姓　名</view>
+      </view>
+      <!-- <view class='list_right'> -->
+      <!-- <view class='check'>选填</view> -->
       <image src='/image/jiantou.png' class='jiantou'></image>
-    </view>  
-  </view>
-  <view class='list' bindtap='view'>
-    <view class='list_left'>
-      <image class='listIcon' src='/image/view.png'></image>
-      <view class='listName'>意见反馈</view>
+      <!-- </view> -->
     </view>
-    <image src='/image/jiantou.png' class='jiantou'></image>
-  </view>
-  <view class='list'>
+    <view class='list' bindtap='phoneNumLook'>
+      <view class='list_left'>
+        <icon class="iconfont icon-dianhua"></icon>
+        <!-- <image class='listIcon' src='/image/restMoney.png'></image> -->
+        <view class='listName'>手机号</view>
+      </view>
+      <image src='/image/jiantou.png' class='jiantou'></image>
+    </view>
+    <view class='list' bindtap='carNumLook'>
+      <view class='list_left'>
+        <icon class="iconfont icon-xinxi"></icon>
+        <!-- <image class='listIcon' src='/image/view.png'></image> -->
+        <view class='listName'>车牌号</view>
+      </view>
+      <image src='/image/jiantou.png' class='jiantou'></image>
+    </view>
+
+    <!-- <view class='list'>
     <view class='list_left'>
       <image class='listIcon' src='/image/share.png'></image>
       <view class='listName'>好友分享</view>
     </view>
     <image src='/image/jiantou.png' class='jiantou'></image>
+  </view> -->
+    <button class='signOut' bindtap='signOut'>退出登录</button>
   </view>
-  <button class='signOut' bindtap='signOut'>退出登录</button>
 </view>
-<!-- 热线 -->
-<!-- <import src="../template/template.wxml"/> -->
-<template is="rexian"/>
+
+<view class='mine_info' wx:else>
+  <image class='mine_banner' open-type="getUserInfo" src='/image/earth.png'></image>
+  <view class='mine_info_head'>
+    <!--  <view class='mine_head_left' bindtap='info'>
+      <image class='mine_head_leftPic' src='/image/info.png'></image>
+      <view class='mine_head_leftDes'>消息</view>
+    </view>
+    <view class='jiange'></view> -->
+    <!-- <view class='mine_head_center'> -->
+    <view class='headBorder'>
+      <image src="/image/image1.jpg" class="Head"></image>
+      <!-- <open-data type="userAvatarUrl" class="Head"></open-data> -->
+      <!-- </view> -->
+      <view class='dian'></view>
+      <!-- <view class='nameBox'> -->
+
+      <!-- <open-data type="userNickName" lang="zh_CN" class="name"></open-data> -->
+      <!-- </view> -->
+    </view>
+    <button open-type="getUserInfo" class="click" bindtap="logIn">点击登录</button>
+    <!-- <view class='jiange'></view>
+    <view class='mine_head_right' bindtap='addr'>
+      <image src='/image/addr.png' class='mine_head_rightPic'></image>
+      <view class='mine_head_rightDes'>地址</view>
+    </view> -->
+  </view>
+  <!-- <view class='jiange'></view>
+    <view class='mine_head_right' bindtap='addr'>
+      <image src='/image/addr.png' class='mine_head_rightPic'></image>
+      <view class='mine_head_rightDes'>地址</view>
+    </view> -->
+</view>

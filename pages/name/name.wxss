@@ -1,0 +1,83 @@
+/* pages/name/name.wxss */
+@import "../../iconfont.wxss";
+
+page {
+  height: 900rpx;
+}
+
+.list_content {
+  vertical-align: middle;
+  align-content: center;
+  width: 90%;
+  height: 300rpx;
+  background: #fff;
+  margin: 300rpx auto;
+  border-radius: 8rpx;
+}
+
+.list {
+  width: 92%;
+  margin: auto;
+  height: 96rpx;
+  border-bottom: 2rpx solid #e6e6e6;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list_left {
+  width: 160rpx;
+  height: 34rpx;
+  display: flex;
+  justify-content: space-between;
+  margin: 36rpx 0 0 10rpx;
+}
+
+.listIcon {
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.listName {
+  line-height: 34rpx;
+  font-size: 30rpx;
+  color: #404040;
+}
+
+.jiantou {
+  width: 16rpx;
+  height: 28rpx;
+  margin-top: 30rpx;
+}
+
+.list_right {
+  width: 50%;
+  height: 34rpx;
+  display: flex;
+  vertical-align: middle;
+  /* line-height: 1; */
+  justify-content: space-between;
+}
+
+.check {
+  font-size: 30rpx;
+  /* line-height: 28rpx; */
+  color: #999;
+  margin-top: 30rpx;
+}
+
+.signOut {
+  width: 84%;
+  height: 78rpx;
+  margin: auto;
+  font-size: 30rpx;
+  color: #fff;
+  border-radius: 39rpx;
+  background: #3e4663;
+  margin-top: 50rpx;
+}
+
+.iconfont {
+  color: #3e4663;
+  /* font-size: 20rpx; */
+  display: inline-flex;
+}

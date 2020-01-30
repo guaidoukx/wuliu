@@ -451,3 +451,13 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   font-size: 30rpx;
   color: #000;
 }
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: var(--fontSize);
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-right: 20rpx;
+  color: rgb(207, 107, 49);
+}
