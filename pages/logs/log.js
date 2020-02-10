@@ -18,7 +18,7 @@ Page({
   //是否弹出阴影
   toggleDialog(){
    wx.switchTab({
-     url: '../index/index',
+     url: '../trains/trains',
    })
   },
   //拒绝

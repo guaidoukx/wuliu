@@ -1,22 +1,26 @@
 /* pages/mobileLog/mobileLog.wxss */
-.title{
+
+.title {
   width: 198rpx;
   height: 38rpx;
-  margin:122rpx auto;
+  margin: 122rpx auto;
 }
-.form{
-  width: 88%;
-  margin:auto;
+
+.form {
+  width: 80%;
+  margin: auto;
   height: 280rpx;
 }
-.listInput{
+
+.listInput {
   display: flex;
   justify-content: space-between;
   width: 100%;
   height: 90rpx;
   border-bottom: 3rpx solid #bdbdbd;
 }
-.listInput2{
+
+.listInput2 {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -24,78 +28,95 @@
   border-bottom: 3rpx solid #bdbdbd;
   margin-top: 16rpx;
 }
-.listInput3{
+
+.listInput3 {
   width: 100%;
   height: 80rpx;
-  position:relative;
+  position: relative;
 }
-label{
+
+label {
+  width: 13%;
   font-size: 24rpx;
   line-height: 90rpx;
-  color: #222222;
+  color: #222;
 }
-#tel{
+
+.tel {
+  font-size: 26rpx;
+  line-height: 90rpx;
+  color: #818181;
+}
+
+#tel {
   width: 90%;
   height: 90rpx;
   text-align: left;
+  margin-left: 20rpx;
 }
-.tel{
+
+.code {
   font-size: 26rpx;
-  line-height: 90rpx;
-  color:#818181;
+  color: #818181;
 }
-.code{
- font-size: 26rpx;
- color: #818181;
-}
-#code{
-  width: 70%;
+
+#code {
+  font-size: 26rpx;
+  width: 90%;
   height: 90rpx;
+  text-align: left;
+  margin-left: 20rpx;
 }
-.click_code{
+
+.click_code {
   margin-right: 24rpx;
   font-size: 26rpx;
   line-height: 90rpx;
   color: #c7c7c7;
 }
-radio{
+
+radio {
   margin-top: 26rpx;
-  transform:scale(0.5);
+  transform: scale(0.5);
   zoom: 0.6;
-    /*  进行缩小*/
-  /* opacity: 0 */
+  /*  进行缩小*//* opacity: 0 */
 }
-image{
-  position:absolute;
-  top:26rpx;
-  left:2rpx;
-  width:26rpx;
-  height:26rpx;
-}
-.isAgree{
+
+image {
   position: absolute;
-  top:22rpx;
+  top: 26rpx;
+  left: 2rpx;
+  width: 26rpx;
+  height: 26rpx;
+}
+
+.isAgree {
+  position: absolute;
+  top: 22rpx;
   left: 44rpx;
   font-size: 24rpx;
-  color: #333333;
-  }
-.book{
+  color: #333;
+}
+
+.book {
   position: absolute;
-  top:22rpx;
+  top: 22rpx;
   left: 101rpx;
   font-size: 24rpx;
   color: #3d4663;
 }
-.submit{
-  margin-top:270rpx;
+
+.submit {
+  margin-top: 270rpx;
   width: 552rpx;
   height: 80rpx;
   border-radius: 40rpx;
   background: #9b9b9b;
   font-size: 26rpx;
-  color: #ffffff;
+  color: #fff;
   line-height: 80rpx;
 }
-.submit:after{
-  border:2rpx solid #8e8e8e;
+
+.submit:after {
+  border: 2rpx solid #8e8e8e;
 }

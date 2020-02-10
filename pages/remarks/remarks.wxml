@@ -4,7 +4,7 @@
     <view class='remarks'>
       <view class='name'>备注</view>
       <textarea placeholder='避免遗忘请备注物品信息'></textarea>
-      <view class='upload'>
+      <view class='upload'> 
         <image class='img' src='../image/photo.png'></image>
         <view class='word'>添加照片</view>
       </view>

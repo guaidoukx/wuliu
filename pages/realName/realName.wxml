@@ -27,7 +27,3 @@
 <view class='rexian' style='position:{{display}};height:{{height}};'>
   <view class='tels'>服务热线：4008-888-999</view>
 </view>
-<view class='kefu'>
-  <image class='kufu_pic' src='../image/kefu.png'></image>
-  <view class='kefu_describe'>在线客服</view>
-</view>

@@ -1,0 +1,15 @@
+<!--pages/carNum/carNum.wxml-->
+<navigationBar text="车牌号" back="true"></navigationBar>
+<view class='list_content'>
+  <view class='list' bindtap='restMoney'>
+    <view class='list_left'>
+      <icon class="iconfont icon-xinxi"></icon>
+      <view class='listName'>车牌号</view>
+    </view>
+    <view class='list_right'>
+      <view class='check'>{{}}车牌号</view>
+    </view>
+  </view>
+
+  <!-- <button class='signOut' bindtap='signOut'>退出登录</button> -->
+</view>

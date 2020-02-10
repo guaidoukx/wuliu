@@ -11,17 +11,16 @@ Page({
     currentIndex2: false, //在仓
     currentIndex3: false, //出仓
     currentIndex4: false, //已完成
-
-    /*
-    loadNum: 3, //待入仓个数
-    // inNum: 3, //在仓个数
-    outNum: 2, //出仓个数
-    finishNum: 4, //已完成个数
-    */
+    
     loadNum: 0,   // 待取货的配送单数量
     outNum: 0,    // 配送中的配送单数量
     finishNum: 0, // 已完成的配送单数量
     hiddenNum: 0, // 删除/隐藏的配送单数量
+
+    loadList: [],      // 待取货
+    onList: [],        // 配送中
+    finishList: [],    // 已完成
+    hiddenList: [],    // 删除/隐藏
     //checkbox是否显示
     isCheckbox: false,
     //是否全选
@@ -46,10 +45,7 @@ Page({
     //   { id: 4, num: "A19060127", time: "2019-03-02" },
     // ],
     //已完成数据
-    dispatch_list: [], // 待取货
-    onList: [],        // 配送中
-    finishList: [],    // 已完成
-    hiddenList: [],    // 删除/隐藏
+    
     /*
     loadList: [{
         "dispatch_id": "A19060121",
@@ -136,7 +132,6 @@ Page({
       }
     ],
     */
-    //配送数据
 
     //在仓的导航栏样式
     kong2: false
@@ -216,7 +211,7 @@ Page({
             }
           }
           that.setData({
-            dispatch_list: load_list,
+            loadList: load_list,
             onList: delivery_list,
             finishList: finish_list,
 
@@ -249,7 +244,7 @@ Page({
   inGetBack(e) {
     // console.log(e.currentTarget.id)
     //设置全局对象
-    
+
     app.requestId = e.currentTarget.id
     wx.navigateTo({
       url: '../inGetBack/inGetBack?id=' + e.currentTarget.id,
@@ -279,9 +274,9 @@ Page({
     // console.log(e.currentTarget.dispatch_id)
     let index = e.currentTarget.dataset.index
     let a = this.data.loadList[index]
-    console.log(a) 
+    console.log(a)
     wx.navigateTo({
-      url: '../details/details?dispatch_id=' + a.dispatch_id + "&time=" + a.time + "&market=" + a.market + "&address=" + a.address +"&warehouse="+a.warehouse + "&tel="+a.tel
+      url: '../details/details?dispatch_id=' + a.dispatch_id + "&time=" + a.time + "&market=" + a.market + "&address=" + a.address + "&warehouse=" + a.warehouse + "&tel=" + a.tel
     })
   },
 
@@ -307,46 +302,107 @@ Page({
       url: '../details/details?dispatch_id=' + a.dispatch_id + "&time=" + a.time + "&market=" + a.market + "&address=" + a.address + "&warehouse=" + a.warehouse + "&tel=" + a.tel
     })
   },
-  
-  toMapLoad(e){
+
+  toMapLoad(e) {
     let index = e.currentTarget.dataset.index
     let dispatch = this.data.loadList[index]
     let plugin = requirePlugin('myPlugin');
-    let key = '3BGBZ-YDME6-UPPSK-EIC7O-NLVLZ-A2FDX';  //使用在腾讯位置服务申请的key
-    let referer = 'wxbd01dc5b31432f51';   //调用插件的小程序的名称
-    let endPoint = JSON.stringify({  //终点
+    let key = '3BGBZ-YDME6-UPPSK-EIC7O-NLVLZ-A2FDX'; //使用在腾讯位置服务申请的key
+    let referer = 'wxbd01dc5b31432f51'; //调用插件的小程序的名称
+    let endPoint = JSON.stringify({ //终点
       'name': dispatch.address,
       'latitude': dispatch.lat,
       'longitude': dispatch.lng
     });
-    
+
     wx.getLocation({
       type: 'wgs84',
       success(res) {
-        console.log("res.longitude,res.latitude",res.longitude,res.latitude,)
-        let startPoint = JSON.stringify({  //起点
+        console.log("res.longitude,res.latitude", res.longitude, res.latitude, )
+        let startPoint = JSON.stringify({ //起点
           'name': '我的位置',
           'latitude': res.latitude,
           'longitude': res.longitude
         });
+        wx.navigateTo({
+          url: 'plugin://myPlugin/route-plan?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint + "&navigation=1"
+        });
+      },
+      fail: function() {
+        wx.getSetting({
+          success: function(res) {
+            var statu = res.authSetting;
+            if (!statu['scope.userLocation']) {
+              wx.showModal({
+                title: '是否授权当前位置',
+                content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
+                success: function(tip) {
+                  console.log(1)
+                  if (tip.confirm) {
+                    console.log(1)
+                    wx.openSetting({
+                      success: function(data) {
+                        if (data.authSetting["scope.userLocation"] === true) {
+                          wx.showToast({
+                            title: '授权成功',
+                            icon: 'success',
+                            duration: 1000
+                          })
+                          wx.getLocation({
+                            success(res) {
+                              let startPoint = JSON.stringify({ //起点
+                                'name': '我的位置',
+                                'latitude': res.latitude,
+                                'longitude': res.longitude
+                              });
+                              wx.navigateTo({
+                                url: 'plugin://myPlugin/route-plan?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint + "&navigation=1"
+                              });
+                            },
+                          });
+                        } else {
+                          wx.showToast({
+                            title: '授权失败',
+                            icon: 'success',
+                            duration: 1000
+                          })
+                          wx.navigateBack({
+                            delta: -1
+                          });
+                        }
+                      }
+                    })
+                  } else {
+                    wx.navigateBack({
+                      delta: -1
+                    });
+                  }
+                }
+              })
+            }
+          },
+          fail: function(res) {
+            wx.showToast({
+              title: '调用授权窗口失败',
+              icon: 'success',
+              duration: 1000
+            })
+            wx.navigateBack({
+              delta: -1
+            });
+          }
+        })
       }
     })
-        
-    wx.navigateTo({
-      url: 'plugin://myPlugin/route-plan?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint +"&navigation=1"
-    });
-    // wx.navigateTo({
-    //   url: '../map/map?lat=' + a.lat + "&lng=" + a.lng,
-    // })
   },
 
   toMapOn(e) {
     let index = e.currentTarget.dataset.index
     let dispatch = this.data.onList[index]
     let plugin = requirePlugin('myPlugin');
-    let key = '3BGBZ-YDME6-UPPSK-EIC7O-NLVLZ-A2FDX';  //使用在腾讯位置服务申请的key
-    let referer = 'wxbd01dc5b31432f51';   //调用插件的小程序的名称
-    let endPoint = JSON.stringify({  //终点
+    let key = '3BGBZ-YDME6-UPPSK-EIC7O-NLVLZ-A2FDX'; //使用在腾讯位置服务申请的key
+    let referer = 'wxbd01dc5b31432f51'; //调用插件的小程序的名称
+    let endPoint = JSON.stringify({ //终点
       'name': dispatch.address,
       'latitude': dispatch.lat,
       'longitude': dispatch.lng
@@ -355,14 +411,14 @@ Page({
       type: 'wgs84',
       success(res) {
         console.log("res.longitude,res.latitude", res.longitude, res.latitude)
-        let startPoint = JSON.stringify({  //起点
+        let startPoint = JSON.stringify({ //起点
           'name': '我的位置',
           'latitude': res.latitude,
           'longitude': res.longitude
         });
       }
     })
-    
+
     wx.navigateTo({
       url: 'plugin://myPlugin/route-plan?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint + "&navigation=1"
     });
@@ -436,7 +492,7 @@ Page({
           success: function (data) {
             if (data.confirm) {
               if (res.success == 0) {
-                let loadList = that.data.dispatch_list
+                let loadList = that.data.loadList
                 let tmpLoad = loadList.filter((v, i) => {
                   return v.id != e.target.id
                 });
@@ -448,7 +504,7 @@ Page({
                 onList.push(tmpOn[0]);
                 // console.log(tmp)
                 that.setData({
-                  dispatch_list: tmpLoad,
+                  loadList: tmpLoad,
                   onList: onList,
                   loadNum: tmpLoad.length,
                   outNum: onList.length
