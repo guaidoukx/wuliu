@@ -22,7 +22,7 @@ Page({
     var screenHeight, heights
     that.setData({
       warehouse: options.warehouse == "undefined" ? "-" : options.warehouse,
-      dispatch_id: options.dispatch_id == "undefined" ? "-" : options.dispatch_id,
+      id: options.id == "undefined" ? "-" : options.id,
       market: options.market == "undefined" ? "-" : options.market,
       address: options.address == "undefined" ? "-" : options.address,
       time: options.time == "undefined" ? "-" : options.time,

@@ -5,7 +5,7 @@
     <view class='finishInfo_left'>
       <view class='bianhao'>
         <image class='numPic' src='/image/package.png'></image>
-        <view class='num'>调度单编号 {{dispatch_id}}</view>
+        <view class='num'>调度单编号 {{id}}</view>
       </view>
       <view class='time'>日期: {{time}}</view>
     </view>

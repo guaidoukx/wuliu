@@ -11,10 +11,14 @@
         <view class='dian'></view>
         <view class='nameBox'>
           <open-data type="userNickName" lang="zh_CN" class="name"></open-data>
+          <label wx:if='{{id!=""}}' for='id'>工号</label>
+          <label wx:if='{{id==""}}' for='id'>请先进行身份认证！</label>
+          <input wx:if='{{id!=""}}' id="id" name="id" disabled='true' type='number' placeholder='{{id}}' placeholder-class='id'></input>
         </view>
       </view>
     </view>
   </view>
+
   <view class='list_content'>
     <view class='list' bindtap='nameLook'>
       <view class='list_left'>
@@ -37,56 +41,29 @@
       </view>
       <image src='/image/jiantou.png' class='jiantou'></image>
     </view>
-    <button class='signOut' bindtap='signOut'>退出登录</button>
-  </view>
-  <!--
-    <view class='list_content'>
+    
     <view class='list' bindtap='realName'>
       <view class='list_left'>
-        <image class='listIcon' src='../../image/realName.png'></image>
+        <image class='listIcon' src='../image/realName.png'></image>
         <view class='listName'>身份认证</view>
       </view>
-      <image src='/image/jiantou.png' class='jiantou'></image>
+      <view class='list_right'>
+        <view wx:if='{{id==""}}' class='check'>必填</view>
+        <view wx:else class='check'>完成</view>
+        <image src='../image/jiantou.png' class='jiantou'></image>
+      </view>  
     </view>
     <view class='list' bindtap='driversEdit'>
       <view class='list_left'>
-        <image class='listIcon' src='../../image/edit.png'></image>
-        <view class='listName'>修改信息</view>
+        <image class='listIcon' src='../image/edit.png'></image>
+        <view class='listName'>编辑信息</view>
       </view>
-      <image src='/image/jiantou.png' class='jiantou'></image>
-    </view>
-    <button class='signOut' bindtap='signOut'>退出登录</button>
-  </view>
-  -->
-</view>
-<!-- master分支 -->
-<!--
-  <view class='list_content'>
-    <view class='list' bindtap='nameLook'>
-      <view class='list_left'>
-        <icon class="iconfont icon-xingming"></icon>
-        <view class='listName'>姓　名</view>
-      </view>
-      <image src='/image/jiantou.png' class='jiantou'></image>
-    </view>
-    <view class='list' bindtap='phoneNumLook'>
-      <view class='list_left'>
-        <icon class="iconfont icon-dianhua"></icon>
-        <view class='listName'>手机号</view>
-      </view>
-      <image src='/image/jiantou.png' class='jiantou'></image>
-    </view>
-    <view class='list' bindtap='carNumLook'>
-      <view class='list_left'>
-        <icon class="iconfont icon-xinxi"></icon>
-        <view class='listName'>车牌号</view>
-      </view>
-      <image src='/image/jiantou.png' class='jiantou'></image>
+      <image src='../image/jiantou.png' class='jiantou'></image>
     </view>
     <button class='signOut' bindtap='signOut'>退出登录</button>
   </view>
 </view>
--->
+
 <view class='mine_info' wx:else>
   <image class='mine_banner' open-type="getUserInfo" src='/image/earth.png'></image>
   <view class='mine_info_head'>

@@ -1,15 +1,31 @@
 # 物流小程序
 > 小程序接口文档：[接口文档](https://github.com/guaidoukx/wuliu/小程序接口.docx)
 
-## 2020-02-09
+## 2020-02-10
 ### 一、合并
-> 本地合并master和WYJ分支，并更新远程WYJ分支
+> 本地拉取远程master分支，合并远程master和本地WYJ分支，并更新远程WYJ分支
 #### 存在冲突
--   [x] mine目录（js, wxml, wxss）
--   [x] project.config.json；
-#### 修改：
-1. 配送列表(goods)中：goods.wxml中，调度单编号由dispatch_id修改为id（共三处）
-
+-   [x] mine目录（js, wxml, wxss）--》 按“二、修改”处理
+-   [x] project.config.json --》 以master分支为准
+### 二、修改
+#### 缓存认证信息
+-  [x] （app.js）全局变量 globalData：添加 header 和 driverInfo
+-  [x] （app.js）添加mock中（实际即接口）driverCertify返回参数data.sessionId
+-  [x] （app.js）实现登录后，订单列表才能获取数据（监听） [参考](https://github.com/xyxl1997/watch)
+-  [x] （realName.js，身份认证页面）写入缓存（即Storage）：sessionId, driverId, driverName
+-  [x] （mine.js）修改函数 signOut：退出登录后清空缓存（Storage）
+-  [x] （goods.js）请求后台数据时新增header
+#### 其他
+-  [x] 接口文档中ordersView修改：dispatch_id--》id ；其他以master分支为准，详见文档（包括id，warehouse，market，time，address，lng，lat，state）
+-  [x] 所有dispatch_id--》id
+### 三、功能
+-  [x] 首次身份认证后，缓存信息
+-  [x] 退出登录后，清空缓存、设置全局变量值为空
+### 四、example
+已登入微信，未认证时如下：
+![avatar](https://github.com/guaidoukx/wuliu/example/个人中心-未登录.PNG)
+已认证后，如下：
+![avatar](https://github.com/guaidoukx/wuliu/example/个人中心-已登录.PNG)
 
 ## 2020-01-30更新
 ### 一、mock数据

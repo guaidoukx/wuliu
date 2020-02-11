@@ -2,6 +2,9 @@
 Page({
   data: {
     hasUserInfo: false,
+    id: '', 
+    name: '',
+    header: '',
   },
 
   onLoad: function() {
@@ -14,6 +17,14 @@ Page({
       },
       
     })
+
+    if (getApp().globalData.header.Cookie != '') { // 全局变量
+      this.setData({
+        header: getApp().globalData.header,       //获取app.js中的请求头
+        id: getApp().globalData.driverInfo.id,
+        name: getApp().globalData.driverInfo.name
+      })
+    }
   },
 
   logIn() {
@@ -96,6 +107,7 @@ Page({
       url: '../name/name',
     })
   },
+  // 编辑信息
   driversEdit() {
     if (this.data.id != '') {
       wx.navigateTo({
@@ -109,10 +121,10 @@ Page({
       })
     }
   },
-  //身份认证,点击跳转到身份认证
+  // 身份认证
   realName() {
     wx.navigateTo({
-      url: '../realName/realName',
+      url: '../name/name',
     })
   },
   //个人中心的手机号,点击跳转到手机号
@@ -121,6 +133,7 @@ Page({
       url: '../phoneNum/phoneNum',
     })
   },
+
   //个人中心的车牌号,点击跳转到车牌号
   carNumLook() {
     wx.navigateTo({
@@ -135,7 +148,26 @@ Page({
   },
   //退出登录
   signOut() {
-    this.data.hasUserInfo = false;
-    this.onLoad();
+    let that = this
+    wx.showModal({
+      title: '提示',
+      content: '请确认是否要退出登录。',
+      success: function (data) {
+        if (data.confirm) {
+          that.data.hasUserInfo = false;
+          // 清空缓存、全局变量
+          wx.clearStorage()
+          that.setData({
+            header: '',
+            id: '',
+            name: ''
+          })
+          getApp().globalData.header.Cookie = ''
+          getApp().globalData.driverInfo.id = ''
+          getApp().globalData.driverInfo.name = ''
+          that.onLoad();
+        }
+      }
+    })
   }
 })

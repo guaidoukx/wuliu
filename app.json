@@ -27,10 +27,8 @@
     "pages/myAddr/myAddr",
     "pages/realName/realName",
     "pages/view/view",
-    
     "pages/goods/goods",
     "pages/logs/log",
-    
     "pages/name/name",
     "pages/phoneNum/phoneNum",
     "pages/carNum/carNum"

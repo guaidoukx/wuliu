@@ -1,4 +1,5 @@
 //app.js
+//"appid": "wxbd01dc5b31432f51",
 import api from "./utils/api.js";
 App({
   onLaunch: function () {
@@ -46,7 +47,39 @@ App({
     userInfo: null,
     statusBarHeight: '',
     navigationBarHeight: '',
-    xyl:2343
+    xyl:2343,
+    header: { // store sessionId
+      'Cookie': wx.getStorageSync('sessionId')
+    },
+    driverInfo: {
+      'id': wx.getStorageSync('driverId'),
+      'name': wx.getStorageSync('driverName'),
+      'phone': wx.getStorageSync('driverPhone'),
+    },
+    that: ''
+  },
+  /**
+   * 设置监听器
+   */
+  setWatcher(data, page) { // 接收index.js传过来的data对象和watch对象
+    var watch = page.watch
+    Object.keys(watch).forEach(v => { // 将watch对象内的key遍历
+      this.observe(data, v, watch[v], page); // 监听data内的v属性，传入watch内对应函数以调用
+    })
+  },
+  observe(obj, key, watchFun, page) {
+    var val = obj[key]; // 给该属性设默认值
+    Object.defineProperty(obj, key, {
+      configurable: true,
+      enumerable: true,
+      set: function (value) {
+        val = value;
+        watchFun(value, val); // 赋值(set)时，调用对应函数
+      },
+      get: function () {
+        return val;
+      }
+    })
   }
 })
 
@@ -62,13 +95,14 @@ Mock.mock(api.ordersView, {
     {
       "id|+1": 1,
       "market|1": ["邯郸路一号店", "张江一号店", "张江二号店"],
-      "market_loc|1": ["杨浦区国权路1888号", "普陀区金沙江路2345号", "浦东新区张衡路980号"],
-      "market_tel|1": ["5789837", "2736483", "5395847"],
-      "warehouse|1": ["一号仓", "二号仓", "三号门店"],
-      "warehouse_loc|1": ["杨浦区国权路900号", "普陀区金沙江路10号", "浦东新区哥白尼路90号"],
+      "address|1": ["杨浦区国权路1888号", "普陀区金沙江路2345号", "浦东新区张衡路980号"],
+      "tel|1": ["5789837", "2736483", "5395847"],
+      "warehouse|1": ["杨浦区国权路900号", "普陀区金沙江路10号", "浦东新区哥白尼路90号"],
       "time": function () {
         return Mock.Random.datetime()
       },
+      "lng|1": [119.687492, 223.983764, 10.283746],
+      "lat|1": [29.138479, 9.283726, 100.382938],
       "state|1": [0, 1, 2]
     }
   ],
@@ -92,6 +126,9 @@ Mock.mock(api.ordersHidden, {
 })
 Mock.mock(api.driversCertify, {
   "code": 200,
+  "data": {
+    "sessionId|1": ['C5350F9B17F28887BC17D3E45A4A4A94', 'E1920F9B17F28887BC1K9EE45A4A4A94']
+  },
   "success": 0,
   "message": "认证成功。"
 })

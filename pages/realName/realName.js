@@ -11,7 +11,7 @@ Page({
     height: "188rpx"
   },
   formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    // console.log('form发生了submit事件，携带数据为：', e.detail.value)
     let value = e.detail.value;
     wx.request({
       url: api.driversCertify,
@@ -20,7 +20,7 @@ Page({
         name: value.name
       },
       success: function (res) {
-        console.log(res)
+        // console.log(res)
         if (res.success == 0 && value.id != '') {
           var pages = getCurrentPages();
           // console.log('pages-------',pages);
@@ -30,8 +30,33 @@ Page({
           // console.log('prevPage-------', prevPage)
           var id = value.id;
           prevPage.setData({
-            id: id
+            id: id,
+            header: res.data.sessionId
           })
+
+          // 全局变量
+          console.log('sessionId: ', res.data.sessionId)
+          getApp().globalData.header.Cookie = 'JSESSIONID=' + res.data.sessionId;
+          getApp().globalData.driverInfo.id = value.id;
+          getApp().globalData.driverInfo.name = value.name;
+
+          // 缓存
+          wx.setStorage({
+            key: 'sessionId',
+            data: 'JSESSIONID=' + res.data.sessionId,
+            success: function () {
+              console.log('sessionId has been saved. sessionId = ', res.data.sessionId)
+            }
+          })
+          wx.setStorage({
+            key: 'driverId',
+            data: value.id
+          })
+          wx.setStorage({
+            key: 'driverName',
+            data: value.name
+          })
+
           wx.showToast({
             title: '认证成功！',
             icon: 'success',
@@ -41,14 +66,14 @@ Page({
             wx.navigateBack()
           }, 2000)
         } else {
-          if (value.id == '') 
+          if (value.id == '')
             wx.showToast({
               title: '请填写工号！',
               icon: 'none',
               duration: 2000
             })
-          else 
-          //console.log(res.message);
+          else
+            //console.log(res.message);
             wx.showToast({
               title: '请重试！',
               icon: 'none',

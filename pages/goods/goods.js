@@ -48,7 +48,7 @@ Page({
     
     /*
     loadList: [{
-        "dispatch_id": "A19060121",
+        "id": "A19060121",
         "warehouse": "沪华东路基地",
         "market": "联华超市（丰店）",
         "time": "2020-01-01 09:34:23",
@@ -57,7 +57,7 @@ Page({
         "lat": 29.104773
       },
       {
-        "dispatch_id": "A19060122",
+        "id": "A19060122",
         "warehouse": "现代物流",
         "market": "联华超市（欧阳店）",
         "time": "2020-01-01 09:34:23",
@@ -66,7 +66,7 @@ Page({
         "lat": 29.092951
       },
       {
-        "dispatch_id": "A19060123",
+        "id": "A19060123",
         "warehouse": "全方新桥配送中心",
         "market": "联华超市（友谊店）",
         "time": "2020-01-01 09:34:23",
@@ -76,7 +76,7 @@ Page({
       }
     ],
     onList: [{
-        "dispatch_id": "A19060124",
+        "id": "A19060124",
         "warehouse": "沪华东路基地",
         "market": "联华超市（水丰店）",
         "time": "2020-01-01 09:34:23",
@@ -85,7 +85,7 @@ Page({
         "lat": 29.098244
       },
       {
-        "dispatch_id": "A19060125",
+        "id": "A19060125",
         "warehouse": "沪华东路基地",
         "market": "联华超市（火丰店）",
         "time": "2020-01-08 09:34:23",
@@ -95,7 +95,7 @@ Page({
       }
     ],
     finishList: [{
-        "dispatch_id": "A19060126",
+        "id": "A19060126",
         "warehouse": "沪华东路基地",
         "market": "联华超市（浦东店）",
         "time": "2020-01-01 09:34:23",
@@ -104,7 +104,7 @@ Page({
         "lat": 29.004316
       },
       {
-        "dispatch_id": "A19060127",
+        "id": "A19060127",
         "warehouse": "新桥基地",
         "market": "联华超市（水店）",
         "time": "2020-01-08 09:34:23",
@@ -113,7 +113,7 @@ Page({
         "lat": 29.138479
       },
       {
-        "dispatch_id": "A19060128",
+        "id": "A19060128",
         "warehouse": "沪华东路基地",
         "market": "快客（浦东新区店）",
         "time": "2020-01-01 09:34:23",
@@ -122,7 +122,7 @@ Page({
         "lat": 29.199953
       },
       {
-        "dispatch_id": "A19060129",
+        "id": "A19060129",
         "warehouse": "沪华东路基地",
         "market": "联华超市（丰店）",
         "time": "2020-01-08 09:34:23",
@@ -181,10 +181,55 @@ Page({
     })
   },
   onLoad: function () {
+    getApp().globalData.that = this
+    getApp().setWatcher(getApp().globalData.header, this)
+    if (getApp().globalData.header.Cookie != '') {
+      this.getData()
+    } else {
+      this.setData({
+        loadList: [],
+        onList: [],
+        finishList: [],
+        hiddenList: [],
+
+        loadNum: 0,
+        outNum: 0,
+        finishNum: 0,
+        hiddenNum: 0,
+      })
+    }
+  },
+  watch: {
+    Cookie: (newValue) => {
+      console.log('【监听】cookie 改变。', newValue);
+      // console.log(getApp().globalData.that)
+      if (newValue == '') {
+        getApp().globalData.that.setData({
+          loadList: [],
+          onList: [],
+          finishList: [],
+          hiddenList: [],
+
+          loadNum: 0,
+          outNum: 0,
+          finishNum: 0,
+          hiddenNum: 0,
+        })
+        console.log('【清空】订单列表。');
+      } else {
+        console.log('【刷新】订单列表。');
+        getApp().globalData.that.getData()
+      }
+    },
+  },
+  // 请求数据
+  getData: function () {
     let that = this;
     let load_list = [], delivery_list = [], finish_list = [];
+    // console.log('----------@,', getApp().globalData.header.Cookie)
     wx.request({
       url: api.ordersView,
+      header: getApp().globalData.header,
       success: function (res) {
         console.log('All orders：', res);
         if (res.success == 0) {
@@ -270,36 +315,36 @@ Page({
   },
   //待取货查看详情
   loadDetails(e) {
-    // this.requestId = e.currentTarget.dispatch_id
-    // console.log(e.currentTarget.dispatch_id)
+    // this.requestId = e.currentTarget.id
+    // console.log(e.currentTarget.id)
     let index = e.currentTarget.dataset.index
     let a = this.data.loadList[index]
     console.log(a)
     wx.navigateTo({
-      url: '../details/details?dispatch_id=' + a.dispatch_id + "&time=" + a.time + "&market=" + a.market + "&address=" + a.address + "&warehouse=" + a.warehouse + "&tel=" + a.tel
+      url: '../details/details?id=' + a.id + "&time=" + a.time + "&market=" + a.market + "&address=" + a.address + "&warehouse=" + a.warehouse + "&tel=" + a.tel
     })
   },
 
   onDetails(e) {
-    // this.requestId = e.currentTarget.dispatch_id
-    // console.log(e.currentTarget.dispatch_id)
+    // this.requestId = e.currentTarget.id
+    // console.log(e.currentTarget.id)
     let index = e.currentTarget.dataset.index
     console.log(index)
     let a = this.data.onList[index]
     console.log(a)
     wx.navigateTo({
-      url: '../details/details?dispatch_id=' + a.dispatch_id + "&time=" + a.time + "&market=" + a.market + "&address=" + a.address + "&warehouse=" + a.warehouse + "&tel=" + a.tel
+      url: '../details/details?id=' + a.id + "&time=" + a.time + "&market=" + a.market + "&address=" + a.address + "&warehouse=" + a.warehouse + "&tel=" + a.tel
     })
   },
 
   finishDetails(e) {
-    // this.requestId = e.currentTarget.dispatch_id
-    // console.log(e.currentTarget.dispatch_id)
+    // this.requestId = e.currentTarget.id
+    // console.log(e.currentTarget.id)
     let index = e.currentTarget.dataset.index
     let a = this.data.finishList[index]
     console.log(a)
     wx.navigateTo({
-      url: '../details/details?dispatch_id=' + a.dispatch_id + "&time=" + a.time + "&market=" + a.market + "&address=" + a.address + "&warehouse=" + a.warehouse + "&tel=" + a.tel
+      url: '../details/details?id=' + a.id + "&time=" + a.time + "&market=" + a.market + "&address=" + a.address + "&warehouse=" + a.warehouse + "&tel=" + a.tel
     })
   },
 
@@ -482,6 +527,7 @@ Page({
     let that = this;
     wx.request({
       url: api.ordersLoad,
+      header: getApp().globalData.header,
       data: {
         id: e.target.id,
       },
@@ -510,8 +556,7 @@ Page({
                   outNum: onList.length
                 })
               }
-            } else if (res.cancel) {
-            }
+            } 
           }
         })
       },
@@ -531,6 +576,7 @@ Page({
     let that = this;
     wx.request({
       url: api.ordersFinish,
+      header: getApp().globalData.header,
       data: {
         id: e.target.id,
       },
@@ -560,8 +606,7 @@ Page({
                 })
                 // console.log('order finished.');
               }
-            } else if (res.cancel) {
-            }
+            } 
           }
         })
       },
@@ -586,6 +631,7 @@ Page({
         if (data.confirm) {
           wx.request({
             url: api.ordersHidden,
+            header: getApp().globalData.header,
             data: {
               id: e.target.id,
             },
@@ -619,10 +665,7 @@ Page({
               console.log("server: no service.")
             }
           })
-          // console.log('confirm.')
-        } else if (res.cancel) {
-          // console.log('cancel.')
-        }
+        } 
       }
     })
   },
