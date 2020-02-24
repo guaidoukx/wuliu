@@ -1,5 +1,5 @@
 # 物流小程序
-> 小程序接口文档：[接口文档](https://github.com/guaidoukx/wuliu/小程序接口.docx)
+> 小程序接口文档：[接口文档](https://github.com/guaidoukx/wuliu/blob/WYJ/小程序接口.docx)
 
 ## 2020-02-24
 ### 一、接口变更(文档更新)
