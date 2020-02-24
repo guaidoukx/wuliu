@@ -1,0 +1,24 @@
+<!--pages/id/id.wxml-->
+<!--
+<navigationBar text="工号" back="true"></navigationBar>
+<view class='list_content'>
+  <view class='list'>
+    <view class='list_left'>
+      <icon class="iconfont icon-xinxi"></icon>
+      <view class='listName'>工号</view>
+    </view>
+    <view class='list_right'>
+      <view class='check'>{{}}工号</view>
+    </view>
+  </view>
+</view>
+-->
+<form bindsubmit=""> 
+  <view class='form'>
+    <view class='inputBox'>
+      <label for='id'>工号</label>
+      <input id="editItem" disabled="true" name="editItem" type='text' placeholder='{{id}}' placeholder-class='id' disabled="true"></input>
+    </view>
+  </view>
+  <!--<button class='submit' form-type='submit'>保  存</button>-->
+</form>

@@ -10,20 +10,7 @@
         <label for='id'>工号</label>
         <input id="id" name="id" type='text' placeholder='请输入您的工号' placeholder-class='id'></input>
       </view>
-      <view class='inputBox'>
-        <label for='tel'>手机号码</label>
-        <input id="tel" name="tel" type='number' placeholder='请输入您的手机号码' placeholder-class='tel'></input>
-      </view>
-      <view class='inputBoxCode'>
-        <label for='code'>验证码</label>
-        <input id="code" name="code" type='number' placeholder='请输入您收到的验证码' placeholder-class='code'></input>
-        <button class='codeBtn'>获取验证码</button>
-      </view>
     </view>
-    <button class='submit' form-type='submit'>确认提交</button>
+    <button class='submit' form-type='submit'>登 录</button>
   </form>
-</view>
-<!-- 热线 -->
-<view class='rexian' style='position:{{display}};height:{{height}};'>
-  <view class='tels'>服务热线：4008-888-999</view>
 </view>

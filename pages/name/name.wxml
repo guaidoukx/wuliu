@@ -1,5 +1,7 @@
 <!--pages/name/name.wxml-->
+<!--
 <navigationBar text="姓名" back="true"></navigationBar>
+
 <view class='list_content'>
   <view class='list' bindtap='restMoney'>
     <view class='list_left'>
@@ -11,5 +13,16 @@
     </view>
   </view>
 
-  <!-- <button class='signOut' bindtap='signOut'>退出登录</button> -->
+  <button class='signOut' bindtap='signOut'>退出登录</button> 
 </view>
+-->
+
+<form bindsubmit="formSubmit"> 
+  <view class='form'>
+    <view class='inputBox'>
+      <label for='editItem'>姓名</label>
+      <input id="editItem" name="editItem" auto-focus type='text' value='{{name}}' placeholder='请输入姓名'></input>
+    </view>
+  </view>
+  <button class='submit' form-type='submit'>保  存</button>
+</form>

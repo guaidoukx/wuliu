@@ -1,6 +1,16 @@
 # 物流小程序
 > 小程序接口文档：[接口文档](https://github.com/guaidoukx/wuliu/小程序接口.docx)
 
+## 2020-02-24
+### 接口变更(文档更新)
+drivers下，新增name, tel, number，删除edit
+### 全局变量/缓存
+存储驾驶员信息（id, name, tel, number)
+### 个人中心：
+-  [x] 工号、姓名、手机号、驾驶证（修改相应的js, wxml, wxss）
+-  [x] 登录(logIn)跳转/realName目录下，同时realName进行修改
+-  [x] mine相应修改：跳转时携带变量等
+
 ## 2020-02-10
 ### 一、合并
 > 本地拉取远程master分支，合并远程master和本地WYJ分支，并更新远程WYJ分支

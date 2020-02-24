@@ -4,6 +4,8 @@ Page({
     hasUserInfo: false,
     id: '', 
     name: '',
+    tel: '',
+    number: '',
     header: '',
   },
 
@@ -11,18 +13,21 @@ Page({
     var that = this;
     wx.getUserInfo({
       success(res) {
-        that.setData({
-          hasUserInfo: true
-        });
+        if (that.data.header != '') {
+          that.setData({
+            hasUserInfo: true
+          });
+        }
       },
-      
     })
 
     if (getApp().globalData.header.Cookie != '') { // 全局变量
       this.setData({
         header: getApp().globalData.header,       //获取app.js中的请求头
         id: getApp().globalData.driverInfo.id,
-        name: getApp().globalData.driverInfo.name
+        name: getApp().globalData.driverInfo.name,
+        tel: getApp().globalData.driverInfo.tel,
+        number: getApp().globalData.driverInfo.number,
       })
     }
   },
@@ -91,7 +96,7 @@ Page({
       }
     })
     wx.navigateTo({
-      url: '../mobileLog/mobileLog',
+      url: '../realName/realName',
     })
   },
 
@@ -104,40 +109,26 @@ Page({
   //个人中心的实名认证,点击跳转到实名认证
   nameLook() {
     wx.navigateTo({
-      url: '../name/name',
+      url: '../name/name?name=' + this.data.name + "&id=" + this.data.id,
     })
   },
-  // 编辑信息
-  driversEdit() {
-    if (this.data.id != '') {
-      wx.navigateTo({
-        url: '../driversEdit/driversEdit?id=' + this.data.id,
-      })
-    } else {
-      wx.showToast({
-        title: '请先前往实名认证！',
-        icon: 'none',
-        duration: 2000
-      })
-    }
-  },
-  // 身份认证
-  realName() {
+  //个人中心的工号,点击跳转到工号
+  idLook() {
     wx.navigateTo({
-      url: '../name/name',
+      url: '../id/id?id=' + this.data.id,
     })
   },
   //个人中心的手机号,点击跳转到手机号
   phoneNumLook() {
     wx.navigateTo({
-      url: '../phoneNum/phoneNum',
+      url: '../phoneNum/phoneNum?tel=' + this.data.tel + "&id=" + this.data.id,
     })
   },
 
   //个人中心的车牌号,点击跳转到车牌号
   carNumLook() {
     wx.navigateTo({
-      url: '../carNum/carNum',
+      url: '../carNum/carNum?number=' + this.data.number + "&id=" + this.data.id,
     })
   },
   //我的地址
@@ -160,11 +151,15 @@ Page({
           that.setData({
             header: '',
             id: '',
-            name: ''
+            name: '',
+            tel: '',
+            number: ''
           })
           getApp().globalData.header.Cookie = ''
           getApp().globalData.driverInfo.id = ''
           getApp().globalData.driverInfo.name = ''
+          getApp().globalData.driverInfo.tel = ''
+          getApp().globalData.driverInfo.number = ''
           that.onLoad();
         }
       }

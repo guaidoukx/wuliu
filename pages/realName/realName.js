@@ -31,6 +31,9 @@ Page({
           var id = value.id;
           prevPage.setData({
             id: id,
+            name: value.name,
+            tel: res.data.tel,
+            number: res.data.number,
             header: res.data.sessionId
           })
 
@@ -39,6 +42,8 @@ Page({
           getApp().globalData.header.Cookie = 'JSESSIONID=' + res.data.sessionId;
           getApp().globalData.driverInfo.id = value.id;
           getApp().globalData.driverInfo.name = value.name;
+          getApp().globalData.driverInfo.tel = res.data.tel;
+          getApp().globalData.driverInfo.number = res.data.number;
 
           // 缓存
           wx.setStorage({
@@ -56,9 +61,17 @@ Page({
             key: 'driverName',
             data: value.name
           })
+          wx.setStorage({
+            key: 'driverTel',
+            data: res.data.tel
+          })
+          wx.setStorage({
+            key: 'driverNumber',
+            data: res.data.number
+          })
 
           wx.showToast({
-            title: '认证成功！',
+            title: '登录成功！',
             icon: 'success',
             duration: 2000
           })

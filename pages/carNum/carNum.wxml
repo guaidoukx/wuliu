@@ -1,4 +1,5 @@
 <!--pages/carNum/carNum.wxml-->
+<!-->
 <navigationBar text="车牌号" back="true"></navigationBar>
 <view class='list_content'>
   <view class='list' bindtap='restMoney'>
@@ -11,5 +12,16 @@
     </view>
   </view>
 
-  <!-- <button class='signOut' bindtap='signOut'>退出登录</button> -->
+  <button class='signOut' bindtap='signOut'>退出登录</button>
 </view>
+-->
+
+<form bindsubmit="formSubmit"> 
+  <view class='form'>
+    <view class='inputBox'>
+      <label for='editItem'>驾 照</label>
+      <input id="editItem" name="editItem" auto-focus type='text' value='{{number}}' placeholder='请输入驾照编号'></input>
+    </view>
+  </view>
+  <button class='submit' form-type='submit'>保  存</button>
+</form>

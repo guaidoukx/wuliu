@@ -6,7 +6,10 @@ var api = {
   ordersHidden: server + "delivery/hidden",
 
   driversCertify: server + "drivers/certify",
-  driversEdit: server + "drivers/edit"
+  driversEdit: server + "drivers/edit",
+  driversEditName: server + "drivers/name",
+  driversEditTel: server + "drivers/tel",
+  driversEditNumber: server + "drivers/number",
 };
 
 export default api;
