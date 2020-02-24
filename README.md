@@ -2,11 +2,11 @@
 > 小程序接口文档：[接口文档](https://github.com/guaidoukx/wuliu/小程序接口.docx)
 
 ## 2020-02-24
-### 接口变更(文档更新)
+### 一、接口变更(文档更新)
 drivers下，新增name, tel, number，删除edit
-### 全局变量/缓存
+### 二、全局变量/缓存
 存储驾驶员信息（id, name, tel, number)
-### 个人中心：
+### 三、个人中心
 -  [x] 工号、姓名、手机号、驾驶证（修改相应的js, wxml, wxss）
 -  [x] 登录(logIn)跳转/realName目录下，同时realName进行修改
 -  [x] mine相应修改：跳转时携带变量等
@@ -31,11 +31,9 @@ drivers下，新增name, tel, number，删除edit
 ### 三、功能
 -  [x] 首次身份认证后，缓存信息
 -  [x] 退出登录后，清空缓存、设置全局变量值为空
-### 四、example
-已登入微信，未认证时如下：
-![avatar](https://github.com/guaidoukx/wuliu/example/个人中心-未登录.PNG)
-已认证后，如下：
-![avatar](https://github.com/guaidoukx/wuliu/example/个人中心-已登录.PNG)
+### 四、example（弃）
+已登入微信，未认证时如下：example/个人中心-未登录
+已认证后，如下：example/个人中心-已登录
 
 ## 2020-01-30更新
 ### 一、mock数据
