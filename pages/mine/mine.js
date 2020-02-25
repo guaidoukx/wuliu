@@ -13,11 +13,11 @@ Page({
     var that = this;
     wx.getUserInfo({
       success(res) {
-        if (that.data.header != '') {
+        
           that.setData({
             hasUserInfo: true
           });
-        }
+        
       },
     })
 
