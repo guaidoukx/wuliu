@@ -1,13 +1,20 @@
 <!--pages/realName/realName.wxml-->
+<navigationBar text="登录"></navigationBar>
 <view class='main'>
-  <form bindsubmit="formSubmit"> 
+  <form bindsubmit="formSubmit">
     <view class='form'>
       <view class='inputBox'>
-        <label for='name'>姓名</label>
+        <view class='list_left'>
+          <icon class="iconfont icon-xingming"></icon>
+          <label for='name'>姓名</label>
+        </view>
         <input id="name" name="name" type='text' placeholder='请输入您的真实姓名' placeholder-class='name'></input>
       </view>
       <view class='inputBox'>
-        <label for='id'>工号</label>
+        <view class='list_left'>
+          <icon class="iconfont icon-xinxi"></icon>
+          <label for='id'>工号</label>
+        </view>
         <input id="id" name="id" type='text' placeholder='请输入您的工号' placeholder-class='id'></input>
       </view>
     </view>

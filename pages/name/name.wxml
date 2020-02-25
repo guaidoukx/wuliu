@@ -16,13 +16,16 @@
   <button class='signOut' bindtap='signOut'>退出登录</button> 
 </view>
 -->
-
-<form bindsubmit="formSubmit"> 
+<navigationBar text="姓名" back='true'></navigationBar>
+<form bindsubmit="formSubmit">
   <view class='form'>
-    <view class='inputBox'>
-      <label for='editItem'>姓名</label>
+      <view class='inputBox'>
+      <view class='list_left'>
+      <icon class="iconfont icon-xingming"></icon>
+        <label for='editItem'>姓名</label>
+      </view>
       <input id="editItem" name="editItem" auto-focus type='text' value='{{name}}' placeholder='请输入姓名'></input>
     </view>
   </view>
-  <button class='submit' form-type='submit'>保  存</button>
+  <button class='submit' form-type='submit'>保 存</button>
 </form>

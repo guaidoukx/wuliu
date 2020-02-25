@@ -1,3 +1,5 @@
+/* pages/carNum/carNum.wxss */
+/* pages/name/name.wxss */
 @import "../../iconfont.wxss";
 
 page {
@@ -5,12 +7,12 @@ page {
 }
 
 .list_content {
-  vertical-align: middle;
+  /* vertical-align: middle; */
   align-content: center;
   width: 90%;
   height: 300rpx;
   background: #fff;
-  margin: 300rpx auto;
+  margin: 30rpx auto;
   border-radius: 8rpx;
 }
 
@@ -24,11 +26,14 @@ page {
 }
 
 .list_left {
-  width: 160rpx;
-  height: 34rpx;
-  display: flex;
+  width: 30%;
+  height: 90rpx;
+  display: inline-block;
+  align-content: center;
+  vertical-align: middle;
+  line-height: 1;
   justify-content: space-between;
-  margin: 36rpx 0 0 10rpx;
+  /* margin: 36rpx 0 0 10rpx; */
 }
 
 .listIcon {
@@ -42,10 +47,10 @@ page {
   color: #404040;
 }
 
-.jiantou {
-  width: 16rpx;
-  height: 28rpx;
-  margin-top: 30rpx;
+input {
+  /* width: 16rpx; */
+  font-size: 28rpx;
+  /* margin-top: 30rpx; */
 }
 
 .list_right {
@@ -53,7 +58,6 @@ page {
   height: 34rpx;
   display: flex;
   vertical-align: middle;
-  /* line-height: 1; */
   justify-content: space-between;
 }
 
@@ -64,7 +68,7 @@ page {
   margin-top: 30rpx;
 }
 
-.submit {
+.signOut {
   width: 84%;
   height: 78rpx;
   margin: auto;
@@ -77,39 +81,42 @@ page {
 
 .iconfont {
   color: #3e4663;
-  /* font-size: 20rpx; */
-  display: inline-flex;
+  font-size: 32rpx;
+  line-height: 1;
+  padding: 20rpx;
 }
 
 .form{
-  width: 100%;
-  height: 780rpx;
-  margin-top: 16rpx;
-  background: #ffffff;
+ align-content: center;
+  width: 90%;
+  height: 300rpx;
+  background: #fff;
+  margin: 30rpx auto;
+  border-radius: 8rpx;
 }
 .inputBox{
-  width: 100%;
-  height: 90rpx;
-  border-bottom:2rpx solid #ededed;
+  width: 92%;
+  margin: auto;
+  height: 96rpx;
+  border-bottom: 2rpx solid #e6e6e6;
   display: flex;
   justify-content: space-between;
-  padding:0 0 0 24rpx;
 }
 label{
   font-size: 32rpx;
   font-weight: bold;
-  line-height: 90rpx;
+  line-height: 1;
 }
 #editItem{
   width: 70%;
   height: 90rpx;
   margin-right: 48rpx;
   text-align: right;
-  font-size: 24rpx;
+  font-size: 32rpx;
   color: #999999;
 }
 .editItem{
-  font-size: 24rpx;
+  font-size: 32rpx;
   line-height: 90rpx;
   color: #999999;
 }
@@ -133,4 +140,17 @@ label{
   display: flex;
   justify-content: space-around;
   padding:0 0 0 24rpx;
+}
+.submit{
+  width: 100%;
+  height: 98rpx;
+  position: absolute;
+  bottom:0;
+  left:0;
+  background: #3d4663;
+  color: #ffffff;
+  font-size: 30rpx;
+  line-height: 98rpx;
+  text-align: center;
+  border-radius: 0;
 }

@@ -208,7 +208,7 @@ page {
   border-radius: 39rpx;
   background: #3e4663;
 
-  margin-top: 240rpx;
+  margin-top: 140rpx;
 }
 .inputBox{
   width: 100%;

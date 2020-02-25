@@ -12,16 +12,19 @@
     </view>
   </view>
 
-  <button class='signOut' bindtap='signOut'>退出登录</button> 
+  <button class='signOut' bindtap='signOut'>退出登录</button>
 </view>
 -->
-
-<form bindsubmit="formSubmit"> 
+<navigationBar text="手机号" back='true'></navigationBar>
+<form bindsubmit="formSubmit">
   <view class='form'>
     <view class='inputBox'>
-      <label for='editItem'>手机号</label>
+      <view class='list_left'>
+        <icon class="iconfont icon-dianhua"></icon>
+        <label for='editItem'>手机号</label>
+      </view>
       <input id="editItem" name="editItem" auto-focus type='number' value='{{tel}}' placeholder='请输入手机号'></input>
     </view>
   </view>
-  <button class='submit' form-type='submit'>保  存</button>
+  <button class='submit' form-type='submit'>保 存</button>
 </form>

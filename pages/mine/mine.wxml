@@ -1,4 +1,5 @@
 <!--pages/mine/mine.wxml-->
+<navigationBar text="个人中心"></navigationBar>
 <!-- 头部 -->
 <view wx:if="{{hasUserInfo}}">
   <view class='mine_info'>
@@ -25,7 +26,7 @@
     <view class='list' bindtap='idLook'>
       <view class='list_left'>
         <icon class="iconfont icon-xinxi"></icon>
-        <view class='listName'>工  号</view>
+        <view class='listName'>工　号</view>
       </view>
       <image src='/image/jiantou.png' class='jiantou'></image>
     </view>
@@ -46,7 +47,7 @@
     <view class='list' bindtap='carNumLook'>
       <view class='list_left'>
         <icon class="iconfont icon-xinxi"></icon>
-        <view class='listName'>驾  照</view>
+        <view class='listName'>驾　照</view>
       </view>
       <image src='/image/jiantou.png' class='jiantou'></image>
     </view>

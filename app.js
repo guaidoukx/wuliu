@@ -106,8 +106,8 @@ Mock.mock(api.ordersView, {
         return Mock.Random.datetime()
       },
       "state|1": [0, 1, 2],
-      "lat|1": [119.33333, 99.222],
-      "lng|1": [222.1111, 222.3333]
+      "lat|1": [31.289619, 31.23832],
+      "lng|1": [121.510323, 121.36568]
     }
   ],
   "success": 0,

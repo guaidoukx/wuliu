@@ -15,13 +15,16 @@
   <button class='signOut' bindtap='signOut'>退出登录</button>
 </view>
 -->
-
-<form bindsubmit="formSubmit"> 
+<navigationBar text="驾照" back='true'></navigationBar>
+<form bindsubmit="formSubmit">
   <view class='form'>
     <view class='inputBox'>
-      <label for='editItem'>驾 照</label>
+      <view class='list_left'>
+        <icon class="iconfont icon-xinxi"></icon>
+        <label for='editItem'>驾 照</label>
+      </view>
       <input id="editItem" name="editItem" auto-focus type='text' value='{{number}}' placeholder='请输入驾照编号'></input>
     </view>
   </view>
-  <button class='submit' form-type='submit'>保  存</button>
+  <button class='submit' form-type='submit'>保 存</button>
 </form>
