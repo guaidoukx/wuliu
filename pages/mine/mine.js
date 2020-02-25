@@ -11,15 +11,8 @@ Page({
 
   onLoad: function() {
     var that = this;
-    wx.getUserInfo({
-      success(res) {
-        
-          that.setData({
-            hasUserInfo: true
-          });
-        
-      },
-    })
+    
+    
 
     if (getApp().globalData.header.Cookie != '') { // 全局变量
       this.setData({
@@ -29,6 +22,15 @@ Page({
         tel: getApp().globalData.driverInfo.tel,
         number: getApp().globalData.driverInfo.number,
       })
+    }
+    if (this.data.header != '') {
+      that.setData({
+        hasUserInfo: true
+      });
+    } else {
+      that.setData({
+        hasUserInfo: false
+      });
     }
   },
 
