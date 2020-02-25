@@ -16,6 +16,7 @@ Page({
     wx.request({
       url: api.driversEditName,
       header: getApp().globalData.header,
+      method: 'POST',
       data: {
         id: that.data.id,
         name: value.editItem,

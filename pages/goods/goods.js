@@ -21,6 +21,7 @@ Page({
     onList: [],        // 配送中
     finishList: [],    // 已完成
     hiddenList: [],    // 删除/隐藏
+    driverId: '',      // 驾驶员工号
     //checkbox是否显示
     isCheckbox: false,
     //是否全选
@@ -184,6 +185,7 @@ Page({
     getApp().globalData.that = this
     getApp().setWatcher(getApp().globalData.header, this)
     if (getApp().globalData.header.Cookie != '') {
+      this.data.driverId = getApp().globalData.header.id
       this.getData()
     } else {
       this.setData({
@@ -230,6 +232,10 @@ Page({
     wx.request({
       url: api.ordersView,
       header: getApp().globalData.header,
+      method: 'GET',
+      data: {
+        id: that.data.driverId
+      },
       success: function (res) {
         console.log('All orders：', res);
         if (res.success == 0) {
@@ -528,6 +534,7 @@ Page({
     wx.request({
       url: api.ordersLoad,
       header: getApp().globalData.header,
+      method: 'POST',
       data: {
         id: e.target.id,
       },
@@ -577,6 +584,7 @@ Page({
     wx.request({
       url: api.ordersFinish,
       header: getApp().globalData.header,
+      method: 'POST',
       data: {
         id: e.target.id,
       },
@@ -632,6 +640,7 @@ Page({
           wx.request({
             url: api.ordersHidden,
             header: getApp().globalData.header,
+            method: 'POST',
             data: {
               id: e.target.id,
             },

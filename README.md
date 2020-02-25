@@ -1,6 +1,11 @@
 # 物流小程序
 > 小程序接口文档：[接口文档](https://github.com/guaidoukx/wuliu/blob/WYJ/小程序接口.docx)
 
+## 2020-02-25
+### 一、接口变更（文档更新）
+-  [x] GET,POST变更
+-  [x] 登录请求数据加入驾驶员id
+
 ## 2020-02-24
 ### 一、接口变更(文档更新)
 drivers下，新增name, tel, number，删除edit

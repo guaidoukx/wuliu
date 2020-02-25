@@ -15,6 +15,7 @@ Page({
     let value = e.detail.value;
     wx.request({
       url: api.driversCertify,
+      method: 'POST',
       data: {
         id: value.id,
         name: value.name
