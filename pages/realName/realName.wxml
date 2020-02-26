@@ -1,5 +1,5 @@
 <!--pages/realName/realName.wxml-->
-<navigationBar text="登录"></navigationBar>
+<navigationBar text="登录" back='true'></navigationBar>
 <view class='main'>
   <form bindsubmit="formSubmit">
     <view class='form'>
