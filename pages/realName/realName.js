@@ -35,7 +35,8 @@ Page({
             name: value.name,
             tel: res.data.tel,
             number: res.data.number,
-            header: res.data.sessionId
+            header: res.data.sessionId,
+            hasUserInfo: true
           })
 
           // 全局变量

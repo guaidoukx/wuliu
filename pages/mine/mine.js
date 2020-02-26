@@ -38,9 +38,11 @@ Page({
     var that = this;
     wx.getUserInfo({
       success(res) {
+        /*
         that.setData({
           hasUserInfo: true
         });
+        */
       },
       fail: function () {
         wx.getSetting({
