@@ -1,6 +1,7 @@
 <!--pages/mine/mine.wxml-->
 <navigationBar text="个人中心"></navigationBar>
 <!-- 头部 -->
+<!-- 这个增加一点看看行不行 -->
 <view wx:if="{{hasUserInfo}}">
   <view class='mine_info'>
     <image class='mine_banner' src='/image/earth.png'></image>
