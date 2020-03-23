@@ -1,5 +1,6 @@
 // pages/carNum/carNum.js
 import api from "../../utils/api.js";
+import WxValidate from "../../utils/WxValidate";
 Page({
 
   /**
@@ -12,6 +13,15 @@ Page({
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     let value = e.detail.value;
+    if (!this.WxValidate.checkForm(value)) {
+      let error = this.WxValidate.errorList[0];
+      wx.showToast({
+        title: error.msg,
+        icon: 'none',
+        duration: 2000
+      })
+      return false;
+    }
     let that = this
     wx.request({
       url: api.driversEditNumber,
@@ -51,7 +61,7 @@ Page({
           console.log(res.message);
           wx.showToast({
             title: '请重试！',
-            icon: 'fail',
+            icon: 'none',
             duration: 2000
           })
           wx.hideToast()
@@ -60,7 +70,7 @@ Page({
       fail: function () {
         wx.showToast({
           title: '无法连接到服务器！',
-          icon: 'fail',
+          icon: 'none',
           duration: 2000
         })
         wx.hideToast()
@@ -77,7 +87,25 @@ Page({
       id: options.id,
       number: options.number
     })
+    this.initValidate();
   },
+  initValidate() {
+    let rules = {
+      editItem: {
+        required: true,
+        //isVehicleNumber: true
+      }
+    }
+
+    let message = {
+      editItem: {
+        required: '请输入驾照',
+      }
+    }
+    this.WxValidate = new WxValidate(rules, message);
+  },
+  
+  
 
   /**
    * 生命周期函数--监听页面初次渲染完成

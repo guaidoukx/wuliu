@@ -129,7 +129,7 @@ Page({
     })
   },
 
-  //个人中心的车牌号,点击跳转到车牌号
+  //个人中心的驾照
   carNumLook() {
     wx.navigateTo({
       url: '../carNum/carNum?number=' + this.data.number + "&id=" + this.data.id,
