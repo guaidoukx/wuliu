@@ -135,6 +135,12 @@ Page({
       url: '../carNum/carNum?number=' + this.data.number + "&id=" + this.data.id,
     })
   },
+  // 配送记录
+  orderHistory() {
+    wx.navigateTo({
+      url: '../history/history',
+    })
+  },
   //我的地址
   addr() {
     wx.navigateTo({

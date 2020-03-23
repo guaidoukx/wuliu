@@ -50,6 +50,13 @@
       </view>
       <image src='/image/jiantou.png' class='jiantou'></image>
     </view>
+    <view class='list' bindtap='orderHistory'>
+      <view class='list_left'>
+        <image class='listIcon' src='../image/edit.png'></image>
+        <view class='listName'>配送记录</view>
+      </view>
+      <image src='../image/jiantou.png' class='jiantou'></image>
+    </view>
     <button class='signOut' bindtap='signOut'>退出登录</button>
   </view>
 </view>
