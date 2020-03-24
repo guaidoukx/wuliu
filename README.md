@@ -1,6 +1,11 @@
 # 物流小程序
 > 小程序接口文档：[接口文档](https://github.com/guaidoukx/wuliu/blob/WYJ/小程序接口.docx)
 
+## 2020-03-19
+### 一、修改
+- [x]表单验证，验证填写数据是否合法（phoneNum, carNum, name）。
+- [x]历史配送单，mock，api
+
 ## 2020-02-25
 ### 一、接口变更（文档更新）
 -  [x] GET,POST变更

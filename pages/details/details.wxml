@@ -1,16 +1,19 @@
 <!--pages/details/details.wxml-->
-<navigationBar text="调度单详情" back="true"></navigationBar>
+<navigationBar text="订单详情" back="true"></navigationBar>
 <view class='main'>
   <view class='finishInfo'>
     <view class='finishInfo_left'>
       <view class='bianhao'>
         <image class='numPic' src='/image/package.png'></image>
-        <view class='num'>调度单编号 {{id}}</view>
+        <view class='num'>订单编号 {{id}}</view>
       </view>
       <view class='time'>日期: {{time}}</view>
     </view>
-    <view class='finishInfo_right'>待取货</view>
+    <view wx:if="{{state==0}}"class='loadInfo_right'>待取货</view>
+    <view wx:if="{{state==1}}"class='onInfo_right'>运输中</view>
+    <view wx:if="{{state==2}}"class='finishInfo_right'>已完成</view>
   </view>
+  
   <!-- 物品信息备注 -->
   <!-- <view class='remarks' wx:if="{{isInfo}}">
     <view class='remarks_top' bindtap='remarks'>
@@ -31,15 +34,15 @@
   <!-- 寄件 -->
   <view class='jijian {{displays?"none":"show"}}'>
     <view class='lists'>
-      <view class='list_name'>门店</view>
+      <view class='list_name'>目的地</view>
       <view class='list_item'>{{market}}</view>
     </view>
     <view class='lists'>
-      <view class='list_name'>门店地址</view>
+      <view class='list_name'>目的地址</view>
       <view class='list_item'>{{address}}</view>
     </view>
     <view class='lists'>
-      <view class='list_name'>仓库地址</view>
+      <view class='list_name'>取货地址</view>
       <view class='list_item'>{{warehouse}}</view>
     </view>
     <!-- <view class='lists'>
@@ -47,7 +50,7 @@
       <view class='list_item'>3个/月</view>
     </view> -->
     <view class='list'>
-      <view class='list_name'>门店电话</view>
+      <view class='list_name'>收货人电话</view>
       <view class='list_item'>{{tel}}</view>
     </view>
   </view>

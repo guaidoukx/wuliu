@@ -31,7 +31,8 @@
     "pages/logs/log",
     "pages/name/name",
     "pages/phoneNum/phoneNum",
-    "pages/carNum/carNum"
+    "pages/carNum/carNum",
+    "pages/historyDispatch/historyDispatch"
   ],
   "window": {
     "backgroundTextStyle": "light",

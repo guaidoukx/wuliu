@@ -1,0 +1,27 @@
+<navigationBar text="配送历史" back='true'></navigationBar>
+<view class='main'>
+  <view class='list' wx:for="{{dispatchHistoryList}}" wx:for-item="item" wx:key='id' bindtap="loadDispatchDetails">
+      <view class='list_top'>
+        <view class="dispatch">
+          <view class="dispatch-line">
+            <icon class="iconfont icon-caidan"></icon>
+            <view class="dispatch-title dispatch-inline ">配送单标识：</view>
+            <view class="text-info dispatch-inline mendian">{{item.id}}</view>
+          </view>
+          <view class="dispatch-line">
+            <icon class="iconfont icon-shijian"></icon>
+            <view class="dispatch-title dispatch-inline">班列：</view>
+            <view class="text-info dispatch-inline">{{item.starttime}}</view>
+          </view>
+          <view class="dispatch-line">
+            <icon class="iconfont icon-shijian"></icon>
+            <view class="dispatch-title dispatch-inline">配送日期：</view>
+            <view class="text-info dispatch-inline">{{item.endtime}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='rexian' style='position:{{display}}'>
+      <view class='tel'>--- 已经到底啦 ---</view>
+    </view>
+</view>

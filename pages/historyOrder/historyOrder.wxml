@@ -1,0 +1,31 @@
+<navigationBar text="订单列表" back='true'></navigationBar>
+<view class='main'>
+  <view class='list' wx:for="{{list}}" wx:for-item="item" wx:key='id' bindtap="loadOrderDetails">
+      <view class='list_top'>
+        <view class="dispatch">
+          <view class="dispatch-line">
+            <icon class="iconfont icon-caidan"></icon>
+            <view class="dispatch-title dispatch-inline ">订单标识：</view>
+            <view class="text-info dispatch-inline mendian">{{item.id}}</view>
+          </view>
+          <view class="dispatch-line">
+            <icon class="iconfont icon-shijian"></icon>
+            <view class="dispatch-title dispatch-inline">起始时间：</view>
+            <view class="text-info dispatch-inline">{{item.starttime}}</view>
+          </view>
+          <view class="dispatch-line">
+            <icon class="iconfont icon-shijian"></icon>
+            <view class="dispatch-title dispatch-inline">完成时间：</view>
+            <view class="text-info dispatch-inline">{{item.endtime}}</view>
+          </view>
+        </view>
+        <!-- </view> -->
+        <!--<view class='state'>待取货</view>-->
+      </view>
+      <!-- <view class='hr'></view> -->
+    </view>
+    <!-- 热线 -->
+    <view class='rexian' style='position:{{display}}'>
+      <view class='tel'>--- 已经到底啦 ---</view>
+    </view>
+</view>

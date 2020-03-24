@@ -26,7 +26,8 @@ Page({
       market: options.market == "undefined" ? "-" : options.market,
       address: options.address == "undefined" ? "-" : options.address,
       time: options.time == "undefined" ? "-" : options.time,
-      tel: options.tel == "undefined" ? "-" : options.tel
+      tel: options.tel == "undefined" ? "-" : options.tel,
+      state: options.state == "undefined" ? "-" : options.state
     })
     wx.getSystemInfo({
       success: function(res) {

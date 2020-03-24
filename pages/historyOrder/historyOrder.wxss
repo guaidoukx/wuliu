@@ -57,7 +57,7 @@ page {
 
 .list {
   width: 94%;
-  height: 340rpx;
+  height: 220rpx;
   margin: 16rpx auto;
   background: #fff;
   border-radius: 8rpx;
@@ -111,12 +111,6 @@ page {
   background: #e6e6e6;
   margin: auto;
 }
-.state-wrapper{
-  float: right;
-  width: 140rpx;
-  height: 110rpx;
-  align-content: center;
-} 
 
 .state {
   width: 140rpx;
@@ -126,22 +120,9 @@ page {
   line-height: 54rpx;
   text-align: center;
   color: #fff;
-  /* border-top-left-radius: 27rpx; */
+  border-top-left-radius: 27rpx;
   border-bottom-left-radius: 27rpx;
-  /* margin-top: 34rpx; */
-}
-.state-new{
-  width: 54rpx;
-  height: 54rpx;
-  line-height: 54rpx;
-  color: orangered;
-  font-size: 30rpx;
-  text-align: center;
-  margin-left: 40rpx;
-  margin-top: 20rpx;
-  border: 1rpx solid orangered;
-  border-radius: 50rpx;
-  align-content: center;
+  margin-top: 34rpx;
 }
 .state-load{
   background: red;
@@ -443,7 +424,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   color: #888;
   /* background: #c8ecca1e; */
   display: block;
-  margin-top: 25rpx;
+  margin-top: 20rpx;
   margin-left: 30rpx;
   margin-right:  0rpx;
   /* border: solid 0.5rpx; */

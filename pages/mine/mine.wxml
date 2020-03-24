@@ -1,7 +1,6 @@
 <!--pages/mine/mine.wxml-->
 <navigationBar text="个人中心"></navigationBar>
 <!-- 头部 -->
-<!-- 这个增加一点看看行不行 -->
 <view wx:if="{{hasUserInfo}}">
   <view class='mine_info'>
     <image class='mine_banner' src='/image/earth.png'></image>
@@ -27,14 +26,14 @@
     <view class='list' bindtap='idLook'>
       <view class='list_left'>
         <icon class="iconfont icon-xinxi"></icon>
-        <view class='listName'>工　号</view>
+        <view class='listName'>工号</view>
       </view>
       <image src='/image/jiantou.png' class='jiantou'></image>
     </view>
     <view class='list' bindtap='nameLook'>
       <view class='list_left'>
         <icon class="iconfont icon-xingming"></icon>
-        <view class='listName'>姓　名</view>
+        <view class='listName'>姓名</view>
       </view>
       <image src='/image/jiantou.png' class='jiantou'></image>
     </view>
@@ -48,7 +47,21 @@
     <view class='list' bindtap='carNumLook'>
       <view class='list_left'>
         <icon class="iconfont icon-xinxi"></icon>
-        <view class='listName'>驾　照</view>
+        <view class='listName'>驾照</view>
+      </view>
+      <image src='/image/jiantou.png' class='jiantou'></image>
+    </view>
+    <view class='list' bindtap='orderHistory'>
+      <view class='list_left'>
+        <icon class="iconfont icon-xinxi"></icon>
+        <view class='listName'>先连到历史订单</view>
+      </view>
+      <image src='/image/jiantou.png' class='jiantou'></image>
+    </view>
+    <view class='list' bindtap='dispatchHistory'>
+      <view class='list_left'>
+        <icon class="iconfont icon-xinxi"></icon>
+        <view class='listName'>连到配送单</view>
       </view>
       <image src='/image/jiantou.png' class='jiantou'></image>
     </view>

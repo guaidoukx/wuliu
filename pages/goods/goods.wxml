@@ -4,7 +4,7 @@
 
 <view class="swiper-tab" style="top:{{app.globalData.navigationBarHeight}}">
   <view class="tab-item {{currentIndex1?'active':''}} " bindtap="currentIndex1">待取货({{loadNum}})</view>
-  <view class="tab-item {{currentIndex3?'active':''}}" bindtap="currentIndex3">配送中({{outNum}})</view>
+  <view class="tab-item {{currentIndex3?'active':''}}" bindtap="currentIndex3">运输中({{outNum}})</view>
   <view class="tab-item {{currentIndex4?'active':''}}" bindtap="currentIndex4">已完成({{finishNum}})</view>
 </view>
 <view class='tab-items'>
@@ -22,28 +22,33 @@
         <view class="dispatch">
           <view class="dispatch-line">
             <icon class="iconfont icon-dianputianjia"></icon>
-            <view class="dispatch-title dispatch-inline ">对应门店：</view>
+            <view class="dispatch-title dispatch-inline ">目的地：</view>
             <view class="text-info dispatch-inline mendian">{{item.market}}</view>
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>
-            <view class="dispatch-title dispatch-inline">调度单编号：</view>
+            <view class="dispatch-title dispatch-inline">订单编号：</view>
             <view class="text-info dispatch-inline">{{item.id}}</view>
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-cangku"></icon>
-            <view class="dispatch-title dispatch-inline">对应仓库：</view>
+            <view class="dispatch-title dispatch-inline">取货地点：</view>
             <view class="text-info dispatch-inline">{{item.warehouse}}</view>
           </view>
 
           <view class="dispatch-line">
             <icon class="iconfont icon-shijian"></icon>
-            <view class="dispatch-title dispatch-inline">调度单时间：</view>
+            <view class="dispatch-title dispatch-inline">订单时间：</view>
             <view class="text-info dispatch-inline">{{item.time}}</view>
           </view>
         </view>
         <!-- </view> -->
-        <view class='state state-load'>待取货</view>
+        <view class="state-wrapper">
+          <view class='state state-load'>待取货</view>
+          <!-- wx:if="{{item.new}}" 要加上去-->
+          <view class='state-new'>新</view>
+        </view>
+
       </view>
       <!-- <view class='hr'></view> -->
       <view class='loadBtn'>
@@ -120,27 +125,27 @@
         <view class="dispatch">
           <view class="dispatch-line">
             <icon class="iconfont icon-dianputianjia"></icon>
-            <view class="dispatch-title dispatch-inline ">对应门店：</view>
+            <view class="dispatch-title dispatch-inline ">目的地：</view>
             <view class="text-info dispatch-inline mendian">{{item.market}}</view>
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>
-            <view class="dispatch-title dispatch-inline">调度单编号：</view>
+            <view class="dispatch-title dispatch-inline">订单编号：</view>
             <view class="text-info dispatch-inline">{{item.id}}</view>
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-cangku"></icon>
-            <view class="dispatch-title dispatch-inline">对应仓库：</view>
+            <view class="dispatch-title dispatch-inline">取货地点：</view>
             <view class="text-info dispatch-inline">{{item.warehouse}}</view>
           </view>
 
           <view class="dispatch-line">
             <icon class="iconfont icon-shijian"></icon>
-            <view class="dispatch-title dispatch-inline">调度单时间：</view>
+            <view class="dispatch-title dispatch-inline">订单时间：</view>
             <view class="text-info dispatch-inline">{{item.time}}</view>
           </view>
         </view>
-        <view class='state state-on'>配送中</view>
+        <view class='state state-on'>运输中</view>
       </view>
       <!-- <view class='hr'></view> -->
       <view class='loadBtn'>
@@ -172,23 +177,23 @@
         <view class="dispatch">
           <view class="dispatch-line">
             <icon class="iconfont icon-dianputianjia"></icon>
-            <view class="dispatch-title dispatch-inline ">对应门店：</view>
+            <view class="dispatch-title dispatch-inline ">目的地：</view>
             <view class="text-info dispatch-inline mendian">{{item.market}}</view>
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>
-            <view class="dispatch-title dispatch-inline">调度单编号：</view>
+            <view class="dispatch-title dispatch-inline">订单编号：</view>
             <view class="text-info dispatch-inline">{{item.id}}</view>
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-cangku"></icon>
-            <view class="dispatch-title dispatch-inline">对应仓库：</view>
+            <view class="dispatch-title dispatch-inline">取货地点：</view>
             <view class="text-info dispatch-inline">{{item.warehouse}}</view>
           </view>
 
           <view class="dispatch-line">
             <icon class="iconfont icon-shijian"></icon>
-            <view class="dispatch-title dispatch-inline">调度单时间：</view>
+            <view class="dispatch-title dispatch-inline">订单时间：</view>
             <view class="text-info dispatch-inline">{{item.time}}</view>
           </view>
         </view>

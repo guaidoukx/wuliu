@@ -93,6 +93,23 @@ App({
  * 2.drivers
  */
 var Mock = require("./utils/WxMock.js");
+Mock.mock(api.ordersHistory, {
+  "code": 200,
+  "data|3-7": [
+    {
+      "id|+1": 1,
+      "starttime": function () {
+        return Mock.Random.datetime()
+      },
+      "endtime": function () {
+        return Mock.Random.datetime()
+      },
+      "state|1": [0, 1, 2]
+    }
+  ],
+  "success": 0,
+  "message": "请求成功。"
+})
 Mock.mock(api.ordersView, {
   "code": 200,
   "data|3-7": [

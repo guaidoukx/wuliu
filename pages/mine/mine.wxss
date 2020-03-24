@@ -161,11 +161,11 @@ page {
 }
 
 .list_left {
-  width: 160rpx;
+  width: 200rpx;
   height: 34rpx;
   display: flex;
-  justify-content: space-between;
-  margin: 36rpx 0 0 10rpx;
+  /* justify-content: space-between; */
+  margin: 36rpx 0 0 0rpx;
 }
 
 .listIcon {
@@ -176,6 +176,7 @@ page {
 .listName {
   line-height: 34rpx;
   font-size: 30rpx;
+  margin-left: 30rpx;
   color: #404040;
 }
 
@@ -208,7 +209,7 @@ page {
   border-radius: 39rpx;
   background: #3e4663;
 
-  margin-top: 140rpx;
+  margin-top: 100rpx;
 }
 .inputBox{
   width: 100%;

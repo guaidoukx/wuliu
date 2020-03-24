@@ -40,10 +40,34 @@ page{
   color: #999999;
   margin:18rpx 0 0 30rpx
 }
+.loadInfo_right{
+  width: 142rpx;
+  height: 54rpx;
+  background: red;
+  font-size: 26rpx;
+  line-height: 54rpx;
+  text-align: center;
+  color: #ffffff;
+  border-top-left-radius: 27rpx;
+  border-bottom-left-radius: 27rpx;
+  margin-top: 32rpx;
+}
+.onInfo_right{
+  width: 142rpx;
+  height: 54rpx;
+  background: orange;
+  font-size: 26rpx;
+  line-height: 54rpx;
+  text-align: center;
+  color: #ffffff;
+  border-top-left-radius: 27rpx;
+  border-bottom-left-radius: 27rpx;
+  margin-top: 32rpx;
+}
 .finishInfo_right{
   width: 142rpx;
   height: 54rpx;
-  background: #3d4663;
+  background: green;
   font-size: 26rpx;
   line-height: 54rpx;
   text-align: center;

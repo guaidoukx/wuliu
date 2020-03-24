@@ -1,5 +1,7 @@
-var server = 'https://mock-wuliu.com/';
+// var server = 'https://mock-wuliu.com/';
+var server = 'http://10.141.209.224:5050/';
 var api = {
+  orderHistory: server + "delivery/history",
   ordersView: server + "delivery/view",
   ordersLoad: server + "delivery/load",
   ordersFinish: server + "delivery/finish",

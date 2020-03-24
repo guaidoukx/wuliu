@@ -319,7 +319,7 @@ Page({
       url: '../outDetails/outDetails',
     })
   },
-  //待取货查看详情
+  //查看详情，详情页显示内容的传参接口，需要的都从这儿传
   loadDetails(e) {
     // this.requestId = e.currentTarget.id
     // console.log(e.currentTarget.id)
@@ -327,7 +327,7 @@ Page({
     let a = this.data.loadList[index]
     console.log(a)
     wx.navigateTo({
-      url: '../details/details?id=' + a.id + "&time=" + a.time + "&market=" + a.market + "&address=" + a.address + "&warehouse=" + a.warehouse + "&tel=" + a.tel
+      url: '../details/details?id=' + a.id + "&time=" + a.time + "&market=" + a.market + "&address=" + a.address + "&warehouse=" + a.warehouse + "&tel=" + a.tel + "&state=" + a.state
     })
   },
 
@@ -339,7 +339,7 @@ Page({
     let a = this.data.onList[index]
     console.log(a)
     wx.navigateTo({
-      url: '../details/details?id=' + a.id + "&time=" + a.time + "&market=" + a.market + "&address=" + a.address + "&warehouse=" + a.warehouse + "&tel=" + a.tel
+      url: '../details/details?id=' + a.id + "&time=" + a.time + "&market=" + a.market + "&address=" + a.address + "&warehouse=" + a.warehouse + "&tel=" + a.tel + "&state=" + a.state
     })
   },
 
@@ -350,7 +350,7 @@ Page({
     let a = this.data.finishList[index]
     console.log(a)
     wx.navigateTo({
-      url: '../details/details?id=' + a.id + "&time=" + a.time + "&market=" + a.market + "&address=" + a.address + "&warehouse=" + a.warehouse + "&tel=" + a.tel
+      url: '../details/details?id=' + a.id + "&time=" + a.time + "&market=" + a.market + "&address=" + a.address + "&warehouse=" + a.warehouse + "&tel=" + a.tel + "&state=" + a.state
     })
   },
 

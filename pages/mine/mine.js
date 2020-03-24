@@ -11,9 +11,6 @@ Page({
 
   onLoad: function() {
     var that = this;
-    
-    
-
     if (getApp().globalData.header.Cookie != '') { // 全局变量
       this.setData({
         header: getApp().globalData.header,       //获取app.js中的请求头
@@ -38,9 +35,12 @@ Page({
     var that = this;
     wx.getUserInfo({
       success(res) {
-        // that.setData({
-        //   hasUserInfo: true
-        // });
+
+        /*
+        that.setData({
+          hasUserInfo: true
+        });
+        */
       },
       fail: function () {
         wx.getSetting({
@@ -127,10 +127,21 @@ Page({
     })
   },
 
-  //个人中心的车牌号,点击跳转到车牌号
+  //个人中心的驾照
   carNumLook() {
     wx.navigateTo({
       url: '../carNum/carNum?number=' + this.data.number + "&id=" + this.data.id,
+    })
+  },
+  // 配送记录
+  orderHistory() {
+    wx.navigateTo({
+      url: '../historyOrder/historyOrder',
+    })
+  },
+  dispatchHistory() {
+    wx.navigateTo({
+      url: '../historyDispatch/historyDispatch',
     })
   },
   //我的地址
