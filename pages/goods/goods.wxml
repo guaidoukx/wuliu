@@ -1,5 +1,5 @@
 <!--pages/goods/goods.wxml-->
-<navigationBar text="配送列表"></navigationBar>
+<navigationBar text="订单列表"></navigationBar>
 <!-- <mp-navigation-bar loading="{{loading}}" show="true" animated="{{animated}}" color="{{color}}" background="{{background}}" title="UI组件库" back="{{true}}"></mp-navigation-bar> -->
 
 <view class="swiper-tab" style="top:{{app.globalData.navigationBarHeight}}">
@@ -27,13 +27,13 @@
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>
-            <view class="dispatch-title dispatch-inline">订单编号：</view>
-            <view class="text-info dispatch-inline">{{item.id}}</view>
+            <view class="dispatch-title dispatch-inline">订单类型：</view>
+            <view class="text-info dispatch-inline">{{item.type}}</view>
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>
-            <view class="dispatch-title dispatch-inline">订单类型：</view>
-            <view class="text-info dispatch-inline">{{item.type}}</view>
+            <view class="dispatch-title dispatch-inline">订单编号：</view>
+            <view class="text-info dispatch-inline">{{item.id}}</view>
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-cangku"></icon>

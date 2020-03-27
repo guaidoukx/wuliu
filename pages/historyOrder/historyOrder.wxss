@@ -58,7 +58,7 @@ page {
 .list {
   width: 94%;
   height: auto;
-  margin: 16rpx auto;
+  margin: 16rpx ;
   background: #fff;
   border-radius: 8rpx;
 }
@@ -69,6 +69,7 @@ page {
   display: flex;
   justify-content: space-between;
   overflow: hidden;
+  /* padding-bottom: 30rpx; */
 }
 
 .numAndTime {
@@ -424,7 +425,8 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   color: #888;
   /* background: #c8ecca1e; */
   display: block;
-  margin-top: 20rpx;
+  margin-top: 15rpx;
+  margin-bottom: 30rpx;
   margin-left: 30rpx;
   margin-right:  0rpx;
   /* border: solid 0.5rpx; */
@@ -438,7 +440,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 
 .dispatch-inline {
   display: inline-block;
-  padding-top: -20rpx;
+  /* padding-top: -20rpx; */
   /* padding-left: 20rpx; */
 }
 
@@ -448,8 +450,8 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   /* line-height: 1.3; */
 }
 .mendian{
-  font-size: 30rpx;
-  color: #000;
+  font-size: var(--fontSize);
+  color: #3d4663;
 }
 
 .iconfont {

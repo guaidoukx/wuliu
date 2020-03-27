@@ -16,12 +16,12 @@
           <view class="dispatch-line">
             <icon class="iconfont icon-shijian"></icon>
             <view class="dispatch-title dispatch-inline">订单时间：</view>
-            <view class="text-info dispatch-inline">{{item.time}}</view>
+            <view class="text-info dispatch-inline mendian">{{item.time}}</view>
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-shijian"></icon>
             <view class="dispatch-title dispatch-inline">订单截止时间：</view>
-            <view class="text-info dispatch-inline">{{item.deadline}}</view>
+            <view class="text-info dispatch-inline mendian">{{item.deadline}}</view>
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>

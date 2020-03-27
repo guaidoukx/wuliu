@@ -6,7 +6,7 @@
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>
             <view class="dispatch-title dispatch-inline ">配送单标识：</view>
-            <view class="text-info dispatch-inline mendian">{{item.dispatchid}}</view>
+            <view class="text-info dispatch-inline">{{item.dispatchid}}</view>
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-shijian"></icon>
