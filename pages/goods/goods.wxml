@@ -31,6 +31,11 @@
             <view class="text-info dispatch-inline">{{item.id}}</view>
           </view>
           <view class="dispatch-line">
+            <icon class="iconfont icon-caidan"></icon>
+            <view class="dispatch-title dispatch-inline">订单类型：</view>
+            <view class="text-info dispatch-inline">{{item.type}}</view>
+          </view>
+          <view class="dispatch-line">
             <icon class="iconfont icon-cangku"></icon>
             <view class="dispatch-title dispatch-inline">取货地点：</view>
             <view class="text-info dispatch-inline">{{item.warehouse}}</view>
@@ -130,6 +135,11 @@
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>
+            <view class="dispatch-title dispatch-inline">订单类型：</view>
+            <view class="text-info dispatch-inline">{{item.type}}</view>
+          </view>
+          <view class="dispatch-line">
+            <icon class="iconfont icon-caidan"></icon>
             <view class="dispatch-title dispatch-inline">订单编号：</view>
             <view class="text-info dispatch-inline">{{item.id}}</view>
           </view>
@@ -179,6 +189,11 @@
             <icon class="iconfont icon-dianputianjia"></icon>
             <view class="dispatch-title dispatch-inline ">目的地：</view>
             <view class="text-info dispatch-inline mendian">{{item.market}}</view>
+          </view>
+          <view class="dispatch-line">
+            <icon class="iconfont icon-caidan"></icon>
+            <view class="dispatch-title dispatch-inline">订单类型：</view>
+            <view class="text-info dispatch-inline">{{item.type}}</view>
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>

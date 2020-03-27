@@ -9,20 +9,37 @@
             <view class="text-info dispatch-inline mendian">{{item.id}}</view>
           </view>
           <view class="dispatch-line">
-            <icon class="iconfont icon-shijian"></icon>
-            <view class="dispatch-title dispatch-inline">起始时间：</view>
-            <view class="text-info dispatch-inline">{{item.starttime}}</view>
+            <icon class="iconfont icon-caidan"></icon>
+            <view class="dispatch-title dispatch-inline ">订单类型：</view>
+            <view class="text-info dispatch-inline mendian">{{item.type}}</view>
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-shijian"></icon>
-            <view class="dispatch-title dispatch-inline">完成时间：</view>
-            <view class="text-info dispatch-inline">{{item.endtime}}</view>
+            <view class="dispatch-title dispatch-inline">订单时间：</view>
+            <view class="text-info dispatch-inline">{{item.time}}</view>
+          </view>
+          <view class="dispatch-line">
+            <icon class="iconfont icon-shijian"></icon>
+            <view class="dispatch-title dispatch-inline">订单截止时间：</view>
+            <view class="text-info dispatch-inline">{{item.deadline}}</view>
+          </view>
+          <view class="dispatch-line">
+            <icon class="iconfont icon-caidan"></icon>
+            <view class="dispatch-title dispatch-inline ">上货网点名称：</view>
+            <view class="text-info dispatch-inline mendian">{{item.warehouse}}</view>
+          </view>
+          <view class="dispatch-line">
+            <icon class="iconfont icon-caidan"></icon>
+            <view class="dispatch-title dispatch-inline ">下货网点名称：</view>
+            <view class="text-info dispatch-inline mendian">{{item.market}}</view>
+          </view>
+          <view class="dispatch-line">
+            <icon class="iconfont icon-caidan"></icon>
+            <view class="dispatch-title dispatch-inline ">下货网点地址：</view>
+            <view class="text-info dispatch-inline mendian">{{item.address}}</view>
           </view>
         </view>
-        <!-- </view> -->
-        <!--<view class='state'>待取货</view>-->
       </view>
-      <!-- <view class='hr'></view> -->
     </view>
     <!-- 热线 -->
     <view class='rexian' style='position:{{display}}'>

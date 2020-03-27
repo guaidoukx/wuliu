@@ -6,22 +6,37 @@
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>
             <view class="dispatch-title dispatch-inline ">配送单标识：</view>
-            <view class="text-info dispatch-inline mendian">{{item.id}}</view>
+            <view class="text-info dispatch-inline mendian">{{item.dispatchid}}</view>
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-shijian"></icon>
             <view class="dispatch-title dispatch-inline">班列：</view>
-            <view class="text-info dispatch-inline">{{item.starttime}}</view>
+            <view class="text-info dispatch-inline">{{item.routeid}}</view>
+          </view>
+          <view class="dispatch-line">
+            <icon class="iconfont icon-shijian"></icon>
+            <view class="dispatch-title dispatch-inline">班次：</view>
+            <view class="text-info dispatch-inline">{{item.runid}}</view>
           </view>
           <view class="dispatch-line">
             <icon class="iconfont icon-shijian"></icon>
             <view class="dispatch-title dispatch-inline">配送日期：</view>
+            <view class="text-info dispatch-inline">{{item.starttime}}</view>
+          </view>
+          <view class="dispatch-line">
+            <icon class="iconfont icon-shijian"></icon>
+            <view class="dispatch-title dispatch-inline">完成日期：</view>
             <view class="text-info dispatch-inline">{{item.endtime}}</view>
           </view>
         </view>
+        <view class='state state-load' wx:if="{{item.state == 0}}">待配送</view>
+        <view class='state state-finish' wx:else>已完成</view>
       </view>
-    </view>
-    <view class='rexian' style='position:{{display}}'>
-      <view class='tel'>--- 已经到底啦 ---</view>
-    </view>
+      <view class='loadBtn'>
+        <view class='see_btn' bindtap='orderHistory' data-index="{{index}}">查看详情</view>
+      </view>
+  </view>
+  <view class='rexian' style='position:{{display}}'>
+    <view class='tel'>--- 已经到底啦 ---</view>
+  </view>
 </view>

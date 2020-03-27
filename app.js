@@ -110,8 +110,51 @@ Mock.mock(api.ordersHistory, {
   "success": 0,
   "message": "请求成功。"
 })
+Mock.mock(api.ordersAll, {
+  "code": 200,
+  "data|3-5": [
+    {
+      "dispatchid|+1": 1,
+      "runid|+1": 1,
+      "routeid|+1": 1,
+      "starttime": function () {
+        return Mock.Random.datetime()
+      },
+      "endtime": function () {
+        return Mock.Random.datetime()
+      },
+      "state|1": [0, 1],
+      "data|3-7": [
+        {
+          "state|1": [0, 1, 2],
+          "id|+1": 1,
+          "market|1": ["邯郸路一号店", "张江一号店", "张江二号店"],
+          "address|1": ["杨浦区国权路1888号", "普陀区金沙江路2345号", "浦东新区张衡路980号"],
+          "tel|1": ["5789837", "2736483", "5395847"],
+          "warehouse|1": ["一号仓", "二号仓", "三号门店"],
+          "time": function () {
+            return Mock.Random.datetime()
+          },
+          "deadline": function () {
+            return Mock.Random.datetime()
+          },
+          "order|+1": 1,
+          "type|1": [0, 1, 3, 4, 5],
+          "state|1": [0, 1, 2],
+          "lat|1": [31.289619, 31.23832],
+          "lng|1": [121.510323, 121.36568]
+        }
+      ]
+    }
+  ],
+  "success": 0,
+  "message": "请求成功。"
+})
 Mock.mock(api.ordersView, {
   "code": 200,
+  "dispatchid|+1": 1,
+  "routeid|+1": 1,
+  "runid|+1": 1,
   "data|3-7": [
     {
       "id|+1": 1,
@@ -122,6 +165,11 @@ Mock.mock(api.ordersView, {
       "time": function () {
         return Mock.Random.datetime()
       },
+      "deadline": function () {
+        return Mock.Random.datetime()
+      },
+      "order|+1": 1,
+      "type|1": [0, 1, 3, 4, 5],
       "state|1": [0, 1, 2],
       "lat|1": [31.289619, 31.23832],
       "lng|1": [121.510323, 121.36568]
@@ -149,6 +197,7 @@ Mock.mock(api.driversCertify, {
   "code": 200,
   "data": {
     "sessionId|1": ['C5350F9B17F28887BC17D3E45A4A4A94', 'E1920F9B17F28887BC1K9EE45A4A4A94'],
+    "id|+1":1,
     "tel|1": ['13987608888', '15628798896'],
     "number|1": ['898755', '98877667']
   },

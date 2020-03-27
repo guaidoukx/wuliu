@@ -57,7 +57,7 @@ page {
 
 .list {
   width: 94%;
-  height: 220rpx;
+  height: 340rpx;
   margin: 16rpx auto;
   background: #fff;
   border-radius: 8rpx;
@@ -135,16 +135,7 @@ page {
 }
 
 .loadBtn {
-  width: 520rpx;
-  height: 50rpx;
-  display: flex;
-  justify-content: space-between;
-  float: right;
-  margin: 0rpx 20rpx 0 0;
-}
-
-.finishBtn {
-  width: 340rpx;
+  width: 180rpx;
   height: 50rpx;
   display: flex;
   justify-content: space-between;
@@ -164,45 +155,6 @@ page {
 }
 
 .see_btn::after {
-  border: none;
-}
-
-.edit_btn {
-  width: 160rpx;
-  height: 54rpx;
-  display: block;
-  font-size: 24rpx;
-  line-height: 54rpx;
-  text-align: center;
-  border-radius: 25rpx;
-  border: 1rpx solid #e6e6e6;
-}
-
-.edit_btn::after {
-  border: none;
-}
-
-.inBtn {
-  width: 540rpx;
-  height: 54rpx;
-  display: flex;
-  justify-content: space-between;
-  float: right;
-  margin: 30rpx 26rpx 0 0;
-}
-
-.extend_btn {
-  width: 160rpx;
-  height: 50rpx;
-  display: block;
-  font-size: 24rpx;
-  line-height: 50rpx;
-  text-align: center;
-  border-radius: 25rpx;
-  border: 1rpx solid #e6e6e6;
-}
-
-.extend_btn::after {
   border: none;
 }
 

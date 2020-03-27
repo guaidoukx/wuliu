@@ -27,7 +27,10 @@ Page({
       address: options.address == "undefined" ? "-" : options.address,
       time: options.time == "undefined" ? "-" : options.time,
       tel: options.tel == "undefined" ? "-" : options.tel,
-      state: options.state == "undefined" ? "-" : options.state
+      state: options.state == "undefined" ? "-" : options.state,
+      type: options.type == "undefined" ? "-" : options.type,
+      order: options.order == "undefined" ? "-" : options.order,
+      deadline: options.deadline == "undefined" ? "-" : options.deadline
     })
     wx.getSystemInfo({
       success: function(res) {

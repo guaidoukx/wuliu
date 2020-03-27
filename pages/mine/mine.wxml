@@ -51,6 +51,7 @@
       </view>
       <image src='/image/jiantou.png' class='jiantou'></image>
     </view>
+    <!-- 
     <view class='list' bindtap='orderHistory'>
       <view class='list_left'>
         <icon class="iconfont icon-xinxi"></icon>
@@ -58,10 +59,11 @@
       </view>
       <image src='/image/jiantou.png' class='jiantou'></image>
     </view>
+    -->
     <view class='list' bindtap='dispatchHistory'>
       <view class='list_left'>
         <icon class="iconfont icon-xinxi"></icon>
-        <view class='listName'>连到配送单</view>
+        <view class='listName'>配送记录</view>
       </view>
       <image src='/image/jiantou.png' class='jiantou'></image>
     </view>

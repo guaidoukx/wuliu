@@ -6,16 +6,16 @@
       <view class='inputBox'>
         <view class='list_left'>
           <icon class="iconfont icon-xingming"></icon>
-          <label for='name'>姓名</label>
+          <label for='name'>用户名</label>
         </view>
-        <input id="name" name="name" type='text' placeholder='请输入您的真实姓名' placeholder-class='name'></input>
+        <input id="name" name="name" type='text' placeholder='请输入您的用户名' placeholder-class='name'></input>
       </view>
       <view class='inputBox'>
         <view class='list_left'>
           <icon class="iconfont icon-xinxi"></icon>
-          <label for='id'>工号</label>
+          <label for='password'>密码</label>
         </view>
-        <input id="id" name="id" type='text' placeholder='请输入您的工号' placeholder-class='id'></input>
+        <input id="password" name="password" type='text' placeholder='请输入您的密码' placeholder-class='password'></input>
       </view>
     </view>
     <button class='submit' form-type='submit'>登 录</button>

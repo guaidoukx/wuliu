@@ -27,21 +27,20 @@ Page({
       url: api.driversCertify,
       method: 'POST',
       data: {
-        id: value.id,
+        password: value.password,
         name: value.name
       },
       success: function (res) {
         // console.log(res)
-        if (res.success == 0 && value.id != '') {
+        if (res.success == 0) {
           var pages = getCurrentPages();
           // console.log('pages-------',pages);
           var currPage = pages[pages.length - 1];   //当前页面
           // console.log('currPage-------', currPage)
           var prevPage = pages[pages.length - 2];  //上一个页面
           // console.log('prevPage-------', prevPage)
-          var id = value.id;
           prevPage.setData({
-            id: id,
+            id: res.data.id,
             name: value.name,
             tel: res.data.tel,
             number: res.data.number,
@@ -50,7 +49,7 @@ Page({
           })
 
           // 全局变量
-          console.log('sessionId: ', res.data.sessionId)
+          // console.log('sessionId: ', res.data.sessionId)
           getApp().globalData.header.Cookie = 'JSESSIONID=' + res.data.sessionId;
           getApp().globalData.driverInfo.id = value.id;
           getApp().globalData.driverInfo.name = value.name;
@@ -62,12 +61,12 @@ Page({
             key: 'sessionId',
             data: 'JSESSIONID=' + res.data.sessionId,
             success: function () {
-              console.log('sessionId has been saved. sessionId = ', res.data.sessionId)
+              // console.log('sessionId has been saved. sessionId = ', res.data.sessionId)
             }
           })
           wx.setStorage({
             key: 'driverId',
-            data: value.id
+            data: res.data.id
           })
           wx.setStorage({
             key: 'driverName',
@@ -147,7 +146,7 @@ Page({
   },
   initValidate() {
     let rules = {
-      id: {
+      password: {
         required: true
       },
       name: {
@@ -157,7 +156,7 @@ Page({
     }
 
     let message = {
-      id: {
+      password: {
         required: '请输入工号'
       },
       name: {

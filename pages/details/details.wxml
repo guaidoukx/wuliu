@@ -50,8 +50,12 @@
       <view class='list_item'>3个/月</view>
     </view> -->
     <view class='list'>
-      <view class='list_name'>收货人电话</view>
+      <view class='list_name'>收货网店电话</view>
       <view class='list_item'>{{tel}}</view>
+    </view>
+    <view class='list'>
+      <view class='list_name'>订单截止时间</view>
+      <view class='list_item'>{{deadline}}</view>
     </view>
   </view>
 </view>

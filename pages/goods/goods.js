@@ -238,9 +238,11 @@ Page({
       },
       success: function (res) {
         console.log('All orders：', res);
+        let map = ["配送单", "退货单", "换货单", "调货单", "上货单", "其他"];
         if (res.success == 0) {
           res = res.data;
           for (let order of res) {
+            order.type = map[order.type];
             switch (order.state) {
               case 0:
                 load_list.push(order);
@@ -327,7 +329,7 @@ Page({
     let a = this.data.loadList[index]
     console.log(a)
     wx.navigateTo({
-      url: '../details/details?id=' + a.id + "&time=" + a.time + "&market=" + a.market + "&address=" + a.address + "&warehouse=" + a.warehouse + "&tel=" + a.tel + "&state=" + a.state
+      url: '../details/details?id=' + a.id + "&time=" + a.time + "&market=" + a.market + "&address=" + a.address + "&warehouse=" + a.warehouse + "&tel=" + a.tel + "&state=" + a.state + "&type=" + a.type + "&order=" + a.order + "&deadline=" + a.deadline
     })
   },
 
