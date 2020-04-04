@@ -22,6 +22,11 @@ Page({
     finishList: [],    // 已完成
     hiddenList: [],    // 删除/隐藏
     driverId: '',      // 驾驶员工号
+
+    dispatchId: '',    // 配送单标识
+    routeId: '',       // 班列标识
+    runId: '',         // 班次标识
+
     //checkbox是否显示
     isCheckbox: false,
     //是否全选
@@ -186,7 +191,11 @@ Page({
     getApp().setWatcher(getApp().globalData.header, this)
     if (getApp().globalData.header.Cookie != '') {
       this.data.driverId = getApp().globalData.header.id
+      // this.getDataFromServer()
       this.getData()
+      wx.hideTabBarRedDot({
+        index: 1,
+      })
     } else {
       this.setData({
         loadList: [],
@@ -199,6 +208,13 @@ Page({
         finishNum: 0,
         hiddenNum: 0,
       })
+    }
+  },
+  onShow() {
+    getApp().globalData.that = this
+    getApp().setWatcher(getApp().globalData.header, this)
+    if (getApp().globalData.header.Cookie != '') {
+      this.getDataFromServer()
     }
   },
   watch: {
@@ -224,7 +240,105 @@ Page({
       }
     },
   },
+  getDataFromServer: function() {
+    let that = this
+    app.globalData.callback = function (res) {
+      let resData = JSON.parse(res);
+      if (resData.method == 'all') {
+        getOrdersAll(resData);
+      } else if (resData.method == 'single') {
+        getOrderNew(resData);
+      }
+    }
+  },
+  getOrderNew: function(res) {
+    let that = this;
+    let num = 0, load_list = [];
+    console.log('new order：', res);
+    let map = ["配送单", "退货单", "换货单", "调货单", "上货单", "其他"];
+    if (res.success == 0) {
+      res = res.data;
+      for (let order of res) {
+        order.type = map[order.type];
+        switch (order.state) {
+          case 0:
+            load_list.push(order);
+            num++;
+            break;
+          default:
+            console.log("There is something wrong with the state of the order.");
+        }
+      }
+      load_list.sort(function(a,b){return b.order-a.order});
+      loadList.unshift(load_list)
+      that.setData({
+        loadNum: loadNum + num,
+      })
+    } else {
+      console.log(res.message);
+      wx.showToast({
+        title: '请重试！',
+        icon: 'none',
+        duration: 2000
+      })
+      wx.hideToast()
+    }
+  },
+  getOrdersAll: function(res) {
+    let that = this;
+    let load_list = [], delivery_list = [], finish_list = [];
+    console.log('All orders：', res);
+    let map = ["配送单", "退货单", "换货单", "调货单", "上货单", "其他"];
+    if (res.success == 0) {
+      that.setData({
+        dispatchId: res.dispatchid,
+        routeId: res.routeid,
+        runId: res.runid
+      })
+      res = res.data;
+      for (let order of res) {
+        order.type = map[order.type];
+        switch (order.state) {
+          case 0:
+            load_list.push(order);
+            break;
+          case 1:
+            delivery_list.push(order);
+            // console.log(1, order);
+            break;
+          case 2:
+            finish_list.push(order);
+            // console.log(2, order);
+            break;
+          case 3:
+            // 删除/隐藏状态
+            // console.log(3, order);
+            break;
+          default:
+            console.log("There is something wrong with the state of the orders.");
+        }
+      }
+      that.setData({
+        loadList: load_list,
+        onList: delivery_list,
+        finishList: finish_list,
+
+        loadNum: load_list.length,
+        outNum: delivery_list.length,
+        finishNum: finish_list.length,
+      })
+    } else {
+      console.log(res.message);
+      wx.showToast({
+        title: '请重试！',
+        icon: 'none',
+        duration: 2000
+      })
+      wx.hideToast()
+    }
+  },
   // 请求数据
+  
   getData: function () {
     let that = this;
     let load_list = [], delivery_list = [], finish_list = [];
@@ -240,6 +354,11 @@ Page({
         console.log('All orders：', res);
         let map = ["配送单", "退货单", "换货单", "调货单", "上货单", "其他"];
         if (res.success == 0) {
+          that.setData({
+            dispatchId: res.dispatchid,
+            routeId: res.routeid,
+            runId: res.runid
+          })
           res = res.data;
           for (let order of res) {
             order.type = map[order.type];
@@ -292,6 +411,53 @@ Page({
         console.log("server: no service.")
       }
     })
+  },
+  
+  // Websocket
+  getNewOrders() {
+    let socketOpen = false
+    let that = this
+    const socketMsgQueue = []
+    let socketTask = wx.connectSocket({
+      url: api.ordersNew,
+      header: getApp().globalData.header,
+    })
+    socketTask.onOpen(function (res) {
+      socketOpen = true
+      // 发送配送单标识
+      let dispatch = that.data.dispatchId
+      socketTask.send({ dispatchid: dispatch })
+    })
+    // 接收新增订单
+    wx.onSocketMessage(function (res) {
+      let objData = JSON.parse(res.data);
+      console.log(res);
+      that.data.loadList.unshift(objData);
+    })
+
+    // 连接失败
+    wx.onSocketError(function () {
+      console.log('websocket连接失败！');
+    })
+    /*
+    wx.onSocketOpen(function (res) {
+      socketOpen = true
+      for (let i = 0; i < socketMsgQueue.length; i++) {
+        sendSocketMessage(socketMsgQueue[i])
+      }
+      socketMsgQueue = []
+    })
+
+    function sendSocketMessage(msg) {
+      if (socketOpen) {
+        wx.sendSocketMessage({
+          data: msg
+        })
+      } else {
+        socketMsgQueue.push(msg)
+      }
+    }
+    */
   },
   //点击在仓下的取回物品
   inGetBack(e) {

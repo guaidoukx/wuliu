@@ -1,12 +1,28 @@
 <!--pages/goods/goods.wxml-->
 <navigationBar text="订单列表"></navigationBar>
 <!-- <mp-navigation-bar loading="{{loading}}" show="true" animated="{{animated}}" color="{{color}}" background="{{background}}" title="UI组件库" back="{{true}}"></mp-navigation-bar> -->
-
-<view class="swiper-tab" style="top:{{app.globalData.navigationBarHeight}}">
+<view id="layout" style="top:{{app.globalData.navigationBarHeight}}">
+<view class="dispatch-id">
+  <view class="dispatch-id-child">
+    <view class="dispatch-title dispatch-inline">配送标识：</view>
+    <view class="text-info dispatch-inline">{{dispatchId}}，</view>
+  </view>
+  <view class="dispatch-id-child">
+    <view class="dispatch-title dispatch-inline">班列标识：</view>
+    <view class="text-info dispatch-inline">{{routeId}}，</view>
+  </view>
+  <view class="dispatch-id-child">
+    <view class="dispatch-title dispatch-inline">班次标识：</view>
+    <view class="text-info dispatch-inline">{{runId}}</view>
+  </view>
+</view>
+<view class="swiper-tab" >
   <view class="tab-item {{currentIndex1?'active':''}} " bindtap="currentIndex1">待取货({{loadNum}})</view>
   <view class="tab-item {{currentIndex3?'active':''}}" bindtap="currentIndex3">运输中({{outNum}})</view>
   <view class="tab-item {{currentIndex4?'active':''}}" bindtap="currentIndex4">已完成({{finishNum}})</view>
 </view>
+</view>
+
 <view class='tab-items'>
   <view class='kong {{kong2?"kong2":""}}'></view>
   <!-- 待入仓->待取货 -->

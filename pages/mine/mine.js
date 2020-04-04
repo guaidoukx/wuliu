@@ -19,6 +19,9 @@ Page({
         tel: getApp().globalData.driverInfo.tel,
         number: getApp().globalData.driverInfo.number,
       })
+      wx.showTabBarRedDot({
+        index: 1,
+      })
     }
     if (this.data.header != '') {
       that.setData({

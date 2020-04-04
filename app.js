@@ -1,6 +1,8 @@
 //app.js
 //"appid": "wxbd01dc5b31432f51",
 import api from "./utils/api.js";
+let socketMsgQueue = [] // 消息队列（消息请求前，判断连接是否可用，可用直接发消息，否则进入队列）
+let isLoading = false
 App({
   onLaunch: function () {
 
@@ -57,7 +59,72 @@ App({
       'tel': wx.getStorageSync('driverTel'),
       'number': wx.getStorageSync('driverNumber'),
     },
-    that: ''
+    that: '',
+    localSocket: {}, // Websocket对象，表示全局的连接
+    callback: function () { } // 每个页面初始化时，更新此回调函数
+  },
+
+  /**
+   * websocket
+   */
+  showLoad() {
+    if (!isLoading) {
+      wx.showLoading({
+        title: '请稍后...',
+      })
+      isLoading = true
+    }
+  },
+  hideLoad() {
+    wx.hideLoading()
+    isLoading = false
+  },
+  /*initSocket() {
+    let that = this
+    that.globalData.localSocket = wx.connectSocket({
+      // url: 'wss://test.enzhico.net/app'
+      url: api.wsView,
+      header: {
+        'content-type': 'application/json'
+      },
+    })
+    that.showLoad()
+    that.globalData.localSocket.onOpen(function (res) {
+      console.log('WebSocket连接已打开！readyState=' + that.globalData.localSocket.readyState)
+      that.hideLoad()
+      while (socketMsgQueue.length > 0) {
+        var msg = socketMsgQueue.shift();
+        that.sendSocketMessage(msg);
+      }
+    })
+    that.globalData.localSocket.onMessage(function (res) {
+      that.hideLoad()
+      that.globalData.callback(res)
+    })
+    that.globalData.localSocket.onError(function (res) {
+      console.log('readyState=' + that.globalData.localSocket.readyState)
+    })
+    that.globalData.localSocket.onClose(function (res) {
+      console.log('WebSocket连接已关闭！readyState=' + that.globalData.localSocket.readyState)
+      that.initSocket()
+    })
+  },*/
+  //统一发送消息
+  sendSocketMessage: function (msg) {
+    if (this.globalData.localSocket.readyState === 1) {
+      this.showLoad()
+      this.globalData.localSocket.send({
+        data: JSON.stringify(msg)
+      })
+    } else {
+      socketMsgQueue.push(msg)
+    }
+  },
+  onShow: function (options) {
+    if (this.globalData.localSocket.readyState !== 0 && this.globalData.localSocket.readyState !== 1 && this.globalData.header.Cookie != '') {
+      console.log('开始尝试连接WebSocket！readyState=' + this.globalData.localSocket.readyState)
+      this.initSocket()
+    }
   },
 
 
@@ -115,8 +182,8 @@ Mock.mock(api.ordersAll, {
   "data|3-5": [
     {
       "dispatchid|+1": 1,
-      "runid|+1": 1,
       "routeid|+1": 1,
+      "runid|+1": 1,
       "starttime": function () {
         return Mock.Random.datetime()
       },
@@ -152,9 +219,9 @@ Mock.mock(api.ordersAll, {
 })
 Mock.mock(api.ordersView, {
   "code": 200,
-  "dispatchid|+1": 1,
-  "routeid|+1": 1,
-  "runid|+1": 1,
+  "dispatchid": 'cd123',
+  "runid": 2,
+  "routeid": 1,
   "data|3-7": [
     {
       "id|+1": 1,
