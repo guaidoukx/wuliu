@@ -207,6 +207,10 @@ Page({
         outNum: 0,
         finishNum: 0,
         hiddenNum: 0,
+
+        dispatchId: '无',
+        routeId: '无',
+        runId: '无'
       })
     }
   },
@@ -215,6 +219,23 @@ Page({
     getApp().setWatcher(getApp().globalData.header, this)
     if (getApp().globalData.header.Cookie != '') {
       this.getDataFromServer()
+    }
+    if (getApp().globalData.header.Cookie == '') {
+      this.setData({
+        loadList: [],
+        onList: [],
+        finishList: [],
+        hiddenList: [],
+
+        loadNum: 0,
+        outNum: 0,
+        finishNum: 0,
+        hiddenNum: 0,
+
+        dispatchId: '无',
+        routeId: '无',
+        runId: '无',
+      })
     }
   },
   watch: {
