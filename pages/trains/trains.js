@@ -11,7 +11,8 @@ Page({
     duration: 500,
     circular: true,
     longitude: 121.473717,
-    latitude: 31.23035
+    latitude: 31.23035,
+    marker: []
   },
 
   /**
