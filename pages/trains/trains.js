@@ -1,4 +1,6 @@
 // pages/trains/trains.js
+import api from "../../utils/api.js";
+var app = getApp();
 Page({
 
   /**
@@ -12,27 +14,122 @@ Page({
     circular: true,
     longitude: 121.473717,
     latitude: 31.23035,
-    marker: []
+    markers: [{
+      iconPath: '/image/locationRed.png',
+      id: 0,
+      latitude: 34.796491,
+      longitude: 113.665299,
+      width: 33,
+      height: 33
+    }],
+    loadList: [{
+      market: "market1",
+      address: "address1",
+      lngDes: 121.598343,
+      latDes: 31.189051,
+      warehouse: "warehouse1",
+      addressOri: "addressOri1",
+      lng: 121.467606,
+      lat: 31.211815
+    }, {
+      market: "market2",
+      address: "address2",
+      lngDes: 121.503204,
+      latDes: 31.297182,
+      warehouse: "warehouse2",
+      addressOri: "addressOri2",
+      lng: 121.486145,
+      lat: 31.202543
+    }], // 待取货
+    onList: [{
+      market: "market3",
+      address: "address3",
+      lngDes: 121.598343,
+      latDes: 31.189051,
+      warehouse: "warehouse3",
+      addressOri: "addressOri3",
+      lng: 121.501831,
+      lat: 31.282627
+    }, {
+      market: "market4",
+      address: "address4",
+      lngDes: 121.454979,
+      latDes: 31.197163,
+      warehouse: "warehouse4",
+      addressOri: "addressOri4",
+      lng: 121.417313,
+      lat: 31.22571
+    }], // 待配送
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    // console.log(options.lat)
-    // let plugin = requirePlugin('myPlugin');
-    // let key = '3BGBZ-YDME6-UPPSK-EIC7O-NLVLZ-A2FDX'; //使用在腾讯位置服务申请的key
-    // let referer = 'wxbd01dc5b31432f51'; //调用插件的小程序的名称
-    // let startPoint = JSON.stringify({ //起点
-    //   'name': '中国技术交易大厦',
-    //   'latitude': 39.984154,
-    //   'longitude': 116.30749
+  onLoad: function() {
+    var that = this
+    var onList = that.data.onList
+    var loadList = that.data.loadList
+    console.log(onList)
+    var markers = new Array()
+    var latSum = 0
+    var lngSum = 0
+    for (var i = 0; i < onList.length; i++){
+      var lng = onList[i].lngDes
+      var lat = onList[i].latDes
+      var name = onList[i].warehouse
+      var address  = onList[i].addressOri
+      latSum += lat
+      lngSum += lng
+      var marker = {
+        iconPath: "/image/locationYellow.png",
+        title: address,
+        latitude: lat,
+        longitude: lng,
+        width: 30,
+        height: 30
+      }
+      markers.push(marker)
+      // that.data.markers[that.data.markers.length] = marker
+    }
+    for (var i = 0; i < loadList.length; i++) {
+      var lng = loadList[i].lng
+      var lat = loadList[i].lat
+      var name = loadList[i].market
+      var address = loadList[i].address
+      latSum += lat
+      lngSum += lng
+      var marker = {
+        iconPath: "/image/locationRed.png",
+        title: address,
+        latitude: lat,
+        longitude: lng,
+        width: 30,
+        height: 30
+      }
+      markers.push(marker)
+      // that.data.markers[that.data.markers.length] = marker
+    }
+    var latCenter = latSum / markers.length
+    var lngCenter = lngSum / markers.length
+    this.setData({
+      markers:markers,
+      longitude: lngCenter,
+      latitude: latCenter,
+    })
+    
+    console.log("有吗",this.data.markers)
+    // wx.getLocation({
+    //   type: 'wgs84', //返回可以用于wx.openLocation的经纬度
+    //   success: (res) => {
+    //     that.setData({
+    //       markers: this.data.markers,
+    //       scale: 12,
+    //       // longitude: res.longitude,
+    //       // latitude: res.latitude
+    //     })
+    //   }
     // });
-    // let endPoint = JSON.stringify({ //终点
-    //   'name': '北京西站',
-    //   'latitude': options.lat,
-    //   'longitude': options.lng
-    // });
+    
     // wx.getLocation({
     //   success(res) {
     //     // wx.navigateTo({
@@ -107,7 +204,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    this.mapCtx = wx.createMapContext('map')
   },
 
   /**

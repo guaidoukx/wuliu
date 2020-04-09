@@ -28,9 +28,7 @@ page {
   font-weight: bold;
   color: #999;
 }
-.dispatch-id-child {
-  
-}
+
 .swiper-tab {
   position: fixed;
   margin-top: 5%; 
@@ -92,7 +90,7 @@ page {
 
 .list_top {
   width: 100%;
-  height: 330rpx;
+  height: 310rpx;
   display: flex;
   justify-content: space-between;
   overflow: hidden;
