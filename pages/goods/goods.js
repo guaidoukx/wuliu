@@ -193,9 +193,13 @@ Page({
       this.data.driverId = getApp().globalData.header.id
       // this.getDataFromServer()
       this.getData()
+
+      app.globalData.onList = JSON.stringify(this.data.onList);
+      app.globalData.loadList = JSON.stringify(this.data.loadList);
+      /*
       wx.hideTabBarRedDot({
         index: 1,
-      })
+      })*/
     } else {
       this.setData({
         loadList: [],

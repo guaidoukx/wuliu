@@ -19,9 +19,10 @@ Page({
         tel: getApp().globalData.driverInfo.tel,
         number: getApp().globalData.driverInfo.number,
       })
+      /*
       wx.showTabBarRedDot({
         index: 1,
-      })
+      })*/
     }
     if (this.data.header != '') {
       that.setData({
@@ -176,6 +177,8 @@ Page({
           getApp().globalData.driverInfo.name = ''
           getApp().globalData.driverInfo.tel = ''
           getApp().globalData.driverInfo.number = ''
+          getApp().globalData.onList = []
+          getApp().globalData.loadList = []
           that.onLoad();
         }
       }

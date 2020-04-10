@@ -59,6 +59,8 @@ App({
       'tel': wx.getStorageSync('driverTel'),
       'number': wx.getStorageSync('driverNumber'),
     },
+    onList: [],
+    loadList: [],
     that: '',
     localSocket: {}, // Websocket对象，表示全局的连接
     callback: function () { } // 每个页面初始化时，更新此回调函数
