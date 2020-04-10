@@ -192,10 +192,15 @@ Page({
     if (getApp().globalData.header.Cookie != '') {
       this.data.driverId = getApp().globalData.header.id
       // this.getDataFromServer()
-      this.getData()
+      this.getData();
+
+      // console.log('after:',this.data.onList);
+      getApp().globalData.loadList = JSON.stringify(this.data.loadList);
+      getApp().globalData.onList = JSON.stringify(this.data.onList);
+      /*
       wx.hideTabBarRedDot({
         index: 1,
-      })
+      })*/
     } else {
       this.setData({
         loadList: [],

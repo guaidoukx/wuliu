@@ -59,6 +59,8 @@ App({
       'tel': wx.getStorageSync('driverTel'),
       'number': wx.getStorageSync('driverNumber'),
     },
+    loadList: [],
+    onList: [],
     that: '',
     localSocket: {}, // Websocket对象，表示全局的连接
     callback: function () { } // 每个页面初始化时，更新此回调函数
@@ -225,21 +227,24 @@ Mock.mock(api.ordersView, {
   "data|3-7": [
     {
       "id|+1": 1,
-      "market|1": ["邯郸路一号店", "张江一号店", "张江二号店"],
-      "address|1": ["杨浦区国权路1888号", "普陀区金沙江路2345号", "浦东新区张衡路980号"],
-      "tel|1": ["5789837", "2736483", "5395847"],
-      "warehouse|1": ["一号仓", "二号仓", "三号门店"],
       "time": function () {
         return Mock.Random.datetime()
       },
       "deadline": function () {
         return Mock.Random.datetime()
       },
-      "order|+1": 1,
       "type|1": [0, 1, 3, 4, 5],
       "state|1": [0, 1, 2],
-      "lat|1": [31.289619, 31.23832],
-      "lng|1": [121.510323, 121.36568]
+      "market|1": ["邯郸路一号店", "张江一号店", "张江二号店"],
+      "address|1": ["杨浦区国权路1888号", "普陀区金沙江路2345号", "浦东新区张衡路980号"],
+      "latDes": 110.839483,
+      "lngDes": 28.039482,
+      "warehouse|1": ["一号仓", "二号仓", "三号门店"],
+      "addressOri": "杨浦区国权路1999号",
+      "lat": 119.839483,
+      "lng": 29.039482,
+      "tel|1": ["5789837", "2736483", "5395847"],
+      "order|+1": 1
     }
   ],
   "success": 0,

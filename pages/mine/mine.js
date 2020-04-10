@@ -1,4 +1,5 @@
 // pages/mine/mine.js
+const app = getApp();
 Page({
   data: {
     hasUserInfo: false,
@@ -19,9 +20,10 @@ Page({
         tel: getApp().globalData.driverInfo.tel,
         number: getApp().globalData.driverInfo.number,
       })
+      /*
       wx.showTabBarRedDot({
         index: 1,
-      })
+      })*/
     }
     if (this.data.header != '') {
       that.setData({
@@ -171,11 +173,13 @@ Page({
             tel: '',
             number: ''
           })
-          getApp().globalData.header.Cookie = ''
-          getApp().globalData.driverInfo.id = ''
-          getApp().globalData.driverInfo.name = ''
-          getApp().globalData.driverInfo.tel = ''
-          getApp().globalData.driverInfo.number = ''
+          app.globalData.header.Cookie = ''
+          app.globalData.driverInfo.id = ''
+          app.globalData.driverInfo.name = ''
+          app.globalData.driverInfo.tel = ''
+          app.globalData.driverInfo.number = ''
+          app.globalData.onList = []
+          app.globalData.loadList = []
           that.onLoad();
         }
       }
