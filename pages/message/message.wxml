@@ -1,0 +1,8 @@
+<!--pages/message/message.wxml-->
+<navigationBar text="个人中心"></navigationBar>
+<view class="dispatch-id">
+  <view class="dispatch-id-child">
+    <view class="dispatch-title dispatch-inline">未读消息：</view>
+    <view class="text-info dispatch-inline">0条</view>
+  </view>
+</view>
