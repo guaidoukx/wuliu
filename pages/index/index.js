@@ -32,9 +32,19 @@ Page({
     })
   },
   //存放
-  order(){
+  order() {
     wx.navigateTo({
       url: '../order/order',
+      // url: '../order/order',
     })
-  }
+  },
+  
+  onLoad: function(options) {
+
+  },
+  toGoods(e) {
+    wx.switchTab({
+      url: '../goods/goods',
+    })
+  },
 })

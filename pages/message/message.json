@@ -1,10 +1,3 @@
 {
-  "backgroundTextStyle": "light",
-  "navigationBarBackgroundColor": "#ffffff",
-  "navigationBarTitleText": "消息列表",
-  "navigationBarTextStyle": "black",
-  "navigationStyle": "custom",
-  "usingComponents": {
-    "navigationBar": "/components/navigationBar/navigationBar"
-  }
+  "usingComponents": {}
 }

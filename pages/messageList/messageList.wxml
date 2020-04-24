@@ -1,0 +1,36 @@
+<!--pages/message/message.wxml-->
+<navigationBar text="消息列表"></navigationBar>
+<view class="dispatch-id">
+  <view class="dispatch-id-child">
+    <view class="dispatch-title dispatch-inline">未读消息：</view>
+    <view class="text-info dispatch-inline">2条</view>
+  </view>
+</view>
+<view class='tab-items'>
+  <!-- <view class='还不清楚'> -->
+    <view class='list' wx:for="{{messageList}}" wx:for-item="item" wx:key='id'>
+      <view class='list_top'>
+        <view class="dispatch">
+          <view class="dispatch-line">
+            <!-- <icon class="iconfont icon-dianputianjia"></icon> -->
+            <!-- <view class="dispatch-title dispatch-inline ">目的地：</view> -->
+            <view class="text-info dispatch-inline mendian">{{item}}</view>
+          </view>
+          <view class="dispatch-line">
+            <!-- <icon class="iconfont icon-shijian"></icon> -->
+            <!-- <view class="dispatch-title dispatch-inline">订单时间：</view> -->
+            <view class="text-info dispatch-inline">{{item.time}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 热线 -->
+    <view class='rexian' style='position:{{display}}'>
+      <view class='tel'>--- 已经到底啦 ---</view>
+    </view>
+    <!-- <view class='kefu'>
+        <image class='kufu_pic' src='../image/kefu.png'></image>
+        <view class='kefu_describe'>在线客服</view>
+      </view> -->
+  <!-- </view> -->
+</view>

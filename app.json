@@ -33,6 +33,7 @@
     "pages/phoneNum/phoneNum",
     "pages/carNum/carNum",
     "pages/message/message",
+    "pages/messageList/messageList",
     "pages/historyDispatch/historyDispatch"
   ],
   "window": {
@@ -55,7 +56,7 @@
         "selectedIconPath": "/image/goodSelect.png"
       },
       {
-        "pagePath": "pages/message/message",
+        "pagePath": "pages/messageList/messageList",
         "text": "消息列表",
         "iconPath": "/image/usage.png",
         "selectedIconPath": "/image/usageSelect.png"
