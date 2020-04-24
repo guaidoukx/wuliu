@@ -1,5 +1,13 @@
 //app.js
 //"appid": "wxbd01dc5b31432f51",
+// ------app.json 里的地图页，先放这里存一下
+// {
+//   "pagePath": "pages/trains/trains",
+//     "text": "物流班列",
+//       "iconPath": "/image/index.png",
+//         "selectedIconPath": "/image/indexSelect.png"
+// },
+// ------
 import api from "./utils/api.js";
 let socketMsgQueue = [] // 消息队列（消息请求前，判断连接是否可用，可用直接发消息，否则进入队列）
 let isLoading = false

@@ -32,6 +32,7 @@
     "pages/name/name",
     "pages/phoneNum/phoneNum",
     "pages/carNum/carNum",
+    "pages/message/message",
     "pages/historyDispatch/historyDispatch"
   ],
   "window": {
@@ -48,16 +49,16 @@
     "borderStyle": "black",
     "list": [
       {
-        "pagePath": "pages/trains/trains",
-        "text": "物流班列",
-        "iconPath": "/image/index.png",
-        "selectedIconPath": "/image/indexSelect.png"
-      },
-      {
         "pagePath": "pages/goods/goods",
-        "text": "配送列表",
+        "text": "订单列表",
         "iconPath": "/image/goods.png",
         "selectedIconPath": "/image/goodSelect.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息列表",
+        "iconPath": "/image/usage.png",
+        "selectedIconPath": "/image/usageSelect.png"
       },
       {
         "pagePath": "pages/mine/mine",
