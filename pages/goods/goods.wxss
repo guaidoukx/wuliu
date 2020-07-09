@@ -16,13 +16,14 @@ page {
   position: fixed;
   left: 0;
   width: 100%;
-  height: 5%;
+  height: 7%;
   background: #fff;
   text-align: left;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: baseline;
   z-index: 999;
   font-size: 24rpx;
   font-weight: bold;
@@ -31,7 +32,7 @@ page {
 
 .swiper-tab {
   position: fixed;
-  margin-top: 5%; 
+  margin-top: 8%; 
   left: 0;
   width: 100%;
   /* margin-top: 2rpx; */
@@ -77,7 +78,7 @@ page {
 }
 
 .tab-items {
-  margin-top: 5%;
+  margin-top: 7%;
 }
 
 .list {
@@ -194,6 +195,21 @@ page {
   justify-content: space-between;
   float: right;
   margin: 0rpx 20rpx 0 0;
+}
+.finish_btn {
+  margin-left: 15rpx;
+  width: 160rpx;
+  height: 54rpx;
+  display: block;
+  font-size: 24rpx;
+  line-height: 54rpx;
+  text-align: center;
+  border-radius: 25rpx;
+  border: 1rpx solid #1E90FF;
+  /*background-color: #1E90FF;*/
+}
+.finish_btn::after {
+  border: none;
 }
 
 .see_btn {

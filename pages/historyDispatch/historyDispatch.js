@@ -18,6 +18,15 @@ Page({
   // 请求数据
   getData: function () {
     let that = this;
+    let data = getApp().globalData.dispatchHistory;
+    console.log('读出：', data);
+    if(data) {
+      that.setData({
+        dispatchHistoryList: data
+      })
+    }
+    
+    /*
     wx.request({
       url: api.ordersAll,
       header: getApp().globalData.header,
@@ -27,12 +36,12 @@ Page({
         // let map = ["配送单", "退货单", "换货单", "调货单", "上货单", "其他"];
         if (res.success == 0) {
           res = res.data;
-          /*
-          let list = [];
-          for (let order of res) {
-            order.type = map[order.type];
-            list.push(order);
-          }*/
+          
+          //let list = [];
+          //for (let order of res) {
+          //  order.type = map[order.type];
+          //  list.push(order);
+          //}
           that.setData({
             dispatchHistoryList: res
           })
@@ -55,7 +64,7 @@ Page({
         wx.hideToast()
         console.log("server: no service.")
       }
-    })
+    })*/
   },
 
   orderHistory(e) {

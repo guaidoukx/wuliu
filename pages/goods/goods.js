@@ -22,6 +22,10 @@ Page({
     finishList: [],    // 已完成
     hiddenList: [],    // 删除/隐藏
     driverId: '',      // 驾驶员工号
+    dirverName: '',
+    warehouse: '',
+    warehouseName: '',
+    history: [],
 
     dispatchId: '',    // 配送单标识
     routeId: '',       // 班列标识
@@ -191,7 +195,11 @@ Page({
     getApp().setWatcher(getApp().globalData.header, this)
     if (getApp().globalData.header.Cookie != '') {
       this.data.driverId = getApp().globalData.header.id
+      this.data.dirverName = getApp().globalData.driverInfo.name
+      this.data.warehouse = getApp().globalData.warehouse
+      this.data.warehouseName = getApp().globalData.warehouseName
       // this.getDataFromServer()
+      // console.log('姓名：', this.data.dirverName);
       this.getData()
 
       app.globalData.onList = JSON.stringify(this.data.onList);
@@ -218,9 +226,27 @@ Page({
       })
     }
   },
+  
   onShow() {
     getApp().globalData.that = this
-    getApp().setWatcher(getApp().globalData.header, this)
+    if (getApp().globalData.driverInfo.id == '') {
+      this.setData({
+        loadList: [],
+        onList: [],
+        finishList: [],
+        hiddenList: [],
+
+        loadNum: 0,
+        outNum: 0,
+        finishNum: 0,
+        hiddenNum: 0,
+
+        dispatchId: '无',
+        routeId: '无',
+        runId: '无',
+      })
+    }
+    /*getApp().setWatcher(getApp().globalData.header, this)
     if (getApp().globalData.header.Cookie != '') {
       this.getDataFromServer()
     }
@@ -240,7 +266,7 @@ Page({
         routeId: '无',
         runId: '无',
       })
-    }
+    }*/
   },
   watch: {
     Cookie: (newValue) => {
@@ -264,6 +290,9 @@ Page({
         getApp().globalData.that.getData()
       }
     },
+    onList:(newValue) => {
+      console.log(onList);
+    }
   },
   getDataFromServer: function() {
     let that = this
@@ -369,14 +398,15 @@ Page({
     let load_list = [], delivery_list = [], finish_list = [];
     // console.log('----------@,', getApp().globalData.header.Cookie)
     wx.request({
-      url: api.ordersView,
+      url: 'http://10.141.209.224:5005/server',//api.ordersView,
       header: getApp().globalData.header,
       method: 'GET',
       data: {
-        id: that.data.driverId
+        name: that.data.dirverName,
       },
       success: function (res) {
         console.log('All orders：', res);
+        res = res.data;
         let map = ["配送单", "退货单", "换货单", "调货单", "上货单", "其他"];
         if (res.success == 0) {
           that.setData({
@@ -387,6 +417,11 @@ Page({
           res = res.data;
           for (let order of res) {
             order.type = map[order.type];
+            order.warehouse = '江桥联华物流基地';
+            order.id = order.order;
+            order.lng = 121.277055;
+            order.lat = 31.256239;
+            order.tel = '无';
             switch (order.state) {
               case 0:
                 load_list.push(order);
@@ -407,6 +442,8 @@ Page({
                 console.log("There is something wrong with the state of the orders.");
             }
           }
+          load_list.sort(function (a, b) { return a.order - b.order });
+          delivery_list.sort(function (a, b) { return a.order - b.order });
           that.setData({
             loadList: load_list,
             onList: delivery_list,
@@ -517,6 +554,7 @@ Page({
     // this.requestId = e.currentTarget.id
     // console.log(e.currentTarget.id)
     let index = e.currentTarget.dataset.index
+    let that = this
     let a = this.data.loadList[index]
     console.log(a)
     wx.navigateTo({
@@ -528,6 +566,7 @@ Page({
     // this.requestId = e.currentTarget.id
     // console.log(e.currentTarget.id)
     let index = e.currentTarget.dataset.index
+    let that = this
     console.log(index)
     let a = this.data.onList[index]
     console.log(a)
@@ -540,6 +579,7 @@ Page({
     // this.requestId = e.currentTarget.id
     // console.log(e.currentTarget.id)
     let index = e.currentTarget.dataset.index
+    let that = this
     let a = this.data.finishList[index]
     console.log(a)
     wx.navigateTo({
@@ -550,11 +590,12 @@ Page({
   toMapLoad(e) {
     let index = e.currentTarget.dataset.index
     let dispatch = this.data.loadList[index]
+    // console.log('导航: ', dispatch);
     let plugin = requirePlugin('myPlugin');
     let key = '3BGBZ-YDME6-UPPSK-EIC7O-NLVLZ-A2FDX'; //使用在腾讯位置服务申请的key
     let referer = 'wxbd01dc5b31432f51'; //调用插件的小程序的名称
     let endPoint = JSON.stringify({ //终点
-      'name': dispatch.address,
+      'name': dispatch.warehouse,
       'latitude': dispatch.lat,
       'longitude': dispatch.lng
     });
@@ -648,8 +689,8 @@ Page({
     let referer = 'wxbd01dc5b31432f51'; //调用插件的小程序的名称
     let endPoint = JSON.stringify({ //终点
       'name': dispatch.address,
-      'latitude': dispatch.lat,
-      'longitude': dispatch.lng
+      'latitude': dispatch.lngDes,
+      'longitude': dispatch.latDes
     });
     wx.getLocation({
       type: 'wgs84',
@@ -721,9 +762,101 @@ Page({
       kong2: false
     })
   },
+  // btn: 完成全部配送
+  orderFinishAll: function() {
+    console.log('click btn 完成所有配送...');
+    if (this.data.loadList.length || this.data.onList.length) {
+      console.log('to do...');
+      wx.showToast({
+        title: '尚未完成所有配送！',
+        icon: 'none',
+        duration: 1000,
+        mask: true
+      })
+    } else if (this.data.dispatchId == '无') {
+      console.log('to do...');
+      wx.showToast({
+        title: '尚无配送单！',
+        icon: 'none',
+        duration: 1000,
+        mask: true
+      })
+    } else {
+      
+      let obj = [{
+        dispatchid: this.data.dispatchId,
+        routeid: this.data.routeId,
+        starttime: this.data.history[0].time,
+        runid: 1,
+        data: this.data.history
+      }];
+      console.log('当前obj：', obj);
+      getApp().globalData.dispatchHistory = obj;
+      wx.setStorage({
+        key: 'dispathchHistory',
+        data: JSON.stringify(obj),
+        success: function () {
+          console.log('当前obj：', JSON.stringify(obj));
+        }
+      })
+
+      this.setData({
+        loadList: [],
+        onList: [],
+        finishList: [],
+        hiddenList: [],
+
+        loadNum: 0,
+        outNum: 0,
+        finishNum: 0,
+        hiddenNum: 0,
+
+        dispatchId: '无',
+        routeId: '无',
+        runId: '无',
+      })
+      
+      /*
+      wx.setStorage({
+        key: 'dispathchHistory',
+        data: this.history,
+        success: function () {
+          // console.log('sessionId has been saved. sessionId = ', res.data.sessionId)
+        }
+      })*/
+    }
+  },
+
   // btn: 完成取货
   orderLoad: function (e) {
     let that = this;
+    wx.showModal({
+      title: '提示',
+      content: '请确认已完成取货。',
+      success: function (data) {
+        if (data.confirm) {
+          let loadList = that.data.loadList
+          let tmpLoad = loadList.filter((v, i) => {
+            return v.id != e.target.id
+          });
+          let onList = that.data.onList;
+          let tmpOn = loadList.filter((v, i) => {
+            return v.id == e.target.id
+          });
+          tmpOn[0].state = 1;
+          onList.push(tmpOn[0]);
+          // console.log(tmp)
+          onList.sort(function (a, b) { return a.order - b.order });
+          that.setData({
+            loadList: tmpLoad,
+            onList: onList,
+            loadNum: tmpLoad.length,
+            outNum: onList.length
+          })
+        }
+      }
+    })
+    /*
     wx.request({
       url: api.ordersLoad,
       header: getApp().globalData.header,
@@ -769,11 +902,39 @@ Page({
         wx.hideToast()
         console.log("server: no service.")
       }
-    })
+    })*/
   },
   // btn：完成配送
   orderFinish: function (e) {
     let that = this;
+    wx.showModal({
+      title: '提示',
+      content: '请确认已取货。',
+      success: function (data) {
+        if (data.confirm) {
+          let onList = that.data.onList
+          let tmpOnList = onList.filter((v, i) => {
+            return v.id != e.target.id
+          });
+          let finishList = that.data.finishList;
+          let tmp = onList.filter((v, i) => {
+            return v.id == e.target.id
+          });
+          tmp[0].state = 2;
+          finishList.push(tmp[0]);
+          //historyList.push(tmp[0]); // 已完成订单（放入配送记录数组）
+          // console.log(tmp)
+          that.setData({
+            onList: tmpOnList,
+            finishList: finishList,
+            outNum: tmpOnList.length,
+            finishNum: finishList.length,
+            history: finishList
+          })
+        }
+      }
+    })
+    /*
     wx.request({
       url: api.ordersFinish,
       header: getApp().globalData.header,
@@ -820,11 +981,36 @@ Page({
         wx.hideToast()
         console.log("server: no service.")
       }
-    })
+    })*/
   },
   // btn: 删除/隐藏订单
   orderDelete: function (e) {
     let that = this;
+    wx.showModal({
+      title: '提示',
+      content: '确认删除配送单？',
+      success: function (data) {
+        if (data.confirm) {
+          let finishList = that.data.finishList;
+          let tmpfinish = finishList.filter((v, i) => {
+            return v.id != e.target.id
+          });
+          let hiddenList = that.data.hiddenList
+          let tmpHidden = finishList.filter((v, i) => {
+            return v.id == e.target.id
+          });
+          tmpHidden[0].state = 3;
+          hiddenList.push(tmpHidden[0]);
+          that.setData({
+            finishList: tmpfinish,
+            hiddenList: hiddenList,
+            finishNum: tmpfinish.length,
+            hiddenNum: hiddenList.length
+          })
+        }
+      }
+    })
+    /*
     wx.showModal({
       title: '提示',
       content: '确认删除配送单？',
@@ -869,6 +1055,6 @@ Page({
           })
         } 
       }
-    })
+    })*/
   },
 })

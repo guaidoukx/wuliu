@@ -67,6 +67,9 @@ App({
       'tel': wx.getStorageSync('driverTel'),
       'number': wx.getStorageSync('driverNumber'),
     },
+    dispatchHistory: [],
+    warehouse: [121.277055, 31.256239], // 江桥仓库经纬度
+    warehouseName: '江桥联华物流基地',
     onList: [],
     loadList: [],
     that: '',
@@ -208,7 +211,6 @@ Mock.mock(api.ordersAll, {
           "market|1": ["邯郸路一号店", "张江一号店", "张江二号店"],
           "address|1": ["杨浦区国权路1888号", "普陀区金沙江路2345号", "浦东新区张衡路980号"],
           "tel|1": ["5789837", "2736483", "5395847"],
-          "warehouse|1": ["一号仓", "二号仓", "三号门店"],
           "time": function () {
             return Mock.Random.datetime()
           },
@@ -227,7 +229,8 @@ Mock.mock(api.ordersAll, {
   "success": 0,
   "message": "请求成功。"
 })
-Mock.mock(api.ordersView, {
+/**
+ Mock.mock(api.ordersView, {
   "code": 200,
   "dispatchid": 'cd123',
   "runid": 2,
@@ -250,6 +253,30 @@ Mock.mock(api.ordersView, {
       "state|1": [0, 1, 2],
       "lat|1": [31.289619, 31.23832],
       "lng|1": [121.510323, 121.36568]
+    }
+  ],
+  "success": 0,
+  "message": "请求成功。"
+})
+ */
+Mock.mock(api.ordersView, {
+  "code": 200,
+  "dispatchid": 'cd123',
+  "routeid": 1,
+  "data|3-7": [
+    {
+      "market|1": ["邯郸路一号店", "张江一号店", "张江二号店"],
+      "address|1": ["杨浦区国权路1888号", "普陀区金沙江路2345号", "浦东新区张衡路980号"],
+      "tel|1": ["5789837", "2736483", "5395847"],
+      "warehouse|1": ["一号仓", "二号仓", "三号门店"],
+      "time": function () {
+        return Mock.Random.datetime()
+      },
+      "order|+1": 1,
+      "type": 0,
+      "state": 0,
+      "latDes|1": [31.289619, 31.23832],
+      "lngDes|1": [121.510323, 121.36568]
     }
   ],
   "success": 0,

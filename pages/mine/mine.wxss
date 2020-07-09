@@ -145,7 +145,7 @@ page {
 
 .list_content {
   width: 94%;
-  height: 500rpx;
+  height: 430rpx;
   background: #fff;
   margin: 16rpx auto;
   border-radius: 8rpx;

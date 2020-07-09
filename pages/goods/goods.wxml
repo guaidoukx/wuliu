@@ -1,20 +1,24 @@
 <!--pages/goods/goods.wxml-->
-<navigationBar text="订单列表"></navigationBar>
+<navigationBar text="当前调度单"></navigationBar>
 <!-- <mp-navigation-bar loading="{{loading}}" show="true" animated="{{animated}}" color="{{color}}" background="{{background}}" title="UI组件库" back="{{true}}"></mp-navigation-bar> -->
 <view id="layout" style="top:{{app.globalData.navigationBarHeight}}">
 <view class="dispatch-id">
   <view class="dispatch-id-child">
-    <view class="dispatch-title dispatch-inline">配送标识：</view>
+    <view class="dispatch-title dispatch-inline">调度单标识：</view>
     <view class="text-info dispatch-inline">{{dispatchId}}，</view>
   </view>
   <view class="dispatch-id-child">
     <view class="dispatch-title dispatch-inline">班列标识：</view>
-    <view class="text-info dispatch-inline">{{routeId}}，</view>
+    <view class="text-info dispatch-inline">{{routeId}}</view>
   </view>
+  <view class="dispatch-id-child">
+    <view class='dispatch-inline finish_btn' bindtap='orderFinishAll'>完成所有配送</view>
+  </view>
+  <!-->
   <view class="dispatch-id-child">
     <view class="dispatch-title dispatch-inline">班次标识：</view>
     <view class="text-info dispatch-inline">{{runId}}</view>
-  </view>
+  </view>-->
 </view>
 <view class="swiper-tab" >
   <view class="tab-item {{currentIndex1?'active':''}} " bindtap="currentIndex1">待取货({{loadNum}})</view>
@@ -31,7 +35,8 @@
       <view class='list_top'>
         <!-- <view class='numAndTime'> -->
         <!-- <image class='numPic' src='../image/moren.png'></image>
-            <view  class='numInfo'>
+            <view  class='numI门店   
+    
               <view class='num'>物品编号:{{item.num}}</view>
               <view class='time'>创建时间:{{item.time}}</view>
             </view> -->
@@ -46,11 +51,12 @@
             <view class="dispatch-title dispatch-inline">订单类型：</view>
             <view class="text-info dispatch-inline">{{item.type}}</view>
           </view>
+          <!-->
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>
             <view class="dispatch-title dispatch-inline">订单编号：</view>
             <view class="text-info dispatch-inline">{{item.id}}</view>
-          </view>
+          </view>-->
           <view class="dispatch-line">
             <icon class="iconfont icon-cangku"></icon>
             <view class="dispatch-title dispatch-inline">取货地点：</view>
@@ -154,11 +160,12 @@
             <view class="dispatch-title dispatch-inline">订单类型：</view>
             <view class="text-info dispatch-inline">{{item.type}}</view>
           </view>
+          <!-->
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>
             <view class="dispatch-title dispatch-inline">订单编号：</view>
             <view class="text-info dispatch-inline">{{item.id}}</view>
-          </view>
+          </view>-->
           <view class="dispatch-line">
             <icon class="iconfont icon-cangku"></icon>
             <view class="dispatch-title dispatch-inline">取货地点：</view>
@@ -211,11 +218,12 @@
             <view class="dispatch-title dispatch-inline">订单类型：</view>
             <view class="text-info dispatch-inline">{{item.type}}</view>
           </view>
+          <!-->
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>
             <view class="dispatch-title dispatch-inline">订单编号：</view>
             <view class="text-info dispatch-inline">{{item.id}}</view>
-          </view>
+          </view>-->
           <view class="dispatch-line">
             <icon class="iconfont icon-cangku"></icon>
             <view class="dispatch-title dispatch-inline">取货地点：</view>

@@ -1,5 +1,5 @@
 let server = 'https://mock-wuliu.com/';
-// let server = 'http://10.141.209.224:5050/';
+let server2 = 'http://10.141.209.224:5005/server';
 let wsServer = 'ws://mock-wuliu.com/';
 // let wsServer = 'ws://10.141.209.224/';
 var api = {

@@ -15,9 +15,9 @@ Page({
   onLoad: function (options) {
     let currList = JSON.parse(options.dispatchHistoryList)
     let map = ["配送单", "退货单", "换货单", "调货单", "上货单", "其他"];
-    for (let order of currList) {
-      order.type = map[order.type];
-    }
+    //for (let order of currList) {
+    //  order.type = map[order.type];
+    //}
     this.setData({
       list: currList == "undefined" ? "-" : currList
     });

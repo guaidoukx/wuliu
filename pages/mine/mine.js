@@ -179,6 +179,7 @@ Page({
           getApp().globalData.driverInfo.number = ''
           getApp().globalData.onList = []
           getApp().globalData.loadList = []
+          getApp().globalData.dispatchHistory = ''
           that.onLoad();
         }
       }

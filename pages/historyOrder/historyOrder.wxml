@@ -3,11 +3,12 @@
   <view class='list' wx:for="{{list}}" wx:for-item="item" wx:key='id' bindtap="loadOrderDetails">
       <view class='list_top'>
         <view class="dispatch">
+        <!-->
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>
             <view class="dispatch-title dispatch-inline ">订单标识：</view>
             <view class="text-info dispatch-inline mendian">{{item.id}}</view>
-          </view>
+          </view>-->
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>
             <view class="dispatch-title dispatch-inline ">订单类型：</view>
@@ -18,11 +19,12 @@
             <view class="dispatch-title dispatch-inline">订单时间：</view>
             <view class="text-info dispatch-inline mendian">{{item.time}}</view>
           </view>
+          <!-->
           <view class="dispatch-line">
             <icon class="iconfont icon-shijian"></icon>
             <view class="dispatch-title dispatch-inline">订单截止时间：</view>
             <view class="text-info dispatch-inline mendian">{{item.deadline}}</view>
-          </view>
+          </view>-->
           <view class="dispatch-line">
             <icon class="iconfont icon-caidan"></icon>
             <view class="dispatch-title dispatch-inline ">上货网点名称：</view>

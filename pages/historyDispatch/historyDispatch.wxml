@@ -9,25 +9,27 @@
             <view class="text-info dispatch-inline">{{item.dispatchid}}</view>
           </view>
           <view class="dispatch-line">
-            <icon class="iconfont icon-shijian"></icon>
+            <icon class="iconfont icon-caidan"></icon>
             <view class="dispatch-title dispatch-inline">班列：</view>
             <view class="text-info dispatch-inline">{{item.routeid}}</view>
           </view>
+          <!-->
           <view class="dispatch-line">
             <icon class="iconfont icon-shijian"></icon>
             <view class="dispatch-title dispatch-inline">班次：</view>
             <view class="text-info dispatch-inline">{{item.runid}}</view>
-          </view>
+          </view>-->
           <view class="dispatch-line">
             <icon class="iconfont icon-shijian"></icon>
             <view class="dispatch-title dispatch-inline">配送日期：</view>
             <view class="text-info dispatch-inline">{{item.starttime}}</view>
           </view>
+          <!-->
           <view class="dispatch-line">
             <icon class="iconfont icon-shijian"></icon>
             <view class="dispatch-title dispatch-inline">完成日期：</view>
-            <view class="text-info dispatch-inline">{{item.endtime}}</view>
-          </view>
+            <view class="text-info dispatch-inline">{{item.starttime}}</view>
+          </view>-->
         </view>
         <view class='state state-load' wx:if="{{item.state == 0}}">待配送</view>
         <view class='state state-finish' wx:else>已完成</view>

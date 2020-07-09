@@ -21,15 +21,17 @@
       </view>
     </view>
   </view>
-
+  
   <view class='list_content'>
+    <!-->
     <view class='list' bindtap='idLook'>
       <view class='list_left'>
         <icon class="iconfont icon-xinxi"></icon>
         <view class='listName'>工号</view>
       </view>
       <image src='/image/jiantou.png' class='jiantou'></image>
-    </view>
+    </view>-->
+
     <view class='list' bindtap='nameLook'>
       <view class='list_left'>
         <icon class="iconfont icon-xingming"></icon>
