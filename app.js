@@ -259,6 +259,7 @@ Mock.mock(api.ordersAll, {
   "message": "请求成功。"
 })
  */
+/*
 Mock.mock(api.ordersView, {
   "code": 200,
   "dispatchid": 'cd123',
@@ -282,6 +283,7 @@ Mock.mock(api.ordersView, {
   "success": 0,
   "message": "请求成功。"
 })
+*/
 Mock.mock(api.ordersLoad, {
   "code": 200,
   "success": 0,

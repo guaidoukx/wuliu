@@ -1,12 +1,14 @@
-let server2 = 'https://mock-wuliu.com/';
-let server = 'http://10.141.209.224:5005/server';
+//let server2 = 'https://mock-wuliu.com/';
+let server = 'http://10.141.209.225:5005/';
 let wsServer = 'ws://mock-wuliu.com/';
 // let wsServer = 'ws://10.141.209.224/';
 var api = {
+  dispatchFinish: server + "dispatch/",
+
   orderHistory: server + "history/history",
   orderAll: server + "history/all",
   ordersNew: server + "delivery/new",
-  ordersView: server + "delivery/view",
+  ordersView: server + "server",
   ordersLoad: server + "delivery/load",
   ordersFinish: server + "delivery/finish",
   ordersHidden: server + "delivery/hidden",

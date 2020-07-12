@@ -396,9 +396,9 @@ Page({
   getData: function () {
     let that = this;
     let load_list = [], delivery_list = [], finish_list = [];
-    // console.log('----------@,', getApp().globalData.header.Cookie)
+    console.log(api.ordersView);
     wx.request({
-      url: 'http://10.141.209.224:5005/server',//api.ordersView,
+      url: api.ordersView,// 'http://10.141.209.225:5005/server',//
       header: getApp().globalData.header,
       method: 'GET',
       data: {
@@ -408,6 +408,7 @@ Page({
         console.log('All orders：', res);
         res = res.data;
         let map = ["配送单", "退货单", "换货单", "调货单", "上货单", "其他"];
+        console.log('return :', res);
         if (res.success == 0) {
           that.setData({
             dispatchId: res.dispatchid,
@@ -765,6 +766,7 @@ Page({
   // btn: 完成全部配送
   orderFinishAll: function() {
     console.log('click btn 完成所有配送...');
+
     if (this.data.loadList.length || this.data.onList.length) {
       console.log('to do...');
       wx.showToast({
@@ -781,8 +783,8 @@ Page({
         duration: 1000,
         mask: true
       })
-    } else {
-      
+    } else
+    if(true){
       let obj = [{
         dispatchid: this.data.dispatchId,
         routeid: this.data.routeId,
@@ -799,7 +801,7 @@ Page({
           console.log('当前obj：', JSON.stringify(obj));
         }
       })
-
+      let dispatchid = this.data.dispatchId
       this.setData({
         loadList: [],
         onList: [],
@@ -815,6 +817,29 @@ Page({
         routeId: '无',
         runId: '无',
       })
+      
+    wx.request({
+      url: api.dispatchFinish,// 'http://10.141.209.225:5005/dispatch/', // //
+      header: getApp().globalData.header,
+      method: 'POST',
+      data: {
+        dispathId: dispatchid
+      },
+      success: function (res) {
+        if (res.success == 0) {
+          console.log('完成.');
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '无法连接到服务器！',
+          icon: 'fail',
+          duration: 2000
+        })
+        wx.hideToast()
+        console.log("server: no service.")
+      }
+    })
       
       /*
       wx.setStorage({
