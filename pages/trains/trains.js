@@ -15,14 +15,28 @@ Page({
     latitude: 31.23035,
     loadList: [],
     onList: [],
-    markers: []
+    marker: [
+      {
+        id: 1,
+        latitude: 31.185521626172694, 
+        longitude: 121.44371311565101,
+        name: '1',
+        iconPath: '/image/pos.png'
+      },
+      {
+        id: 2,
+        latitude: 31.190193987444363, 
+        longitude: 121.36802420861451,
+        name: '2',
+        iconPath: '../image/pos.png'
+      },
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
     // console.log(options.lat)
     // let plugin = requirePlugin('myPlugin');
     // let key = '3BGBZ-YDME6-UPPSK-EIC7O-NLVLZ-A2FDX'; //使用在腾讯位置服务申请的key

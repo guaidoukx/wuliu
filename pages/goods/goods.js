@@ -199,6 +199,7 @@ Page({
       this.data.warehouse = getApp().globalData.warehouse
       this.data.warehouseName = getApp().globalData.warehouseName
       // this.getDataFromServer()
+
       // console.log('姓名：', this.data.dirverName);
       this.getData()
 

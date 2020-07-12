@@ -1,26 +1,26 @@
 <!--pages/trains/trains.wxml-->
 <navigationBar text="物流班列"></navigationBar>
 <view style="height:100%">
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" style="top:{{app.globalData.navigationBarHeight}}">
-    <block>
-      <swiper-item>
-        <image widthFix class='banner' src="/image/image1.jpg"></image>
-      </swiper-item>
-      <swiper-item>
-        <image widthFix class='banner' src="/image/image2.jpg"></image>
-      </swiper-item>
-      <swiper-item>
-        <image widthFix class='banner' src="/image/image3.jpg"></image>
-      </swiper-item>
-    </block>
-  </swiper>
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" style="top:{{app.globalData.navigationBarHeight}}">
+  <block>
+    <swiper-item>
+      <image widthFix class='banner' src="/image/image1.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image widthFix class='banner' src="/image/image2.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image widthFix class='banner' src="/image/image3.jpg"></image>
+    </swiper-item>
+  </block>
+</swiper>
 
-  <!-- <view class="kong"></view> -->
-  <view class="headxyl">
-    <icon class="iconfont icon-wodexiaopu"></icon>
-    <view class="mendian">需要经过的门店</view>
-  </view>
-
-  <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="13" markers="{{markers}}" show-location class="map">
-  </map>
+<!-- <view class="kong"></view> -->
+<view class="headxyl"> 
+<icon class="iconfont icon-wodexiaopu"></icon>
+<view class="mendian">需要经过的门店</view>
 </view>
+
+<map longitude="{{longitude}}" latitude="{{latitude}}" scale="13"  markers="{{markers}}" show-location class="map"></map>
+</view>
+
